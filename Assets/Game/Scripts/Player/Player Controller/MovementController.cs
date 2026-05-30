@@ -22,8 +22,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private Rigidbody2D rigidBody;
     private PlayerInput playerInput;
-
-    private PlayerMovementModel model;
+    
     private PlayerMovementView view;
 
     private Vector2 moveInput;
@@ -34,8 +33,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
-
-        model = new PlayerMovementModel(moveSpeed, jumpForce);
+        
         view = new PlayerMovementView(rigidBody);
     }
 
@@ -59,9 +57,6 @@ public class PlayerMovementController : MonoBehaviour
     {
         playerInput.actions["Move"].performed -= OnMove;
         playerInput.actions["Move"].canceled -= OnMove;
-
-        // playerInput.actions["Jump"].performed -= OnJump;
-
         playerInput.actions["Interact"].performed -= OnInteract;
     } 
      
