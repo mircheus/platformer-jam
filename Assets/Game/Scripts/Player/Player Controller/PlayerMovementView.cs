@@ -15,14 +15,4 @@ public class PlayerMovementView
     {
         rigidBody.linearVelocity = new Vector2(moveX * moveSpeed, rigidBody.linearVelocity.y);
     }
-
-    public void Jump(float jumpForce)
-    {
-        rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, jumpForce);
-    }
-
-    public bool CheckGround(Transform groundCheck, LayerMask groundLayer, float groundCheckRadius)
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-    }
 }
