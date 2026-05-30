@@ -6,6 +6,15 @@ public class PlayerMovementController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
 
+    [Header("Jump")]
+    [SerializeField] private float jumpForce = 12f;
+
+    [Header("Ground Check")]
+    [SerializeField] private Transform groundTrigger;
+    [SerializeField] private LayerMask groundLayer;
+
+    [SerializeField] private float groundCheckRadius = 0.2f;
+
     [Header("Performance")]
     [SerializeField] private InteractionSystemController interactionSystemController;
 
@@ -42,26 +51,15 @@ public class PlayerMovementController : MonoBehaviour
     {
         playerInput.actions["Move"].performed += OnMove;
         playerInput.actions["Move"].canceled += OnMove;
-        playerInput.actions["Interact"].performed += OnInteract;
+        playerInput.actions["Interact"].started += OnInteract;
     }
-    
     private void OnDisable()
     {
         playerInput.actions["Move"].performed -= OnMove;
         playerInput.actions["Move"].canceled -= OnMove;
         playerInput.actions["Interact"].performed -= OnInteract;
-    }
-
-    public void EnableMovement()
-    {
-        canMove = true;
-    }
-
-    public void DisableMovement()
-    {
-        canMove = false;
-    }
-
+    } 
+     
     private void OnMove(InputAction.CallbackContext context)
     {
         if (!canMove)
@@ -90,5 +88,26 @@ public class PlayerMovementController : MonoBehaviour
         {
             Application.targetFrameRate = -1;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (groundTrigger == null)
+        {
+            return;
+        }
+
+        Gizmos.color = Color.green;
+
+        Gizmos.DrawWireSphere(groundTrigger.position, groundCheckRadius);
+    }
+
+    public void EnableMovement()
+    {
+        canMove = true;
+    }
+    public void DisableMovement()
+    {
+        canMove = false;
     }
 }
