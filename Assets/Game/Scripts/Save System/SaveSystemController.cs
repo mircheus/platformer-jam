@@ -1,6 +1,9 @@
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [System.Serializable]
 public class SaveData
@@ -14,12 +17,7 @@ public class SaveData
 
 public class SaveSystemController : MonoBehaviour
 {
-    private string path;
-
-    private void Awake()
-    {
-        path = Application.persistentDataPath + "/save.json";
-    }
+    private static string SavePath => Application.persistentDataPath + "/save.json";
 
     public void Save(GameObject player, QuestSystemController questSystem)
     {
@@ -47,21 +45,21 @@ public class SaveSystemController : MonoBehaviour
         }
 
         string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(path, json);
+        File.WriteAllText(SavePath, json);
 
-        Debug.Log("Saving to: " + path);
-        Debug.Log("Game Saved: " + path);
+        Debug.Log("Saving to: " + SavePath);
+        Debug.Log("Game Saved: " + SavePath);
     }
 
     public void Load(GameObject player, QuestSystemController questSystem)
     {
-        if (!File.Exists(path))
+        if (!File.Exists(SavePath))
         {
             Debug.Log("No save found, starting new game");
             return;
         }
 
-        string json = File.ReadAllText(path);
+        string json = File.ReadAllText(SavePath);
         SaveData data = JsonUtility.FromJson<SaveData>(json);
 
         // =========================
@@ -90,6 +88,27 @@ public class SaveSystemController : MonoBehaviour
 
         Debug.Log("Game Loaded");
     }
+
+    public static void ClearSaves()
+    {
+        if (!File.Exists(SavePath))
+        {
+            Debug.Log("No save file to clear: " + SavePath);
+            return;
+        }
+
+        File.Delete(SavePath);
+
+        Debug.Log("Save cleared: " + SavePath);
+    }
+
+#if UNITY_EDITOR
+    [MenuItem("Tools/Save System/Clear Saves")]
+    private static void ClearSavesMenuItem()
+    {
+        ClearSaves();
+    }
+#endif
 
     private void OnApplicationQuit()
     {
