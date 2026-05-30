@@ -29,7 +29,6 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 moveInput;
 
     private bool canMove = true;
-    private bool isGrounded;
 
     private void Awake()
     {
@@ -45,11 +44,6 @@ public class PlayerMovementController : MonoBehaviour
         SetupFPS();
     }
 
-    private void Update()
-    {
-        CheckGround();
-    }
-
     private void FixedUpdate()
     {
         view.Move(moveInput.x, moveSpeed);
@@ -59,9 +53,6 @@ public class PlayerMovementController : MonoBehaviour
     {
         playerInput.actions["Move"].performed += OnMove;
         playerInput.actions["Move"].canceled += OnMove;
-
-        playerInput.actions["Jump"].performed += OnJump;
-
         playerInput.actions["Interact"].started += OnInteract;
     }
     private void OnDisable()
@@ -69,7 +60,7 @@ public class PlayerMovementController : MonoBehaviour
         playerInput.actions["Move"].performed -= OnMove;
         playerInput.actions["Move"].canceled -= OnMove;
 
-        playerInput.actions["Jump"].performed -= OnJump;
+        // playerInput.actions["Jump"].performed -= OnJump;
 
         playerInput.actions["Interact"].performed -= OnInteract;
     } 
@@ -84,16 +75,6 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         moveInput = context.ReadValue<Vector2>();
-    }
-
-    private void OnJump(InputAction.CallbackContext context)
-    {
-        if (!isGrounded)
-        {
-            return;
-        }
-
-        view.Jump(jumpForce);
     }
 
     private void OnInteract(InputAction.CallbackContext context)
@@ -112,11 +93,6 @@ public class PlayerMovementController : MonoBehaviour
         {
             Application.targetFrameRate = -1;
         }
-    }
-
-    private void CheckGround()
-    {
-        isGrounded = view.CheckGround(groundTrigger, groundLayer, groundCheckRadius);
     }
 
     private void OnDrawGizmosSelected()
