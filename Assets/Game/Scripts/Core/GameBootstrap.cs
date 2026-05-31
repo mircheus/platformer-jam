@@ -13,7 +13,7 @@ public class GameBootstrap : MonoBehaviour
 
         GameContext ctx = GameContext.Instance;
 
-        ctx.SaveSystem.Load(ctx.Player, ctx.QuestSystem);
+        // ctx.SaveSystem.Load(ctx.Player, ctx.QuestSystem);
 
         InitializeQuests();
 
