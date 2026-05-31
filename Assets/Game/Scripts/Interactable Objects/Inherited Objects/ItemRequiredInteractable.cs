@@ -34,6 +34,8 @@ public class ItemRequiredInteractable : IInteractable
             return;
         }
 
+        GameContext.Instance.PlayerInventory.ConsumeItem();
+
         if (activateAfterInteract != null)
         {
             activateAfterInteract.SetActive(true);
