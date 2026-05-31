@@ -1,6 +1,7 @@
 using System;
 using Minigames;
 using Minigames.Contract;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class MinigameSystemController : MonoBehaviour
@@ -12,6 +13,11 @@ public class MinigameSystemController : MonoBehaviour
     [Header("Player")]
     [SerializeField] private PlayerMovementController playerController;
 
+    [Header("Camera")]
+    [SerializeField] private CinemachineCamera minigameVcam;     // отдельный vcam, наведён на worldRoot в инспекторе
+    [SerializeField] private int minigameCameraPriority = 100;   // выше геймплейного
+    [SerializeField] private int idleCameraPriority = 0;         // ниже геймплейного
+    
     private MinigameBase currentInstance;
     private MinigameData currentData;
     private Action onCompleteCallback;
@@ -61,6 +67,9 @@ public class MinigameSystemController : MonoBehaviour
         };
 
         currentInstance.Begin(ctx);
+        
+        if (data.renderType == MinigameRenderType.World)
+            FocusCamera();
 
         Debug.Log($"Minigame launched: {data.displayName} ({data.id})");
 
@@ -74,6 +83,9 @@ public class MinigameSystemController : MonoBehaviour
         Destroy(currentInstance.gameObject);
         currentInstance = null;
 
+        if (currentData.renderType == MinigameRenderType.World)
+            ReleaseCamera();
+        
         playerController.EnableMovement();
         playerController.EnableInteraction();
 
@@ -123,5 +135,15 @@ public class MinigameSystemController : MonoBehaviour
         }
 
         return null;
+    }
+    
+    private void FocusCamera()
+    {
+        minigameVcam.Priority = minigameCameraPriority;
+    }
+
+    private void ReleaseCamera()
+    {
+        minigameVcam.Priority = idleCameraPriority;
     }
 }

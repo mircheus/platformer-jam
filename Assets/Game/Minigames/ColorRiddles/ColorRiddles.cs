@@ -22,7 +22,7 @@ namespace Minigames
         
         public override void Begin(MinigameContext ctx)
         {
-            Debug.Log($"PuzzleMinigame started | source: {ctx.SourceObjectID}");
+            Debug.Log($"ColorRiddles started | source: {ctx.SourceObjectID}");
 
             for (var i = 0; i < colorButtons.Length; i++)
             {

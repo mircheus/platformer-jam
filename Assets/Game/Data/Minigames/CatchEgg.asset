@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f60b5a4e31525fb4faa43a91a8d5697f, type: 3}
-  m_Name: ColorRiddles
+  m_Name: CatchEgg
   m_EditorClassIdentifier: Assembly-CSharp::MinigameData
-  id: 0
+  id: 
   displayName: 
-  prefab: {fileID: 7650395246898074020, guid: ec3cb92c4bb01404284a8e99b2c2907d, type: 3}
-  renderType: 0
-  questIdToComplete: Krot
-  targetNpcId: Krot
+  prefab: {fileID: 8105524052692928053, guid: 3fa8a06b51ae82848a25ad30d82716ed, type: 3}
+  renderType: 1
+  questIdToComplete: 
+  targetNpcId: 
