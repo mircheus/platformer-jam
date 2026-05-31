@@ -10,6 +10,8 @@ public class GameContext : MonoBehaviour
     [SerializeField] private DialogueSelector dialogueSelector;
     [SerializeField] private PlayerInventoryController playerInventory;
     [SerializeField] private MinigameSystemController minigameSystem;
+    [SerializeField] private LocationTransitionController locationTransition;
+    [SerializeField] private InteractionSystemController interactionSystem;
 
     [Header("Player")]
     [SerializeField] private GameObject player;
@@ -20,6 +22,8 @@ public class GameContext : MonoBehaviour
     public DialogueSelector DialogueSelector => dialogueSelector;
     public PlayerInventoryController PlayerInventory => playerInventory;
     public MinigameSystemController MinigameSystem => minigameSystem;
+    public LocationTransitionController LocationTransition => locationTransition;
+    public InteractionSystemController InteractionSystem => interactionSystem;
     public GameObject Player => player;
     public PlayerItemHolder ItemHolder => itemHolder;
 
