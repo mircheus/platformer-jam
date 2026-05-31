@@ -9,6 +9,7 @@ public class QuestData : ScriptableObject
 
     [Header("Quest Target")]
     public string TargetNPC_ID;
+    public string RequiredItemID;
 
     [TextArea]
     public string Description;

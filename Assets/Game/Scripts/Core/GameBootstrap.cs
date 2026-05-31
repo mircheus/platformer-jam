@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class GameBootstrap : MonoBehaviour
 {
-    [Header("Scene References")]
-    [SerializeField] private SaveSystemController saveSystem;
-    [SerializeField] private QuestSystemController questSystem;
-    [SerializeField] private GameObject player;
-
     private void Start()
     {
         InitializeGame();
@@ -16,7 +11,9 @@ public class GameBootstrap : MonoBehaviour
     {
         Debug.Log("GAME BOOTSTRAP START");
 
-        saveSystem.Load(player, questSystem);
+        GameContext ctx = GameContext.Instance;
+
+        // ctx.SaveSystem.Load(ctx.Player, ctx.QuestSystem);
 
         InitializeQuests();
 
@@ -25,12 +22,21 @@ public class GameBootstrap : MonoBehaviour
 
     private void InitializeQuests()
     {
+        QuestSystemController questSystem = GameContext.Instance.QuestSystem;
+
         questSystem.ActivateQuest("1");
         questSystem.PrintActiveQuests();
     }
 
     private void OnApplicationQuit()
     {
-        saveSystem.Save(player, questSystem);
+        GameContext ctx = GameContext.Instance;
+
+        if (ctx == null)
+        {
+            return;
+        }
+
+        ctx.SaveSystem.Save(ctx.Player, ctx.QuestSystem);
     }
 }

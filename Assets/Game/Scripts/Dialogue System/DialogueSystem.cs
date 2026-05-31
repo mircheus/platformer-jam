@@ -3,44 +3,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[System.Serializable]
-public class DialogueNode
-{
-    [TextArea(2, 5)]
-    public string npcText;
-
-    public int nextNodeIndex = -1;
-
-    public List<DialogueChoice> choices;
-}
-
-[System.Serializable]
-public class DialogueChoice
-{
-    public string text;
-    public int nextNodeIndex;
-
-    public bool isEnd;
-}
-
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private PlayerMovementController playerController;
-    [SerializeField] private DialogueChoiceUIController choiceUI;
 
-    private DialogueData currentDialogue;
-    private int currentNodeIndex;
-
-    private string currentNPC_ID;
+    private List<string> currentLines;
+    private int currentLineIndex;
 
     private bool isDialogueActive;
-
-    private void Start()
-    {
-        choiceUI.Init(this);
-    }
 
     private void Update()
     {
@@ -49,84 +21,57 @@ public class DialogueSystem : MonoBehaviour
             return;
         }
 
-        if (Keyboard.current.enterKey.wasPressedThisFrame)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             ContinueDialogue();
         }
     }
 
-    public void StartDialogue(DialogueData dialogue, string npsID)
+    public void StartDialogue(DialogueData dialogue)
     {
-        currentDialogue = dialogue;
-        currentNodeIndex = dialogue.startNodeIndex;
-        currentNPC_ID = npsID;
+        if (dialogue.lines == null || dialogue.lines.Count == 0)
+        {
+            Debug.LogWarning($"Dialogue '{dialogue.dialogueID}' has no lines");
+            return;
+        }
+
+        currentLines = dialogue.lines;
+        currentLineIndex = 0;
 
         isDialogueActive = true;
 
         dialoguePanel.SetActive(true);
         playerController.DisableMovement();
-        ShowCurrentNode();
+
+        ShowCurrentLine();
     }
 
     private void ContinueDialogue()
     {
-        DialogueNode currentNode = currentDialogue.nodes[currentNodeIndex];
+        currentLineIndex++;
 
-        if (currentNode.nextNodeIndex == -1)
+        if (currentLineIndex >= currentLines.Count)
         {
             EndDialogue();
             return;
         }
 
-        currentNodeIndex = currentNode.nextNodeIndex;
-
-        ShowCurrentNode();
+        ShowCurrentLine();
     }
 
-    private void ShowCurrentNode()
+    private void ShowCurrentLine()
     {
-        DialogueNode node = currentDialogue.nodes[currentNodeIndex];
-
-        dialogueText.text = node.npcText;
-
-        if(node.choices != null && node.choices.Count > 0)
-        {
-            choiceUI.ShowChoices(node.choices);
-        }
-    }
-
-    public void SelectChoice(int index)
-    {
-        DialogueChoice choice = currentDialogue.nodes[currentNodeIndex].choices[index];
-
-        if (choice.isEnd)
-        {
-            EndDialogue();
-            return;
-        }
-
-        currentNodeIndex = choice.nextNodeIndex;
-        ShowCurrentNode();
+        dialogueText.text = currentLines[currentLineIndex];
     }
 
     public void EndDialogue()
     {
         isDialogueActive = false;
-        currentDialogue = null;
-        currentNodeIndex = 0;
+        currentLines = null;
+        currentLineIndex = 0;
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
         playerController.EnableMovement();
-
-        FindFirstObjectByType<DialogueChoiceUIController>()?.HideChoices();
-
-        QuestSystemController questSystem = 
-            FindFirstObjectByType<QuestSystemController>();
-
-        if(questSystem != null)
-        {
-            questSystem.TryCompleteQuestByNPC(currentNPC_ID);
-        }
 
         Debug.Log("Dialogue ended");
     }

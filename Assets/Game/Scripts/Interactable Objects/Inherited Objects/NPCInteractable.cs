@@ -1,27 +1,57 @@
-using System;
 using UnityEngine;
 
 public class NPCInteractable : IInteractable
 {
-    [Header("NPC Data")]
-    [SerializeField] private DialogueData questDialogue;
-    [SerializeField] private DialogueData defaultDialogue;
+    [Header("Dialogues")]
+    [SerializeField] private DialogueData[] dialogues;
 
-    public DialogueData GetDefaultDialogue() { return defaultDialogue; }
+    [Header("InteractableObject")]
+    [SerializeField] private PickupInteractable pickupInteractable;
+    [SerializeField] private bool activateInteractableAfterDialogue;
 
-    public DialogueData GetQuestDialogue() { return questDialogue; }
+    private int progress;
+
+    public int Progress => progress;
+
+    public DialogueData GetCurrentDialogue()
+    {
+        if (dialogues == null || dialogues.Length == 0)
+        {
+            return null;
+        }
+
+        int index = Mathf.Clamp(progress, 0, dialogues.Length - 1);
+
+        return dialogues[index];
+    }
+
+    public void AdvanceProgress()
+    {
+        if (dialogues != null && progress < dialogues.Length - 1)
+        {
+            progress++;
+        }
+    }
+
+    public void SetProgress(int value)
+    {
+        progress = value;
+    }
 
     protected override void OnInteract()
     {
         Debug.Log($"Передаем NPC диалоговой системе | ObjectID : {ObjectID}");
 
-        var questSystem = FindFirstObjectByType<QuestSystemController>();
-        var dialogueSelector = FindFirstObjectByType<DialogueSelector>();
+        GameContext.Instance.DialogueSelector.SelectDialogue(this);
 
-        //if (questSystem != null)
-        //    questSystem.TryCompleteQuestByNPC(ObjectID);
+        if (activateInteractableAfterDialogue)
+        {
+            ActivatePickupInteractable();
+        }
+    }
 
-        if (dialogueSelector != null)
-            dialogueSelector.SelectDialogue(ObjectID, this);
+    private void ActivatePickupInteractable()
+    {
+        pickupInteractable.SetInteractable();
     }
 }

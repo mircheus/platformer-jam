@@ -6,7 +6,6 @@ public class DialogueData : ScriptableObject
 {
     public string dialogueID;
 
-    public List<DialogueNode> nodes;
-
-    public int startNodeIndex;
+    [TextArea(2, 5)]
+    public List<string> lines;
 }

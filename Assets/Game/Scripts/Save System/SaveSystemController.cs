@@ -6,9 +6,18 @@ using UnityEditor;
 #endif
 
 [System.Serializable]
+public class NPCProgressData
+{
+    public string npcID;
+    public int progress;
+}
+
+[System.Serializable]
 public class SaveData
 {
     public List<string> completedQuests = new List<string>();
+
+    public List<NPCProgressData> npcProgress = new List<NPCProgressData>();
 
     public float playerX;
     public float playerY;
@@ -42,6 +51,16 @@ public class SaveSystemController : MonoBehaviour
             {
                 data.completedQuests.Add(quest.QuestID);
             }
+        }
+
+        // прогресс диалогов NPC
+        foreach (var npc in FindObjectsByType<NPCInteractable>(FindObjectsSortMode.None))
+        {
+            data.npcProgress.Add(new NPCProgressData
+            {
+                npcID = npc.ObjectID,
+                progress = npc.Progress
+            });
         }
 
         string json = JsonUtility.ToJson(data, true);
@@ -83,6 +102,19 @@ public class SaveSystemController : MonoBehaviour
             else
             {
                 quest.CurrentState = QuestState.Inactive;
+            }
+        }
+
+        // прогресс диалогов NPC
+        foreach (var npc in FindObjectsByType<NPCInteractable>(FindObjectsSortMode.None))
+        {
+            foreach (var entry in data.npcProgress)
+            {
+                if (entry.npcID == npc.ObjectID)
+                {
+                    npc.SetProgress(entry.progress);
+                    break;
+                }
             }
         }
 
