@@ -13,6 +13,7 @@ public class GameContext : MonoBehaviour
 
     [Header("Player")]
     [SerializeField] private GameObject player;
+    [SerializeField] private PlayerItemHolder itemHolder;
 
     public SaveSystemController SaveSystem => saveSystem;
     public QuestSystemController QuestSystem => questSystem;
@@ -20,6 +21,7 @@ public class GameContext : MonoBehaviour
     public PlayerInventoryController PlayerInventory => playerInventory;
     public MinigameSystemController MinigameSystem => minigameSystem;
     public GameObject Player => player;
+    public PlayerItemHolder ItemHolder => itemHolder;
 
     private void Awake()
     {

@@ -13,7 +13,8 @@ public class PickupInteractable : IInteractable
 
         if (GameContext.Instance.PlayerInventory.TryPickup(itemData))
         {
-            gameObject.SetActive(false);
+            GameContext.Instance.ItemHolder.Attach(transform);
+            isInteractable = false;
 
             if (advanceProgressForNpc)
             {
