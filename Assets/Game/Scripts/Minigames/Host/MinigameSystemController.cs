@@ -1,3 +1,4 @@
+using System;
 using Minigames;
 using Minigames.Contract;
 using UnityEngine;
@@ -13,30 +14,37 @@ public class MinigameSystemController : MonoBehaviour
 
     private MinigameBase currentInstance;
     private MinigameData currentData;
+    private Action onCompleteCallback;
 
     public bool IsRunning => currentInstance != null;
 
-    public void Launch(MinigameData data)
+    /// <summary>
+    /// Запускает мини-игру. Возвращает true, если запуск реально начался.
+    /// onComplete (опц.) вызывается после завершения и применения эффектов —
+    /// напр. чтобы продолжить диалог, поставленный на паузу.
+    /// </summary>
+    public bool Launch(MinigameData data, Action onComplete = null)
     {
         if (data == null)
         {
             Debug.LogWarning("Launch failed: MinigameData is null");
-            return;
+            return false;
         }
 
         if (IsRunning)
         {
             Debug.Log($"Minigame already running, ignoring launch: {data.id}");
-            return;
+            return false;
         }
 
         if (data.prefab == null)
         {
             Debug.LogWarning($"Launch failed: prefab not set on MinigameData '{data.id}'");
-            return;
+            return false;
         }
 
         currentData = data;
+        onCompleteCallback = onComplete;
 
         Transform root = data.renderType == MinigameRenderType.UI ? uiRoot : worldRoot;
 
@@ -55,6 +63,8 @@ public class MinigameSystemController : MonoBehaviour
         currentInstance.Begin(ctx);
 
         Debug.Log($"Minigame launched: {data.displayName} ({data.id})");
+
+        return true;
     }
 
     private void OnMinigameCompleted(MinigameResult result)
@@ -71,7 +81,13 @@ public class MinigameSystemController : MonoBehaviour
 
         Debug.Log($"Minigame completed: {currentData.displayName}");
 
+        Action callback = onCompleteCallback;
+        onCompleteCallback = null;
         currentData = null;
+
+        // В самом конце — чтобы коллбэк (напр. продолжение диалога) выполнялся
+        // уже после полного сброса состояния контроллера.
+        callback?.Invoke();
     }
 
     private void ApplySuccess(MinigameData data)

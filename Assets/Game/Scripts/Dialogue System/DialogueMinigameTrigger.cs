@@ -1,9 +1,9 @@
 using UnityEngine;
 
 /// <summary>
-/// Хост-адаптер (шов) между диалогом и мини-играми. Слушает завершение
-/// диалога и, если у долистанного набора задана мини-игра, просит
-/// MinigameSystem её запустить.
+/// Хост-адаптер (шов) между диалогом и мини-играми. Когда диалог встаёт на
+/// паузу после реплики с триггером, запускает привязанную к этой реплике
+/// мини-игру и по её завершении продолжает диалог (Resume).
 ///
 /// Так DialogueSystem остаётся «глупым» (про мини-игры не знает), а
 /// направление зависимостей не нарушается: мост — здесь, в хосте.
@@ -17,7 +17,7 @@ public class DialogueMinigameTrigger : MonoBehaviour
     {
         if (dialogueSystem != null)
         {
-            dialogueSystem.DialogueEnded += OnDialogueEnded;
+            dialogueSystem.DialoguePaused += OnDialoguePaused;
         }
     }
 
@@ -25,19 +25,29 @@ public class DialogueMinigameTrigger : MonoBehaviour
     {
         if (dialogueSystem != null)
         {
-            dialogueSystem.DialogueEnded -= OnDialogueEnded;
+            dialogueSystem.DialoguePaused -= OnDialoguePaused;
         }
     }
 
-    private void OnDialogueEnded(DialogueData dialogue)
+    private void OnDialoguePaused(DialogueData dialogue, int lineIndex)
     {
-        if (dialogue == null || dialogue.minigameOnComplete == null)
+        MinigameData minigame = dialogue.lines[lineIndex].minigameAfter;
+
+        // Нет мини-игры (или не удалось запустить) — не оставляем диалог
+        // висеть на паузе, сразу продолжаем.
+        if (minigame == null)
         {
+            dialogueSystem.Resume();
             return;
         }
 
-        Debug.Log($"Dialogue '{dialogue.dialogueID}' finished, launching minigame: {dialogue.minigameOnComplete.id}");
+        Debug.Log($"Dialogue '{dialogue.dialogueID}' paused at line {lineIndex}, launching minigame: {minigame.id}");
 
-        GameContext.Instance.MinigameSystem.Launch(dialogue.minigameOnComplete);
+        bool started = GameContext.Instance.MinigameSystem.Launch(minigame, dialogueSystem.Resume);
+
+        if (!started)
+        {
+            dialogueSystem.Resume();
+        }
     }
 }

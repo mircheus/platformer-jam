@@ -11,28 +11,30 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private PlayerMovementController playerController;
 
     /// <summary>
-    /// Поднимается, когда набор реплик долистан до конца.
-    /// Хост-адаптеры (напр. DialogueMinigameTrigger) подписываются на это
-    /// событие — сам DialogueSystem про мини-игры/квесты не знает.
+    /// Поднимается, когда диалог встаёт на паузу после реплики с триггером.
+    /// Аргументы: набор реплик и индекс реплики, на которой встали.
+    /// Хост-адаптер (DialogueMinigameTrigger) подписывается, запускает мини-игру
+    /// и по её завершении вызывает Resume(). Сам DialogueSystem про мини-игры не знает.
     /// </summary>
-    public event Action<DialogueData> DialogueEnded;
+    public event Action<DialogueData, int> DialoguePaused;
 
     private DialogueData currentDialogue;
-    private List<string> currentLines;
+    private List<DialogueLine> currentLines;
     private int currentLineIndex;
 
     private bool isDialogueActive;
+    private bool isPaused;
 
     private void Update()
     {
-        if (!isDialogueActive)
+        if (!isDialogueActive || isPaused)
         {
             return;
         }
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            ContinueDialogue();
+            Advance();
         }
     }
 
@@ -49,6 +51,7 @@ public class DialogueSystem : MonoBehaviour
         currentLineIndex = 0;
 
         isDialogueActive = true;
+        isPaused = false;
 
         dialoguePanel.SetActive(true);
         playerController.DisableMovement();
@@ -56,7 +59,43 @@ public class DialogueSystem : MonoBehaviour
         ShowCurrentLine();
     }
 
-    private void ContinueDialogue()
+    private void Advance()
+    {
+        // Реплика с триггером: вместо перехода к следующей встаём на паузу и
+        // отдаём управление наружу (мини-игре). Перейдём дальше уже в Resume().
+        if (currentLines[currentLineIndex].PausesAfter)
+        {
+            PauseForTrigger();
+            return;
+        }
+
+        GoToNextLineOrEnd();
+    }
+
+    private void PauseForTrigger()
+    {
+        isPaused = true;
+        dialoguePanel.SetActive(false);
+
+        DialoguePaused?.Invoke(currentDialogue, currentLineIndex);
+    }
+
+    /// <summary>
+    /// Возобновляет диалог после внешнего триггера (мини-игры) — показывает
+    /// следующую реплику или завершает диалог, если реплик больше нет.
+    /// </summary>
+    public void Resume()
+    {
+        if (!isDialogueActive || !isPaused)
+        {
+            return;
+        }
+
+        isPaused = false;
+        GoToNextLineOrEnd();
+    }
+
+    private void GoToNextLineOrEnd()
     {
         currentLineIndex++;
 
@@ -66,19 +105,23 @@ public class DialogueSystem : MonoBehaviour
             return;
         }
 
+        // Диалог продолжается — снова блокируем игрока и показываем панель
+        // (мини-игра могла вернуть управление и спрятать панель).
+        playerController.DisableMovement();
+        dialoguePanel.SetActive(true);
+
         ShowCurrentLine();
     }
 
     private void ShowCurrentLine()
     {
-        dialogueText.text = currentLines[currentLineIndex];
+        dialogueText.text = currentLines[currentLineIndex].text;
     }
 
     public void EndDialogue()
     {
-        DialogueData finished = currentDialogue;
-
         isDialogueActive = false;
+        isPaused = false;
         currentDialogue = null;
         currentLines = null;
         currentLineIndex = 0;
@@ -87,7 +130,5 @@ public class DialogueSystem : MonoBehaviour
         playerController.EnableMovement();
 
         Debug.Log("Dialogue ended");
-
-        DialogueEnded?.Invoke(finished);
     }
 }
