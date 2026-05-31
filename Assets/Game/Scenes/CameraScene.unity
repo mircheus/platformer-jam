@@ -408,6 +408,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbb044e2c6df4f44b27b345a126aecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementController
+--- !u!114 &230170363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5849447892107036264, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+  m_PrefabInstance: {fileID: 1309836478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230170352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416ba8f65d6a2fa4ab237fdb945179cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventoryController
 --- !u!1 &244867403
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +510,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982772127}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &265073990 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1345206682529057141, guid: dfc60b11be7de2d40bb819c594b29814, type: 3}
+  m_PrefabInstance: {fileID: 1473599424}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3456bedd51bc6184bac358a807599e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestSystemController
 --- !u!1001 &266936046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2475,6 +2497,17 @@ PrefabInstance:
       addedObject: {fileID: 1861706845}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+--- !u!114 &1330074188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 705246995646820144, guid: dfc60b11be7de2d40bb819c594b29814, type: 3}
+  m_PrefabInstance: {fileID: 1473599424}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf38b5cf9eb42b4e80f91bffea8de6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveSystemController
 --- !u!1 &1366683161 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 514939837841443179, guid: 9415f12f6d5e49f4fa4441cde5161ee2, type: 3}
@@ -2594,7 +2627,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8942893655377771481, guid: dfc60b11be7de2d40bb819c594b29814, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1636126735}
   m_SourcePrefab: {fileID: 100100000, guid: dfc60b11be7de2d40bb819c594b29814, type: 3}
 --- !u!1 &1554976930
 GameObject:
@@ -2808,6 +2844,39 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1324706282478300450, guid: 822ba66cc92df3b478f304c250c07b1f, type: 3}
   m_PrefabInstance: {fileID: 175953056}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1635875035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4510096737183993910, guid: dfc60b11be7de2d40bb819c594b29814, type: 3}
+  m_PrefabInstance: {fileID: 1473599424}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9e7b7644c217d479f74587ecf309e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSelector
+--- !u!1 &1636126733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8942893655377771481, guid: dfc60b11be7de2d40bb819c594b29814, type: 3}
+  m_PrefabInstance: {fileID: 1473599424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1636126735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636126733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a940cb8392034948bef5d8967b68fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameContext
+  saveSystem: {fileID: 1330074188}
+  questSystem: {fileID: 265073990}
+  dialogueSelector: {fileID: 1635875035}
+  playerInventory: {fileID: 230170363}
+  player: {fileID: 230170352}
 --- !u!1 &1812761152
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,15 +9,7 @@ public class PickupInteractable : IInteractable
     {
         Debug.Log($"Trying to pick up item | ObjectID : {ObjectID}");
 
-        var inventory = FindFirstObjectByType<PlayerInventoryController>();
-
-        if (inventory == null)
-        {
-            Debug.LogWarning("PlayerInventoryController not found on scene");
-            return;
-        }
-
-        if (inventory.TryPickup(itemData))
+        if (GameContext.Instance.PlayerInventory.TryPickup(itemData))
         {
             gameObject.SetActive(false);
         }

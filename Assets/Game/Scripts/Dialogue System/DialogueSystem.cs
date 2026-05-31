@@ -118,15 +118,9 @@ public class DialogueSystem : MonoBehaviour
         dialoguePanel.SetActive(false);
         playerController.EnableMovement();
 
-        FindFirstObjectByType<DialogueChoiceUIController>()?.HideChoices();
+        choiceUI.HideChoices();
 
-        QuestSystemController questSystem = 
-            FindFirstObjectByType<QuestSystemController>();
-
-        if(questSystem != null)
-        {
-            questSystem.TryCompleteQuestByNPC(currentNPC_ID);
-        }
+        GameContext.Instance.QuestSystem.TryCompleteQuestByNPC(currentNPC_ID);
 
         Debug.Log("Dialogue ended");
     }

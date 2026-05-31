@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class NPCInteractable : IInteractable
@@ -15,13 +14,6 @@ public class NPCInteractable : IInteractable
     {
         Debug.Log($"Передаем NPC диалоговой системе | ObjectID : {ObjectID}");
 
-        var questSystem = FindFirstObjectByType<QuestSystemController>();
-        var dialogueSelector = FindFirstObjectByType<DialogueSelector>();
-
-        //if (questSystem != null)
-        //    questSystem.TryCompleteQuestByNPC(ObjectID);
-
-        if (dialogueSelector != null)
-            dialogueSelector.SelectDialogue(ObjectID, this);
+        GameContext.Instance.DialogueSelector.SelectDialogue(ObjectID, this);
     }
 }
