@@ -5,6 +5,7 @@ public class PickupInteractable : IInteractable
     [Header("Item Data")]
     [SerializeField] private ItemData itemData;
     [SerializeField] private bool advanceProgressForNpc = false;
+    [SerializeField] private NPCInteractable targetNPC;
 
     protected override void OnInteract()
     {
@@ -16,7 +17,7 @@ public class PickupInteractable : IInteractable
 
             if (advanceProgressForNpc)
             {
-                advanceProgressEvent.Invoke();
+                targetNPC.AdvanceProgress();
             }
         }
     }
@@ -24,10 +25,5 @@ public class PickupInteractable : IInteractable
     public void SetInteractable()
     {
         isInteractable = true;
-    }
-
-    public void AdvanceProgress(NPCInteractable npc)
-    {
-        npc.AdvanceProgress();
     }
 }

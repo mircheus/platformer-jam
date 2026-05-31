@@ -10,8 +10,6 @@ public abstract class IInteractable : MonoBehaviour
 
     [Header("State")]
     [SerializeField] protected bool isInteractable = true;
-    
-    [SerializeField] protected UnityEvent advanceProgressEvent;
 
     public string ObjectID => objectID;
     public string DisplayName => displayName;
