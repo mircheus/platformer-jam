@@ -54,6 +54,8 @@ public class PlayerInventoryController : MonoBehaviour
 
         Debug.Log($"Item consumed: {model.GetCurrentItem().DisplayName}");
 
+        GameContext.Instance.ItemHolder.ClearHeld();
+
         model.Clear();
     }
 }

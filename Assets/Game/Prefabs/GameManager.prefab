@@ -101,7 +101,6 @@ GameObject:
   - component: {fileID: 6825099999486124299}
   - component: {fileID: 7436817212687598351}
   - component: {fileID: 4510096737183993910}
-  - component: {fileID: 178476635135468022}
   m_Layer: 0
   m_Name: Dialogue System
   m_TagString: Untagged
@@ -139,7 +138,7 @@ MonoBehaviour:
   dialogueText: {fileID: 0}
   dialoguePanel: {fileID: 0}
   playerController: {fileID: 0}
-  choiceUI: {fileID: 178476635135468022}
+  playerInteraction: {fileID: 0}
 --- !u!114 &4510096737183993910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,22 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9e7b7644c217d479f74587ecf309e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSelector
-  questSystem: {fileID: 1345206682529057141}
   dialogueSystem: {fileID: 7436817212687598351}
---- !u!114 &178476635135468022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8520262801112297810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810ea347d3ff50b41b0d71a86395ed90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueChoiceUIController
-  answerPanel: {fileID: 0}
-  answerButtonPrefab: {fileID: 4889819168387732297, guid: 822ba66cc92df3b478f304c250c07b1f, type: 3}
 --- !u!1 &8942893655377771481
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2722748036062830892}
   - component: {fileID: 2198350521423695900}
+  - component: {fileID: 4962345343038027728}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -215,6 +200,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2b6e24acd61d841a9db2d6c545c74f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameBootstrap
+--- !u!114 &4962345343038027728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8942893655377771481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a940cb8392034948bef5d8967b68fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameContext
   saveSystem: {fileID: 705246995646820144}
   questSystem: {fileID: 1345206682529057141}
+  dialogueSelector: {fileID: 4510096737183993910}
+  playerInventory: {fileID: 0}
+  minigameSystem: {fileID: 0}
   player: {fileID: 0}
+  itemHolder: {fileID: 0}

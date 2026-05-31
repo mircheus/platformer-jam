@@ -24,7 +24,7 @@ public class GameBootstrap : MonoBehaviour
     {
         QuestSystemController questSystem = GameContext.Instance.QuestSystem;
 
-        questSystem.ActivateQuest("1");
+        questSystem.ActivateQuest("Krot");
         questSystem.PrintActiveQuests();
     }
 

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d14e526255e555542825741c7adec223, type: 3}
-  m_Name: TestQuest
+  m_Name: Krot_Quest
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  QuestID: 1
+  QuestID: Krot
   QuestName: Krot
-  TargetNPC_ID: 1
+  TargetNPC_ID: Krot
   RequiredItemID: 
   Description: "\u041F\u043E\u0434\u043E\u0439\u0442\u0438 \u043D\u0430 \u0441\u0432\u043E\u0435
     \u0440\u0430\u0431\u043E\u0447\u0435\u0435 \u043C\u0435\u0441\u0442\u043E"
-  CurrentState: 2
+  CurrentState: 1
   OptionalNextQuestID: 

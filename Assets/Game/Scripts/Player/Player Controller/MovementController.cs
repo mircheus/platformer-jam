@@ -28,6 +28,7 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 moveInput;
 
     private bool canMove = true;
+    private bool canInteract = true;
 
     private void Awake()
     {
@@ -74,6 +75,11 @@ public class PlayerMovementController : MonoBehaviour
 
     private void OnInteract(InputAction.CallbackContext context)
     {
+        if (!canInteract)
+        {
+            return;
+        }
+
         interactionSystemController.InteractableObjectSearch(gameObject.transform);
     }
 
@@ -109,5 +115,14 @@ public class PlayerMovementController : MonoBehaviour
     public void DisableMovement()
     {
         canMove = false;
+    }
+
+    public void EnableInteraction()
+    {
+        canInteract = true;
+    }
+    public void DisableInteraction()
+    {
+        canInteract = false;
     }
 }

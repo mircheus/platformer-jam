@@ -5,6 +5,8 @@ public class InteractionSystemController : MonoBehaviour
 {
     private readonly List<IInteractable> nearbyInteractables = new();
 
+    private bool _canInteract = true;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IInteractable interactable = collision.GetComponent<IInteractable>();
@@ -36,6 +38,9 @@ public class InteractionSystemController : MonoBehaviour
 
     public void InteractableObjectSearch(Transform playerTransform)
     {
+        if (!_canInteract)
+            return;
+        
         if (nearbyInteractables.Count == 0)
         {
             Debug.Log("В непосредственной близости нет интерактивных объектов.");
@@ -83,5 +88,15 @@ public class InteractionSystemController : MonoBehaviour
             );
 
         closestInteractable.Interact();
+    }
+    
+    public void EnableInteraction()
+    {
+        _canInteract = true;
+    }
+
+    public void DisableInteraction()
+    {
+        _canInteract = false;
     }
 }
