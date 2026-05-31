@@ -9,6 +9,7 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private PlayerMovementController playerController;
+    [SerializeField] private InteractionSystemController playerInteraction;
 
     /// <summary>
     /// Поднимается, когда диалог встаёт на паузу после реплики с триггером.
@@ -55,7 +56,8 @@ public class DialogueSystem : MonoBehaviour
 
         dialoguePanel.SetActive(true);
         playerController.DisableMovement();
-
+        playerInteraction.DisableInteraction();
+        
         ShowCurrentLine();
     }
 
@@ -128,6 +130,7 @@ public class DialogueSystem : MonoBehaviour
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
         playerController.EnableMovement();
+        playerInteraction.EnableInteraction();
 
         Debug.Log("Dialogue ended");
     }
