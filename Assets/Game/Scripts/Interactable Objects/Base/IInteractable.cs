@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class IInteractable : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public abstract class IInteractable : MonoBehaviour
     [SerializeField] private string promptText = "Interact";
 
     [Header("State")]
-    [SerializeField] private bool isInteractable = true;
+    [SerializeField] protected bool isInteractable = true;
+    
+    [SerializeField] protected UnityEvent advanceProgressEvent;
 
     public string ObjectID => objectID;
     public string DisplayName => displayName;

@@ -44,4 +44,16 @@ public class PlayerInventoryController : MonoBehaviour
     {
         return model.GetCurrentItem();
     }
+
+    public void ConsumeItem()
+    {
+        if (!model.HasItem())
+        {
+            return;
+        }
+
+        Debug.Log($"Item consumed: {model.GetCurrentItem().DisplayName}");
+
+        model.Clear();
+    }
 }
