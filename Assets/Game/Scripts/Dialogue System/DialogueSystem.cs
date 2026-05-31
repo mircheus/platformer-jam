@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -9,6 +10,14 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private PlayerMovementController playerController;
 
+    /// <summary>
+    /// Поднимается, когда набор реплик долистан до конца.
+    /// Хост-адаптеры (напр. DialogueMinigameTrigger) подписываются на это
+    /// событие — сам DialogueSystem про мини-игры/квесты не знает.
+    /// </summary>
+    public event Action<DialogueData> DialogueEnded;
+
+    private DialogueData currentDialogue;
     private List<string> currentLines;
     private int currentLineIndex;
 
@@ -35,6 +44,7 @@ public class DialogueSystem : MonoBehaviour
             return;
         }
 
+        currentDialogue = dialogue;
         currentLines = dialogue.lines;
         currentLineIndex = 0;
 
@@ -66,7 +76,10 @@ public class DialogueSystem : MonoBehaviour
 
     public void EndDialogue()
     {
+        DialogueData finished = currentDialogue;
+
         isDialogueActive = false;
+        currentDialogue = null;
         currentLines = null;
         currentLineIndex = 0;
         dialogueText.text = "";
@@ -74,5 +87,7 @@ public class DialogueSystem : MonoBehaviour
         playerController.EnableMovement();
 
         Debug.Log("Dialogue ended");
+
+        DialogueEnded?.Invoke(finished);
     }
 }

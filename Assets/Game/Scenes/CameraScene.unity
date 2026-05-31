@@ -672,6 +672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 397577713}
   - component: {fileID: 397577714}
+  - component: {fileID: 397577715}
   m_Layer: 0
   m_Name: MinigameSystem
   m_TagString: Untagged
@@ -709,6 +710,19 @@ MonoBehaviour:
   uiRoot: {fileID: 768943717}
   worldRoot: {fileID: 1602910016}
   playerController: {fileID: 230170360}
+--- !u!114 &397577715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397577712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0459008d84c3c14fa3ec954d991494d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueMinigameTrigger
+  dialogueSystem: {fileID: 1635875037}
 --- !u!4 &481352071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8880316652619514844, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
@@ -3074,6 +3088,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9e7b7644c217d479f74587ecf309e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSelector
+--- !u!114 &1635875037 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7436817212687598351, guid: dfc60b11be7de2d40bb819c594b29814, type: 3}
+  m_PrefabInstance: {fileID: 1473599424}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e6ac381a9080544b0276a089cb01f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem
 --- !u!1 &1636126733 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8942893655377771481, guid: dfc60b11be7de2d40bb819c594b29814, type: 3}
@@ -3935,7 +3960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &5723774241797912249
 MonoBehaviour:
   m_ObjectHideFlags: 0

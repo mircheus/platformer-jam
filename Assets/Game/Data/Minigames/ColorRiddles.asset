@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f60b5a4e31525fb4faa43a91a8d5697f, type: 3}
-  m_Name: Puzzle
+  m_Name: ColorRiddles
   m_EditorClassIdentifier: Assembly-CSharp::MinigameData
   id: 0
   displayName: Puzzle

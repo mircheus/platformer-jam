@@ -8,4 +8,8 @@ public class DialogueData : ScriptableObject
 
     [TextArea(2, 5)]
     public List<string> lines;
+
+    [Header("On Complete (optional)")]
+    [Tooltip("Мини-игра, которую запустит хост-адаптер после того, как этот набор реплик долистан до конца. Пусто — ничего не запускается.")]
+    public MinigameData minigameOnComplete;
 }
