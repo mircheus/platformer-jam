@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -15,6 +16,13 @@ public class LocationTransitionController : MonoBehaviour
     [Header("Camera (optional)")]
     [SerializeField] private CinemachineCamera gameplayVcam;
     [SerializeField] private CinemachineConfiner2D confiner;
+
+    /// <summary>
+    /// Поднимается в самом конце перехода, когда игрок уже на новой локации и
+    /// управление возвращено. Скриптовые сцены подписываются и сверяют LocationId.
+    /// Контроллер про конкретные сцены не знает — отдаёт обобщённое событие.
+    /// </summary>
+    public event Action<Location> ArrivedAtLocation;
 
     public Location CurrentLocation { get; private set; }
     public bool IsRunning { get; private set; }
@@ -174,6 +182,9 @@ public class LocationTransitionController : MonoBehaviour
         // 12. Финализация.
         CurrentLocation = target;
         IsRunning = false;
+
+        // 13. Сообщить наружу о прибытии (скриптовые сцены и т.п.).
+        ArrivedAtLocation?.Invoke(target);
     }
 
     private Location FindLocation(string locationId)

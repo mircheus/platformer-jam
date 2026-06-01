@@ -151,9 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245570e48279a9f4e8416b98bbd75ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteractable
-  objectID: 1
+  objectID: Krot
   displayName: Tim
   promptText: Interact
   isInteractable: 1
-  questDialogue: {fileID: 11400000, guid: c74a3d5399e6e5d4a949ce36ddae6a0c, type: 2}
-  defaultDialogue: {fileID: 11400000, guid: 17284eddf9fc7554a984c83bb17517e0, type: 2}
+  dialogues:
+  - {fileID: 11400000, guid: fd26bc86f1904e043804a7654b6ec79d, type: 2}
+  - {fileID: 11400000, guid: 6c0b94634ad46b846b7f978ef68f5167, type: 2}
+  pickupInteractable: {fileID: 0}
+  activateInteractableAfterDialogue: 1

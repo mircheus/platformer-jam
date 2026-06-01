@@ -19,6 +19,13 @@ public class DialogueSystem : MonoBehaviour
     /// </summary>
     public event Action<DialogueData, int> DialoguePaused;
 
+    /// <summary>
+    /// Поднимается, когда диалог полностью завершён (реплики кончились или вызван
+    /// EndDialogue). Скриптовые сцены подписываются, чтобы продолжить катсцену
+    /// после диалога. DialogueSystem про подписчиков не знает.
+    /// </summary>
+    public event Action DialogueEnded;
+
     private DialogueData currentDialogue;
     private List<DialogueLine> currentLines;
     private int currentLineIndex;
@@ -133,5 +140,7 @@ public class DialogueSystem : MonoBehaviour
         playerInteraction.EnableInteraction();
 
         Debug.Log("Dialogue ended");
+
+        DialogueEnded?.Invoke();
     }
 }

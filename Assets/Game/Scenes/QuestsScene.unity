@@ -435,10 +435,6 @@ PrefabInstance:
       value: Krot
       objectReference: {fileID: 0}
     - target: {fileID: 8140624477164409563, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
-      propertyPath: objectID
-      value: Krot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8140624477164409563, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
       propertyPath: introDialogue
       value: 
       objectReference: {fileID: 11400000, guid: fd26bc86f1904e043804a7654b6ec79d, type: 2}
@@ -451,25 +447,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 481352072}
     - target: {fileID: 8140624477164409563, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
-      propertyPath: dialogues.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8140624477164409563, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
-      propertyPath: 'dialogues.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: fd26bc86f1904e043804a7654b6ec79d, type: 2}
-    - target: {fileID: 8140624477164409563, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
-      propertyPath: 'dialogues.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 6c0b94634ad46b846b7f978ef68f5167, type: 2}
-    - target: {fileID: 8140624477164409563, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
       propertyPath: 'dialogues.Array.data[2]'
       value: 
       objectReference: {fileID: 11400000, guid: 0a08fef4b6964cb44b8fa2100b0f165d, type: 2}
-    - target: {fileID: 8140624477164409563, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
-      propertyPath: activateInteractableAfterDialogue
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -480,6 +460,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6825891439388075180, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1198371079}
+    - targetCorrespondingSourceObject: {fileID: 6825891439388075180, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1198371081}
   m_SourcePrefab: {fileID: 100100000, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
 --- !u!114 &282014457 stripped
 MonoBehaviour:
@@ -1911,6 +1894,9 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6981244269726556069, guid: a35ee6627c3e73f4a88a4a2cdea8bb8d, type: 3}
       insertIndex: 0
+      addedObject: {fileID: 1871189914}
+    - targetCorrespondingSourceObject: {fileID: 6981244269726556069, guid: a35ee6627c3e73f4a88a4a2cdea8bb8d, type: 3}
+      insertIndex: 1
       addedObject: {fileID: 1198371078}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a35ee6627c3e73f4a88a4a2cdea8bb8d, type: 3}
@@ -2198,6 +2184,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245570e48279a9f4e8416b98bbd75ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteractable
+--- !u!114 &1198371081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198371074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c025dc424cfd4bb42ae0e4014597f828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotArrivalCutscene
+  triggerLocationId: 1
+  dialogueSystem: {fileID: 1635875037}
+  dialogue: {fileID: 11400000, guid: d9448390c8811d54cbd1db64b95a2ab2, type: 2}
+  exitPoint: {fileID: 1871189914}
+  moveSpeed: 5
+  arriveThreshold: 0.05
+  animator: {fileID: 0}
+  walkBoolParam: 
 --- !u!1001 &1221670226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2990,6 +2996,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1871189913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1871189914}
+  m_Layer: 0
+  m_Name: Krot_leave_point
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1871189914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871189913}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.83, y: -0.72999996, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 805016722}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1975023658 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3295264843875276055, guid: 9415f12f6d5e49f4fa4441cde5161ee2, type: 3}
