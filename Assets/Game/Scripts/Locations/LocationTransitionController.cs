@@ -68,9 +68,28 @@ public class LocationTransitionController : MonoBehaviour
 
         if (rb != null)
             rb.linearVelocity = Vector2.zero;
-        Debug.Log($"departure == null: {departure == null}");
-        Debug.Log($"departure.animator == null: {departure.animator == null}");
-        Debug.Log($"animation state: {string.IsNullOrEmpty(departure.animationState)}");
+
+        // 3.05 Парентинг игрока к кабине, чтобы он ехал вместе с анимацией.
+        Transform playerTransform = GameContext.Instance.Player != null
+            ? GameContext.Instance.Player.transform : null;
+        Transform originalParent = null;
+        bool wasSimulated = false;
+        bool parented = false;
+
+        if (departure != null && departure.rideAnchor != null && playerTransform != null)
+        {
+            originalParent = playerTransform.parent;
+
+            if (rb != null)
+            {
+                wasSimulated = rb.simulated;
+                rb.simulated = false; // заглушить физику, чтобы не бороться с движением родителя
+            }
+
+            playerTransform.SetParent(departure.rideAnchor, true);
+            parented = true;
+        }
+
         // 3.1 Отъезд: запустить анимацию кабины и выждать паузу перед затемнением.
         if (departure != null && departure.animator != null
             && !string.IsNullOrEmpty(departure.animationState))
@@ -89,10 +108,11 @@ public class LocationTransitionController : MonoBehaviour
         CurrentLocation.gameObject.SetActive(false);
         target.gameObject.SetActive(true);
 
-        // 6. Репозиция игрока (опц.).
+        // 6. Репозиция игрока (опц.). Пропускаем, если игрок едет на кабине —
+        //    его позицию задаёт анимация прибытия, репозиция телепортнула бы его со спрайта.
         Vector3 playerDelta = Vector3.zero;
 
-        if (target.PlayerSpawnPoint != null && rb != null)
+        if (!parented && target.PlayerSpawnPoint != null && rb != null)
         {
             Vector2 oldPosition = rb.position;
             Vector2 spawnPosition = target.PlayerSpawnPoint.position;
@@ -133,7 +153,21 @@ public class LocationTransitionController : MonoBehaviour
         if (departure != null && departure.delayAfterArrival > 0f)
             yield return new WaitForSeconds(departure.delayAfterArrival);
 
-        // 11. Вернуть управление.
+        // 11. Отцепить игрока от кабины (лифт живёт вне локаций, свап его не выключает,
+        //     поэтому отцепляемся только здесь) и вернуть управление.
+        if (parented)
+        {
+            playerTransform.SetParent(originalParent, true);
+
+            if (rb != null)
+            {
+                rb.simulated = wasSimulated;
+                rb.position = playerTransform.position; // синхронизировать тело с приехавшей позицией
+            }
+
+            Physics2D.SyncTransforms();
+        }
+
         playerController.EnableMovement();
         playerController.EnableInteraction();
 

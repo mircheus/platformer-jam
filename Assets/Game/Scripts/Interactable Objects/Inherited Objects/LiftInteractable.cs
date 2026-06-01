@@ -27,6 +27,8 @@ public class LiftInteractable : IInteractable
 
     [Header("Cabin animation")]
     [SerializeField] private Animator cabinAnimator;
+    [Tooltip("Transform кабины, к которому парентится игрок на время поездки (движущаяся часть, напр. Elevator_sprite).")]
+    [SerializeField] private Transform rideAnchor;
     [Tooltip("Пауза между стартом анимации кабины и началом затемнения.")]
     [SerializeField] private float delayBeforeFade = 0.3f;
     [Tooltip("Пауза после осветления, чтобы анимация прибытия доиграла, перед возвратом управления.")]
@@ -57,7 +59,8 @@ public class LiftInteractable : IInteractable
                 animationState = direction.animationState,
                 delayBeforeFade = delayBeforeFade,
                 arrivalState = direction.arrivalState,
-                delayAfterArrival = delayAfterArrival
+                delayAfterArrival = delayAfterArrival,
+                rideAnchor = rideAnchor
             };
             
             GameContext.Instance.LocationTransition.Go(direction.targetLocationId, departure);
