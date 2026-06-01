@@ -14,10 +14,23 @@ public class LiftInteractable : IInteractable
 
         [Tooltip("Состояние квеста, при котором направление становится рабочим.")]
         public QuestState requiredState = QuestState.Completed;
+
+        [Tooltip("Имя стейта анимации отъезда для этого направления (напр. \"Up\"/\"Down\").")]
+        public string animationState;
+
+        [Tooltip("Имя стейта анимации прибытия для этого направления (напр. \"Up_arrive\"/\"Down_arrive\").")]
+        public string arrivalState;
     }
 
     [Header("Lift")]
     [SerializeField] private LiftPanelUI liftPanel;
+
+    [Header("Cabin animation")]
+    [SerializeField] private Animator cabinAnimator;
+    [Tooltip("Пауза между стартом анимации кабины и началом затемнения.")]
+    [SerializeField] private float delayBeforeFade = 0.3f;
+    [Tooltip("Пауза после осветления, чтобы анимация прибытия доиграла, перед возвратом управления.")]
+    [SerializeField] private float delayAfterArrival = 0.3f;
 
     [Header("Directions")]
     [SerializeField] private Direction up;
@@ -37,7 +50,17 @@ public class LiftInteractable : IInteractable
         if (CanGo(direction))
         {
             liftPanel.Close();
-            GameContext.Instance.LocationTransition.Go(direction.targetLocationId);
+
+            LiftDeparture departure = new LiftDeparture
+            {
+                animator = cabinAnimator,
+                animationState = direction.animationState,
+                delayBeforeFade = delayBeforeFade,
+                arrivalState = direction.arrivalState,
+                delayAfterArrival = delayAfterArrival
+            };
+            
+            GameContext.Instance.LocationTransition.Go(direction.targetLocationId, departure);
         }
         else
         {

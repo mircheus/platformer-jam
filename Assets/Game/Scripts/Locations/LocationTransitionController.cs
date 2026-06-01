@@ -36,7 +36,7 @@ public class LocationTransitionController : MonoBehaviour
     /// Запускает переход в локацию с указанным id. Игнорируется, если переход уже идёт
     /// или целевая локация не найдена.
     /// </summary>
-    public void Go(string targetLocationId)
+    public void Go(string targetLocationId, LiftDeparture departure = null)
     {
         if (IsRunning)
         {
@@ -52,10 +52,10 @@ public class LocationTransitionController : MonoBehaviour
             return;
         }
 
-        StartCoroutine(TransitionRoutine(target));
+        StartCoroutine(TransitionRoutine(target, departure));
     }
 
-    private IEnumerator TransitionRoutine(Location target)
+    private IEnumerator TransitionRoutine(Location target, LiftDeparture departure)
     {
         IsRunning = true;
 
@@ -68,6 +68,19 @@ public class LocationTransitionController : MonoBehaviour
 
         if (rb != null)
             rb.linearVelocity = Vector2.zero;
+        Debug.Log($"departure == null: {departure == null}");
+        Debug.Log($"departure.animator == null: {departure.animator == null}");
+        Debug.Log($"animation state: {string.IsNullOrEmpty(departure.animationState)}");
+        // 3.1 Отъезд: запустить анимацию кабины и выждать паузу перед затемнением.
+        if (departure != null && departure.animator != null
+            && !string.IsNullOrEmpty(departure.animationState))
+        {
+            Debug.Log($"departure.animationState {departure.animationState}");
+            departure.animator.Play(departure.animationState, 0, 0f);
+        }
+
+        if (departure != null && departure.delayBeforeFade > 0f)
+            yield return new WaitForSeconds(departure.delayBeforeFade);
 
         // 4. Затемнение.
         yield return screenFader.FadeOut();
@@ -106,8 +119,19 @@ public class LocationTransitionController : MonoBehaviour
             confiner.InvalidateBoundingShapeCache();
         }
 
-        // 10. Осветление.
+        // 9.1 Прибытие: запустить анимацию прибытия кабины ещё под чёрным экраном.
+        if (departure != null && departure.animator != null
+            && !string.IsNullOrEmpty(departure.arrivalState))
+        {
+            departure.animator.Play(departure.arrivalState, 0, 0f);
+        }
+
+        // 10. Осветление (раскрывает прибывающую кабину).
         yield return screenFader.FadeIn();
+
+        // 10.1 Дать анимации прибытия доиграть перед возвратом управления.
+        if (departure != null && departure.delayAfterArrival > 0f)
+            yield return new WaitForSeconds(departure.delayAfterArrival);
 
         // 11. Вернуть управление.
         playerController.EnableMovement();
