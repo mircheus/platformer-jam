@@ -17,4 +17,4 @@ MonoBehaviour:
   prefab: {fileID: 8105524052692928053, guid: 3fa8a06b51ae82848a25ad30d82716ed, type: 3}
   renderType: 1
   questIdToComplete: 
-  targetNpcId: 
+  targetNpcId: Pigeon
