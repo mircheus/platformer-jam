@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1900756321954421489, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
+      propertyPath: playerSpawnPoint
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2895662366339302785, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.02
@@ -56,6 +60,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6172421431649202886, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172421431649202886, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172421431649202886, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172421431649202886, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172421431649202886, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7197126222642710897, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
       propertyPath: m_Name
       value: Level_1
@@ -97,7 +121,8 @@ PrefabInstance:
       value: 0.4660377
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6383860057139412888, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
