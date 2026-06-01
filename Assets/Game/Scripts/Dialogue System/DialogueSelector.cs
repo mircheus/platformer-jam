@@ -25,4 +25,15 @@ public class DialogueSelector : MonoBehaviour
 
         dialogueSystem.StartDialogue(dialogue);
     }
+
+    public void SelectDialogue(DialogueData dialogue)
+    {
+        if (dialogue == null)
+        {
+            Debug.LogWarning("Dialogue is null");
+            return;
+        }
+
+        dialogueSystem.StartDialogue(dialogue);
+    }
 }

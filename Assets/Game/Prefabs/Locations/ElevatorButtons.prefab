@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4121933798252901964}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.03, y: 0.34999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   isInteractable: 1
   liftPanel: {fileID: 0}
   cabinAnimator: {fileID: 0}
+  rideAnchor: {fileID: 0}
   delayBeforeFade: 0.3
   delayAfterArrival: 0.3
   up:

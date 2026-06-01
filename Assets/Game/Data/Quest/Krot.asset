@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d14e526255e555542825741c7adec223, type: 3}
-  m_Name: Krot_Quest
+  m_Name: Krot
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   QuestID: Krot
   QuestName: Krot

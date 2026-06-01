@@ -7,6 +7,9 @@ public class PickupInteractable : IInteractable
     [SerializeField] private bool advanceProgressForNpc = false;
     [SerializeField] private NPCInteractable targetNPC;
 
+    [Header("Dialogue On Pickup")]
+    [SerializeField] private DialogueTrigger dialogueOnPickup;
+
     protected override void OnInteract()
     {
         Debug.Log($"Trying to pick up item | ObjectID : {ObjectID}");
@@ -20,6 +23,8 @@ public class PickupInteractable : IInteractable
             {
                 targetNPC.AdvanceProgress();
             }
+
+            dialogueOnPickup.TryPlay();
         }
     }
 
