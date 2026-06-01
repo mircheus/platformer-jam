@@ -7,6 +7,40 @@ public class InteractionSystemController : MonoBehaviour
 
     private bool _canInteract = true;
 
+    private Collider2D triggerZone;
+
+    private void Awake()
+    {
+        triggerZone = GetComponent<Collider2D>();
+    }
+
+    /// <summary>
+    /// Очищает список интерактаблов и пересобирает его по коллайдерам, реально
+    /// перекрывающим триггер-зону игрока сейчас. Нужен после свапа локаций, когда
+    /// нельзя полагаться на OnTriggerEnter2D/Exit2D.
+    /// </summary>
+    public void RefreshInteractables()
+    {
+        nearbyInteractables.Clear();
+
+        if (triggerZone == null)
+            return;
+
+        ContactFilter2D filter = new ContactFilter2D().NoFilter();
+        filter.useTriggers = true;
+
+        List<Collider2D> overlaps = new();
+        triggerZone.Overlap(filter, overlaps);
+
+        foreach (Collider2D collider in overlaps)
+        {
+            IInteractable interactable = collider.GetComponent<IInteractable>();
+
+            if (interactable != null && !nearbyInteractables.Contains(interactable))
+                nearbyInteractables.Add(interactable);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IInteractable interactable = collision.GetComponent<IInteractable>();
