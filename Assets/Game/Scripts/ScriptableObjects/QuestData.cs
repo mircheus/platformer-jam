@@ -14,9 +14,6 @@ public class QuestData : ScriptableObject
     [TextArea]
     public string Description;
 
-    [Header("Quest State")]
-    public QuestState CurrentState;
-
     [Header("Quest Progression")]
     public string OptionalNextQuestID = string.Empty;
 }

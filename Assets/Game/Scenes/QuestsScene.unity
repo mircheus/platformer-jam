@@ -2132,6 +2132,14 @@ PrefabInstance:
       propertyPath: cabinAnimator
       value: 
       objectReference: {fileID: 1089696333}
+    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
+      propertyPath: up.requiredState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
+      propertyPath: down.targetLocationId
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9046969034668407887, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.03
@@ -2781,6 +2789,14 @@ PrefabInstance:
       propertyPath: answerPanel
       value: 
       objectReference: {fileID: 11927273}
+    - target: {fileID: 1345206682529057141, guid: dfc60b11be7de2d40bb819c594b29814, type: 3}
+      propertyPath: allQuests.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345206682529057141, guid: dfc60b11be7de2d40bb819c594b29814, type: 3}
+      propertyPath: 'allQuests.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d024a41989bc77b4298d9d027c52e0ed, type: 2}
     - target: {fileID: 2198350521423695900, guid: dfc60b11be7de2d40bb819c594b29814, type: 3}
       propertyPath: player
       value: 
