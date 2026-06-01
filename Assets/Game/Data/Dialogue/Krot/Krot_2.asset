@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8addc9c0d1acaba4ca8405719a24abfc, type: 3}
-  m_Name: 4_Krot_2
+  m_Name: Krot_2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   dialogueID: 4
   lines:

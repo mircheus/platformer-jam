@@ -10,13 +10,22 @@ public class ItemRequiredInteractable : IInteractable
     [SerializeField] private bool advanceNPCProgress;
     [SerializeField] private NPCInteractable targetNPC;
     
-    [SerializeField] private GameObject activateAfterInteract;
+    [Header("Dialogue On Use")]
+    [SerializeField] private DialogueTrigger dialogueOnUse;
+
+    [Header("Disable after interact")]
+    [SerializeField] private bool disableSelfAfterInteract;
+    
+    [SerializeField] private GameObject[] activateAfterInteract;
 
     private void Start()
     {
         if (activateAfterInteract != null)
         {
-            activateAfterInteract.SetActive(false);
+            foreach (var activateGameObject in activateAfterInteract)
+            {
+                activateGameObject.SetActive(false);
+            }
         }
     }
 
@@ -38,10 +47,15 @@ public class ItemRequiredInteractable : IInteractable
 
         if (activateAfterInteract != null)
         {
-            activateAfterInteract.SetActive(true);
+            foreach (var activateGameObject in activateAfterInteract)
+            {
+                activateGameObject.SetActive(true);
+            }
         }
         
         Debug.Log($"Interacted with required item: {requiredItem.DisplayName} | ObjectID : {ObjectID}");
+
+        dialogueOnUse.TryPlay();
 
         if (!advanceNPCProgress)
         {
@@ -55,5 +69,10 @@ public class ItemRequiredInteractable : IInteractable
         }
 
         targetNPC.AdvanceProgress();
+
+        if (disableSelfAfterInteract)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
