@@ -104,6 +104,11 @@ public class MinigameSystemController : MonoBehaviour
 
     private void ApplySuccess(MinigameData data)
     {
+        if (data.takePlayerItem)
+        {
+            TakePlayerItem(data);
+        }
+
         if (!string.IsNullOrEmpty(data.questIdToComplete))
         {
             GameContext.Instance.QuestSystem.CompleteQuest(data.questIdToComplete);
@@ -122,6 +127,22 @@ public class MinigameSystemController : MonoBehaviour
                 Debug.LogWarning($"NPC not found for AdvanceProgress: {data.targetNpcId}");
             }
         }
+    }
+
+    private void TakePlayerItem(MinigameData data)
+    {
+        PlayerInventoryController inventory = GameContext.Instance.PlayerInventory;
+
+        // Если указан конкретный предмет — забираем, только если игрок держит именно его.
+        // Иначе можно по ошибке отнять не тот предмет, который попал в инвентарь.
+        if (data.itemToTake != null && !inventory.HasItem(data.itemToTake.ItemID))
+        {
+            Debug.LogWarning($"Minigame '{data.id}': takePlayerItem включён, но у игрока нет '{data.itemToTake.DisplayName}' — ничего не забираем.");
+            return;
+        }
+
+        // Забираем предмет у игрока: пропадает из инвентаря и из рук.
+        inventory.ConsumeItem();
     }
 
     private NPCInteractable FindNpcById(string npcId)

@@ -18,3 +18,5 @@ MonoBehaviour:
   renderType: 1
   questIdToComplete: 
   targetNpcId: 
+  takePlayerItem: 1
+  itemToTake: {fileID: 11400000, guid: ba8d9fe9a958158498ded09664e94085, type: 2}
