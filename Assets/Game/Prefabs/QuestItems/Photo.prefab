@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3688184649833670379}
   - component: {fileID: 9010059486393910403}
   m_Layer: 0
-  m_Name: PickupInteractable
+  m_Name: Photo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,8 +50,12 @@ MonoBehaviour:
   displayName: TEST
   promptText: Interact
   isInteractable: 1
-  itemData: {fileID: 11400000, guid: 38e4fd5bdc600a846827678b12fe26bb, type: 2}
-  pickUp: 1
+  itemData: {fileID: 11400000, guid: ccd8ec5555a054543b2a4bca84a026ea, type: 2}
+  advanceProgressForNpc: 0
+  targetNPC: {fileID: 0}
+  dialogueOnPickup:
+    dialogue: {fileID: 0}
+    playOnce: 1
 --- !u!61 &9010059486393910403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,8 +183,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 15
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 0.48113203, b: 0.96688443, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

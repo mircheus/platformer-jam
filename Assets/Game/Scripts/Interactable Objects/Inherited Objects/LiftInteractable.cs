@@ -70,9 +70,39 @@ public class LiftInteractable : IInteractable
 
         liftPanel.Close();
 
+        GameContext.Instance.LocationTransition.Go(floors[targetIndex].locationId, BuildDeparture(direction));
+    }
+
+    /// <summary>
+    /// Принудительно отправляет лифт на нижний этаж (индекс 0) с анимацией спуска.
+    /// Тонкая обёртка над <see cref="GoToFloor"/>.
+    /// </summary>
+    public void GoToGroundFloor() => GoToFloor(0, goingUp: false);
+
+    /// <summary>
+    /// Принудительно отправляет лифт на этаж <paramref name="targetIndex"/> с анимацией
+    /// в заданном направлении, минуя панель, промежуточные этажи и квест-гейты. Нужно
+    /// скриптовым надстройкам (напр. <see cref="ScriptedLiftInteractable"/> /
+    /// <see cref="ScriptedLiftAscentInteractable"/>), чтобы переиспользовать единый
+    /// конфиг кабины и список этажей вместо дублирования.
+    /// </summary>
+    public void GoToFloor(int targetIndex, bool goingUp)
+    {
+        if (targetIndex < 0 || targetIndex >= floors.Count)
+        {
+            Debug.LogWarning($"{name}: нет этажа с индексом {targetIndex} — лифту некуда ехать.");
+            return;
+        }
+
+        MoveDirection direction = goingUp ? MoveDirection.Up : MoveDirection.Down;
+        GameContext.Instance.LocationTransition.Go(floors[targetIndex].locationId, BuildDeparture(direction));
+    }
+
+    private LiftDeparture BuildDeparture(MoveDirection direction)
+    {
         bool goingUp = direction == MoveDirection.Up;
 
-        LiftDeparture departure = new LiftDeparture
+        return new LiftDeparture
         {
             animator = cabinAnimator,
             animationState = goingUp ? upAnimationState : downAnimationState,
@@ -81,8 +111,6 @@ public class LiftInteractable : IInteractable
             delayAfterArrival = delayAfterArrival,
             rideAnchor = rideAnchor
         };
-
-        GameContext.Instance.LocationTransition.Go(floors[targetIndex].locationId, departure);
     }
 
     private bool CanGo(int current, int targetIndex, MoveDirection direction)

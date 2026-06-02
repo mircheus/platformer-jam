@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -53,6 +54,7 @@ public class OneShotDepartureCutscene : MonoBehaviour
 
     [Header("On Finished")]
     [Tooltip("Вызывается в самом конце — после ухода персонажа и возврата управления игроку.")]
+    [SerializeField] private UnityEvent onStarted;
     [SerializeField] private UnityEvent onFinished;
 
     private bool hasPlayed;
@@ -114,6 +116,8 @@ public class OneShotDepartureCutscene : MonoBehaviour
 
     private IEnumerator LeaveRoutine()
     {
+        onStarted?.Invoke();
+        
         if (delayBeforeLeave > 0f)
         {
             yield return new WaitForSeconds(delayBeforeLeave);
