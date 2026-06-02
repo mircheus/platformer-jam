@@ -175,12 +175,6 @@ namespace Game.Minigames.Tetris
 
             _dragging = cell.Piece;
             _dragging.BeginDrag(cell, world);
-
-            if (debugLogs)
-            {
-                Debug.Log($"[Tetris] Захват фигуры '{_dragging.name}' за клетку " +
-                          $"'{cell.name}' (offset={cell.Offset}).");
-            }
         }
 
         private void EndDrag()
@@ -198,6 +192,32 @@ namespace Game.Minigames.Tetris
             if (placed && grid.IsFull())
             {
                 Win();
+            }
+        }
+
+        /// <summary>
+        /// Возвращает все фигуры на стартовые места и очищает сетку.
+        /// Публичный — чтобы вешать на OnClick UI-кнопки сброса.
+        /// </summary>
+        public void ResetAll()
+        {
+            if (_pieces == null)
+            {
+                return;
+            }
+
+            // Сбрасываем ссылку на тащимую фигуру: её ResetToStart ниже корректно
+            // завершит перетаскивание сам.
+            _dragging = null;
+
+            foreach (TetrisPiece piece in _pieces)
+            {
+                piece.ResetToStart();
+            }
+
+            if (debugLogs)
+            {
+                Debug.Log("[Tetris] Сброс всех фигур на старт.");
             }
         }
 

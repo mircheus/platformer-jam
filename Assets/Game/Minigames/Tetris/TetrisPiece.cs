@@ -170,6 +170,28 @@ namespace Game.Minigames.Tetris
             transform.position = _homePosition;
         }
 
+        /// <summary>
+        /// Полный сброс фигуры на стартовое место: прерывает текущее перетаскивание
+        /// (если есть), освобождает занятые клетки сетки и возвращает позицию.
+        /// </summary>
+        public void ResetToStart()
+        {
+            if (_dragging)
+            {
+                _dragging = false;
+                _grabbedCell = null;
+                SetSortingBoost(false);
+            }
+
+            if (_placed)
+            {
+                _grid.Free(this);
+                _placed = false;
+            }
+
+            ReturnHome();
+        }
+
         private void SetSortingBoost(bool on)
         {
             for (int i = 0; i < _renderers.Length; i++)
