@@ -105,7 +105,6 @@ GameObject:
   - component: {fileID: 2440215207041327288}
   - component: {fileID: 7838334753000742442}
   - component: {fileID: 99976843715685190}
-  - component: {fileID: 172321124870584418}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
@@ -299,30 +298,5 @@ MonoBehaviour:
   triggerMinigame: {fileID: 11400000, guid: c4c89189ba3836c4f96bc07c1083a3c4, type: 2}
   dialogue: {fileID: 11400000, guid: 8554b4e7b3a7c714ba6ed61fad4e229c, type: 2}
   dialogueSystem: {fileID: 0}
-  drop:
-    dropPickup: {fileID: 0}
---- !u!114 &172321124870584418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9155166466649408140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f79d8b7c25fd1d8499989e61265f0fbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OneShotEntranceCutscene
-  triggerDialogue: {fileID: 0}
-  dialogueSystem: {fileID: 0}
-  character: {fileID: 0}
-  entryPoint: {fileID: 0}
-  moveSpeed: 3
-  arriveThreshold: 0.05
-  delayBeforeEntrance: 0.5
-  delayAfterEntrance: 0.5
-  animator: {fileID: 0}
-  walkBoolParam: 
-  entranceDialogue: {fileID: 0}
   drop:
     dropPickup: {fileID: 0}

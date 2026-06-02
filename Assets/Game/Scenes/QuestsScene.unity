@@ -998,11 +998,20 @@ PrefabInstance:
       addedObject: {fileID: 1978111171}
     - targetCorrespondingSourceObject: {fileID: 5361227570692593573, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1966355686}
+    - targetCorrespondingSourceObject: {fileID: 5361227570692593573, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 2078125911}
     - targetCorrespondingSourceObject: {fileID: 5361227570692593573, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1150180971}
+    - targetCorrespondingSourceObject: {fileID: 5361227570692593573, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 543646440}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2824692405953016467, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 803074749}
   m_SourcePrefab: {fileID: 100100000, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
 --- !u!4 &534618168 stripped
 Transform:
@@ -1466,6 +1475,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &803074742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2824692405953016467, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+  m_PrefabInstance: {fileID: 534618167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &803074743 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5012471511021906112, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+  m_PrefabInstance: {fileID: 534618167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &803074747 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5748163419092785472, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+  m_PrefabInstance: {fileID: 534618167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &803074749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803074742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4eab4b99482f354ea2eff6d551efe62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotDepartureCutscene
+  triggerDialogue: {fileID: 11400000, guid: 8554b4e7b3a7c714ba6ed61fad4e229c, type: 2}
+  dialogueSystem: {fileID: 1635875037}
+  character: {fileID: 803074743}
+  exitPoint: {fileID: 1150180971}
+  moveSpeed: 3
+  arriveThreshold: 0.05
+  deactivateAfterLeave: 1
+  delayBeforeLeave: 0.5
+  animator: {fileID: 0}
+  walkBoolParam: 
+  spriteRenderer: {fileID: 803074747}
+  spriteFacesRight: 0
 --- !u!4 &805016722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6981244269726556069, guid: a35ee6627c3e73f4a88a4a2cdea8bb8d, type: 3}
@@ -2487,6 +2535,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9046969034668407887, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
   m_PrefabInstance: {fileID: 1130804843}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1150180970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150180971}
+  m_Layer: 0
+  m_Name: ExitPoint_Rabbit
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1150180971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150180970}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -31.61, y: 0.13154, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 672427230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1157074886
 GameObject:
   m_ObjectHideFlags: 0
@@ -3391,6 +3470,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 805016722}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1966355685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1966355686}
+  - component: {fileID: 1966355687}
+  m_Layer: 0
+  m_Name: EntranceCutscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1966355686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966355685}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 672427230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1966355687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966355685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79d8b7c25fd1d8499989e61265f0fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotEntranceCutscene
+  triggerDialogue: {fileID: 11400000, guid: 8554b4e7b3a7c714ba6ed61fad4e229c, type: 2}
+  dialogueSystem: {fileID: 1635875037}
+  character: {fileID: 543646440}
+  entryPoint: {fileID: 2078125911}
+  moveSpeed: 3
+  arriveThreshold: 0.05
+  delayBeforeEntrance: 0.5
+  delayAfterEntrance: 0.5
+  animator: {fileID: 0}
+  walkBoolParam: 
+  spriteRenderer: {fileID: 0}
+  spriteFacesRight: 1
+  entranceDialogue: {fileID: 11400000, guid: 7022635daf9b2bf4480cc22f0e016e0a, type: 2}
+  drop:
+    dropPickup: {fileID: 1978111170}
 --- !u!224 &1975023658 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3295264843875276055, guid: 9415f12f6d5e49f4fa4441cde5161ee2, type: 3}
@@ -3593,7 +3731,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2078125911}
   m_Layer: 0
-  m_Name: EntryPoint
+  m_Name: EntryPoint_Cat
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

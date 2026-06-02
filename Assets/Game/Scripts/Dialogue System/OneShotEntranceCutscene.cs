@@ -42,6 +42,12 @@ public class OneShotEntranceCutscene : MonoBehaviour
     [Tooltip("Имя bool-параметра аниматора, включающего анимацию ходьбы. Пусто — не трогаем аниматор.")]
     [SerializeField] private string walkBoolParam;
 
+    [Header("Facing (optional)")]
+    [Tooltip("SpriteRenderer персонажа для разворота по направлению движения. Пусто — флип выключен.")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [Tooltip("Куда смотрит спрайт БЕЗ флипа (flipX = false). Нужно, чтобы разворот шёл в правильную сторону.")]
+    [SerializeField] private bool spriteFacesRight = true;
+
     [Header("Dialogue After Entrance")]
     [Tooltip("Диалог, который запускается после входа персонажа. Если пусто — катсцена просто вернёт управление игроку.")]
     [SerializeField] private DialogueData entranceDialogue;
@@ -120,6 +126,8 @@ public class OneShotEntranceCutscene : MonoBehaviour
 
         if (character != null && entryPoint != null)
         {
+            FaceTowards(entryPoint.position.x);
+
             while (Vector2.Distance(character.position, entryPoint.position) > arriveThreshold)
             {
                 character.position = Vector2.MoveTowards(
@@ -167,6 +175,25 @@ public class OneShotEntranceCutscene : MonoBehaviour
         {
             animator.SetBool(walkBoolParam, walking);
         }
+    }
+
+    private void FaceTowards(float targetX)
+    {
+        if (spriteRenderer == null || character == null)
+        {
+            return;
+        }
+
+        float dx = targetX - character.position.x;
+
+        // Пренебрежимо малое смещение — не трогаем флип (персонаж уже у цели).
+        if (Mathf.Abs(dx) < 0.0001f)
+        {
+            return;
+        }
+
+        bool movingRight = dx > 0f;
+        spriteRenderer.flipX = movingRight != spriteFacesRight;
     }
 
     private void SetPlayerBlocked(bool blocked)
