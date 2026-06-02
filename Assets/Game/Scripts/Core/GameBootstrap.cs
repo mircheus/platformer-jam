@@ -26,6 +26,7 @@ public class GameBootstrap : MonoBehaviour
 
         questSystem.ActivateQuest("Pigeon");
         questSystem.ActivateQuest("Krot_1");
+        questSystem.ActivateQuest("Ending");
         questSystem.PrintActiveQuests();
     }
 
