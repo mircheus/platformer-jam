@@ -58,7 +58,7 @@ public class DialogueEndItemDrop
         }
     }
 
-    private void OnDialogueEnded()
+    private void OnDialogueEnded(DialogueData dialogue)
     {
         if (!waiting)
         {

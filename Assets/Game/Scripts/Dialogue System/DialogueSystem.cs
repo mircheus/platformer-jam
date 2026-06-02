@@ -21,10 +21,11 @@ public class DialogueSystem : MonoBehaviour
 
     /// <summary>
     /// Поднимается, когда диалог полностью завершён (реплики кончились или вызван
-    /// EndDialogue). Скриптовые сцены подписываются, чтобы продолжить катсцену
-    /// после диалога. DialogueSystem про подписчиков не знает.
+    /// EndDialogue). Передаёт завершившийся диалог, чтобы скриптовые сцены могли
+    /// фильтровать по нужному диалогу и продолжать катсцену. DialogueSystem про
+    /// подписчиков не знает.
     /// </summary>
-    public event Action DialogueEnded;
+    public event Action<DialogueData> DialogueEnded;
 
     private DialogueData currentDialogue;
     private List<DialogueLine> currentLines;
@@ -129,6 +130,10 @@ public class DialogueSystem : MonoBehaviour
 
     public void EndDialogue()
     {
+        // Запоминаем до сброса состояния, чтобы передать подписчикам, какой
+        // именно диалог завершился.
+        DialogueData endedDialogue = currentDialogue;
+
         isDialogueActive = false;
         isPaused = false;
         currentDialogue = null;
@@ -141,6 +146,6 @@ public class DialogueSystem : MonoBehaviour
 
         Debug.Log("Dialogue ended");
 
-        DialogueEnded?.Invoke();
+        DialogueEnded?.Invoke(endedDialogue);
     }
 }
