@@ -17,4 +17,6 @@ MonoBehaviour:
   prefab: {fileID: -4123488076227781779, guid: 5aa68b54b7bf52345864916476a3dc1a, type: 3}
   renderType: 1
   questIdToComplete: 
-  targetNpcId: 
+  targetNpcId: Frog
+  takePlayerItem: 0
+  itemToTake: {fileID: 0}
