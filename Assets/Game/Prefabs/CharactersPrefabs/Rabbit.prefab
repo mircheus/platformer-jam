@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 1443098915827532270}
   - component: {fileID: 2440215207041327288}
   - component: {fileID: 7838334753000742442}
+  - component: {fileID: 99976843715685190}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
@@ -281,3 +282,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &99976843715685190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9155166466649408140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5950d20d1e3b154784799908584c27e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotMinigameDialogue
+  triggerMinigame: {fileID: 11400000, guid: c4c89189ba3836c4f96bc07c1083a3c4, type: 2}
+  dialogue: {fileID: 11400000, guid: 8554b4e7b3a7c714ba6ed61fad4e229c, type: 2}

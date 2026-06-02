@@ -20,14 +20,12 @@ public class NPCInteractable : IInteractable
     [Header("Item Drop After Dialogue")]
     [Tooltip("Индекс диалога (progress), после ЗАВЕРШЕНИЯ которого возле NPC появляется предмет. -1 — дроп выключен.")]
     [SerializeField] private int dropAfterDialogueIndex = -1;
-    [Tooltip("Заранее размещённый рядом с NPC предмет (можно держать выключенным). После нужного диалога он включается и становится подбираемым.")]
-    [SerializeField] private PickupInteractable dropPickup;
+    [Tooltip("Предмет, который выпадает после нужного диалога.")]
+    [SerializeField] private DialogueEndItemDrop drop;
     [Tooltip("Нужен, чтобы поймать момент завершения диалога. Тот же DialogueSystem, что и в сцене.")]
     [SerializeField] private DialogueSystem dialogueSystem;
 
     private int progress;
-    private bool hasDropped;
-    private bool waitingForDropDialogueEnd;
 
     public int Progress => progress;
 
@@ -112,57 +110,18 @@ public class NPCInteractable : IInteractable
 
     private void TrySubscribeForDrop()
     {
-        if (hasDropped || waitingForDropDialogueEnd)
+        // Гейт по прогрессу — специфика NPC; сам дроп инкапсулирован в хелпере.
+        if (progress != dropAfterDialogueIndex)
         {
             return;
         }
 
-        if (dropPickup == null || progress != dropAfterDialogueIndex)
-        {
-            return;
-        }
-
-        if (dialogueSystem == null)
-        {
-            Debug.LogWarning($"NPC '{ObjectID}': dropPickup задан, но dialogueSystem не назначен — дроп не сработает.");
-            return;
-        }
-
-        waitingForDropDialogueEnd = true;
-        dialogueSystem.DialogueEnded += OnDropDialogueEnded;
-    }
-
-    private void OnDropDialogueEnded()
-    {
-        if (!waitingForDropDialogueEnd)
-        {
-            return;
-        }
-
-        waitingForDropDialogueEnd = false;
-        dialogueSystem.DialogueEnded -= OnDropDialogueEnded;
-
-        DropItem();
-    }
-
-    private void DropItem()
-    {
-        hasDropped = true;
-
-        // Предмет мог лежать в сцене выключенным — включаем и делаем подбираемым.
-        dropPickup.gameObject.SetActive(true);
-        dropPickup.SetInteractable();
-
-        Debug.Log($"NPC '{ObjectID}': предмет выпал после диалога {dropAfterDialogueIndex}.");
+        drop.Arm(dialogueSystem);
     }
 
     private void OnDisable()
     {
-        if (waitingForDropDialogueEnd && dialogueSystem != null)
-        {
-            dialogueSystem.DialogueEnded -= OnDropDialogueEnded;
-            waitingForDropDialogueEnd = false;
-        }
+        drop.Cancel();
     }
 
     private void ActivatePickupInteractable()

@@ -25,6 +25,14 @@ public class MinigameSystemController : MonoBehaviour
     public bool IsRunning => currentInstance != null;
 
     /// <summary>
+    /// Стреляет после успешного завершения мини-игры и применения всех эффектов,
+    /// уже после полного сброса состояния контроллера. Передаёт завершённую
+    /// MinigameData. Для изолированных edge-скриптов (напр. OneShotMinigameDialogue),
+    /// которым нужно ситуативно среагировать на конкретную мини-игру.
+    /// </summary>
+    public event Action<MinigameData> MinigameCompleted;
+
+    /// <summary>
     /// Запускает мини-игру. Возвращает true, если запуск реально начался.
     /// onComplete (опц.) вызывается после завершения и применения эффектов —
     /// напр. чтобы продолжить диалог, поставленный на паузу.
@@ -94,12 +102,14 @@ public class MinigameSystemController : MonoBehaviour
         Debug.Log($"Minigame completed: {currentData.displayName}");
 
         Action callback = onCompleteCallback;
+        MinigameData completedData = currentData;
         onCompleteCallback = null;
         currentData = null;
 
-        // В самом конце — чтобы коллбэк (напр. продолжение диалога) выполнялся
-        // уже после полного сброса состояния контроллера.
+        // В самом конце — чтобы коллбэк (напр. продолжение диалога) и подписчики
+        // события выполнялись уже после полного сброса состояния контроллера.
         callback?.Invoke();
+        MinigameCompleted?.Invoke(completedData);
     }
 
     private void ApplySuccess(MinigameData data)
