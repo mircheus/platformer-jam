@@ -84,7 +84,7 @@ public class OneShotArrivalCutscene : MonoBehaviour
         dialogueSystem.StartDialogue(dialogue);
     }
 
-    private void OnDialogueEnded()
+    private void OnDialogueEnded(DialogueData dialogue)
     {
         if (!waitingForDialogueEnd)
         {

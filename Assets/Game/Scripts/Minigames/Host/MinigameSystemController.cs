@@ -25,6 +25,14 @@ public class MinigameSystemController : MonoBehaviour
     public bool IsRunning => currentInstance != null;
 
     /// <summary>
+    /// Стреляет после успешного завершения мини-игры и применения всех эффектов,
+    /// уже после полного сброса состояния контроллера. Передаёт завершённую
+    /// MinigameData. Для изолированных edge-скриптов (напр. OneShotMinigameDialogue),
+    /// которым нужно ситуативно среагировать на конкретную мини-игру.
+    /// </summary>
+    public event Action<MinigameData> MinigameCompleted;
+
+    /// <summary>
     /// Запускает мини-игру. Возвращает true, если запуск реально начался.
     /// onComplete (опц.) вызывается после завершения и применения эффектов —
     /// напр. чтобы продолжить диалог, поставленный на паузу.
@@ -94,16 +102,23 @@ public class MinigameSystemController : MonoBehaviour
         Debug.Log($"Minigame completed: {currentData.displayName}");
 
         Action callback = onCompleteCallback;
+        MinigameData completedData = currentData;
         onCompleteCallback = null;
         currentData = null;
 
-        // В самом конце — чтобы коллбэк (напр. продолжение диалога) выполнялся
-        // уже после полного сброса состояния контроллера.
+        // В самом конце — чтобы коллбэк (напр. продолжение диалога) и подписчики
+        // события выполнялись уже после полного сброса состояния контроллера.
         callback?.Invoke();
+        MinigameCompleted?.Invoke(completedData);
     }
 
     private void ApplySuccess(MinigameData data)
     {
+        if (data.takePlayerItem)
+        {
+            TakePlayerItem(data);
+        }
+
         if (!string.IsNullOrEmpty(data.questIdToComplete))
         {
             GameContext.Instance.QuestSystem.CompleteQuest(data.questIdToComplete);
@@ -122,6 +137,22 @@ public class MinigameSystemController : MonoBehaviour
                 Debug.LogWarning($"NPC not found for AdvanceProgress: {data.targetNpcId}");
             }
         }
+    }
+
+    private void TakePlayerItem(MinigameData data)
+    {
+        PlayerInventoryController inventory = GameContext.Instance.PlayerInventory;
+
+        // Если указан конкретный предмет — забираем, только если игрок держит именно его.
+        // Иначе можно по ошибке отнять не тот предмет, который попал в инвентарь.
+        if (data.itemToTake != null && !inventory.HasItem(data.itemToTake.ItemID))
+        {
+            Debug.LogWarning($"Minigame '{data.id}': takePlayerItem включён, но у игрока нет '{data.itemToTake.DisplayName}' — ничего не забираем.");
+            return;
+        }
+
+        // Забираем предмет у игрока: пропадает из инвентаря и из рук.
+        inventory.ConsumeItem();
     }
 
     private NPCInteractable FindNpcById(string npcId)

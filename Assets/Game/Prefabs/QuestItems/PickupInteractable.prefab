@@ -51,6 +51,7 @@ MonoBehaviour:
   promptText: Interact
   isInteractable: 1
   itemData: {fileID: 11400000, guid: 38e4fd5bdc600a846827678b12fe26bb, type: 2}
+  pickUp: 1
 --- !u!61 &9010059486393910403
 BoxCollider2D:
   m_ObjectHideFlags: 0

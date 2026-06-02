@@ -24,7 +24,8 @@ public class GameBootstrap : MonoBehaviour
     {
         QuestSystemController questSystem = GameContext.Instance.QuestSystem;
 
-        questSystem.ActivateQuest("Krot");
+        questSystem.ActivateQuest("Pigeon");
+        questSystem.ActivateQuest("Krot_1");
         questSystem.PrintActiveQuests();
     }
 
@@ -36,7 +37,5 @@ public class GameBootstrap : MonoBehaviour
         {
             return;
         }
-
-        ctx.SaveSystem.Save(ctx.Player, ctx.QuestSystem);
     }
 }

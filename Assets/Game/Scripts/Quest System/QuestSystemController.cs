@@ -5,17 +5,23 @@ public class QuestSystemController : MonoBehaviour
 {
     [Header("All available quests")]
     [SerializeField] private List<QuestData> allQuests;
-
+    
     private Dictionary<string, QuestData> questDatabase;
+
+    // Рантайм-состояние квестов. Намеренно хранится здесь, а не в QuestData:
+    // ассеты остаются неизменяемым определением, а прогресс не «протекает» в
+    // следующую сессию (персистентность — только через SaveSystem).
+    private Dictionary<string, QuestState> questStates;
 
     private void Awake()
     {
         questDatabase = new Dictionary<string, QuestData>();
+        questStates = new Dictionary<string, QuestState>();
 
         foreach (var quest in allQuests)
         {
             questDatabase.Add(quest.QuestID, quest);
-            quest.CurrentState = QuestState.Inactive;
+            questStates[quest.QuestID] = QuestState.Inactive;
         }
     }
 
@@ -29,17 +35,16 @@ public class QuestSystemController : MonoBehaviour
             return;
         }
 
-        QuestData quest = questDatabase[questID];
+        QuestState state = questStates[questID];
 
-        if (quest.CurrentState == QuestState.Active ||
-            quest.CurrentState == QuestState.Completed)
+        if (state == QuestState.Active || state == QuestState.Completed)
         {
             return;
         }
 
-        quest.CurrentState = QuestState.Active;
+        questStates[questID] = QuestState.Active;
 
-        Debug.Log($"Quest activated: {quest.QuestName}");
+        Debug.Log($"Quest activated: {questDatabase[questID].QuestName}");
     }
 
     public void CompleteQuest(string questID)
@@ -50,16 +55,16 @@ public class QuestSystemController : MonoBehaviour
             return;
         }
 
-        QuestData quest = questDatabase[questID];
-
-        if (quest.CurrentState != QuestState.Active)
+        if (questStates[questID] != QuestState.Active)
         {
             return;
         }
 
-        quest.CurrentState = QuestState.Completed;
+        questStates[questID] = QuestState.Completed;
 
-        Debug.Log($"Quest completed: {quest.QuestName}");
+        QuestData quest = questDatabase[questID];
+
+        Debug.Log($"[MIR] Quest completed: {quest.QuestName}");
 
         if (!string.IsNullOrEmpty(quest.OptionalNextQuestID))
         {
@@ -71,7 +76,7 @@ public class QuestSystemController : MonoBehaviour
     {
         foreach (var quest in allQuests)
         {
-            if (quest.CurrentState != QuestState.Active)
+            if (questStates[quest.QuestID] != QuestState.Active)
                 continue;
 
             if (quest.TargetNPC_ID == npcID)
@@ -86,7 +91,7 @@ public class QuestSystemController : MonoBehaviour
     {
         foreach (var quest in allQuests)
         {
-            if (quest.CurrentState == QuestState.Active)
+            if (questStates[quest.QuestID] == QuestState.Active)
             {
                 Debug.Log($"- {quest.Description}");
             }
@@ -95,12 +100,27 @@ public class QuestSystemController : MonoBehaviour
 
     public QuestState GetQuestState(string questID)
     {
-        if (!questDatabase.ContainsKey(questID))
+        if (questStates == null || !questStates.ContainsKey(questID))
         {
             return QuestState.Inactive;
         }
 
-        return questDatabase[questID].CurrentState;
+        return questStates[questID];
+    }
+
+    /// <summary>
+    /// Принудительно задаёт состояние квеста. Используется системой сохранений
+    /// при загрузке, чтобы восстановить прогресс из save.json.
+    /// </summary>
+    public void SetQuestState(string questID, QuestState state)
+    {
+        if (!questDatabase.ContainsKey(questID))
+        {
+            Debug.LogWarning($"Quest not found: {questID}");
+            return;
+        }
+
+        questStates[questID] = state;
     }
 
     public bool IsQuestActive(string questID)

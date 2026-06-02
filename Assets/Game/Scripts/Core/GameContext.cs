@@ -5,7 +5,6 @@ public class GameContext : MonoBehaviour
     public static GameContext Instance { get; private set; }
 
     [Header("Shared Systems")]
-    [SerializeField] private SaveSystemController saveSystem;
     [SerializeField] private QuestSystemController questSystem;
     [SerializeField] private DialogueSelector dialogueSelector;
     [SerializeField] private PlayerInventoryController playerInventory;
@@ -16,8 +15,7 @@ public class GameContext : MonoBehaviour
     [Header("Player")]
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerItemHolder itemHolder;
-
-    public SaveSystemController SaveSystem => saveSystem;
+    
     public QuestSystemController QuestSystem => questSystem;
     public DialogueSelector DialogueSelector => dialogueSelector;
     public PlayerInventoryController PlayerInventory => playerInventory;

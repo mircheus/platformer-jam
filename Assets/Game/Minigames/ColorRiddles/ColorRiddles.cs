@@ -7,8 +7,6 @@ using UnityEngine;
 
 namespace Minigames
 {
-    // Пример-заглушка. Корень префаба мини-игры несёт этот скрипт.
-    // Зависит ТОЛЬКО от Minigames.Contract — игровые системы здесь недоступны по дисциплине.
     public class ColorRiddles : MinigameBase
     {
         [SerializeField] private ColorButton[] colorButtons;
