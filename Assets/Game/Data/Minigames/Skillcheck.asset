@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f60b5a4e31525fb4faa43a91a8d5697f, type: 3}
   m_Name: Skillcheck
   m_EditorClassIdentifier: Assembly-CSharp::MinigameData
-  id: 0
+  id: Skillcheck
   displayName: 
   prefab: {fileID: 4230079662221834695, guid: 77e776047dade7440890edddc901ed22, type: 3}
   renderType: 1
-  questIdToComplete: 
+  questIdToComplete: Rabbit
   targetNpcId: 
   takePlayerItem: 1
   itemToTake: {fileID: 11400000, guid: ba8d9fe9a958158498ded09664e94085, type: 2}

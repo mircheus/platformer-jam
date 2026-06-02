@@ -12,6 +12,8 @@ public class NPCInteractable : IInteractable
     [SerializeField] private ItemData requiredItem;
     [Tooltip("Диалог, который проигрывается, если у игрока НЕТ нужного предмета.")]
     [SerializeField] private DialogueData noItemDialogue;
+    [Tooltip("Если включено, при успешной проверке предмет забирается у игрока (передаётся NPC). Работает только вместе с requireItem.")]
+    [SerializeField] private bool consumeItem;
 
     [Header("InteractableObject")]
     [SerializeField] private PickupInteractable pickupInteractable;
@@ -66,6 +68,9 @@ public class NPCInteractable : IInteractable
             return;
         }
 
+        // Предмет подтверждён у игрока — при необходимости забираем его «в пользу NPC».
+        TryConsumeRequiredItem();
+
         // Если текущий диалог — «дроповый», подписываемся ДО запуска, чтобы поймать
         // его завершение. Игрок на время диалога заблокирован, поэтому ближайший
         // DialogueEnded — гарантированно этот диалог.
@@ -93,6 +98,27 @@ public class NPCInteractable : IInteractable
         }
         
         return GameContext.Instance.PlayerInventory.HasItem(requiredItem.ItemID);
+    }
+
+    private void TryConsumeRequiredItem()
+    {
+        if (!consumeItem)
+        {
+            return;
+        }
+
+        // Забирать имеет смысл только конкретный requiredItem: иначе у игрока
+        // отняли бы случайный предмет, который он держит.
+        if (!requireItem || requiredItem == null)
+        {
+            Debug.LogWarning($"NPC '{ObjectID}': consumeItem включён, но requireItem/requiredItem не заданы — забирать нечего.");
+            return;
+        }
+
+        GameContext.Instance.PlayerInventory.ConsumeItem();
+        requireItem = false;
+
+        Debug.Log($"NPC '{ObjectID}': предмет '{requiredItem.DisplayName}' забран у игрока.");
     }
 
     private void PlayNoItemDialogue()

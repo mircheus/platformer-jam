@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Разовая скриптовая сцена: после завершения заданного диалога блокирует игрока,
@@ -45,12 +47,25 @@ public class OneShotDepartureCutscene : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [Tooltip("Куда смотрит спрайт БЕЗ флипа (flipX = false). Нужно, чтобы разворот шёл в правильную сторону.")]
     [SerializeField] private bool spriteFacesRight = true;
+    
+    [Header("Disabling Player controls")]
+    [SerializeField] private bool disablePlayerControls = false;
+
+    [Header("On Finished")]
+    [Tooltip("Вызывается в самом конце — после ухода персонажа и возврата управления игроку.")]
+    [SerializeField] private UnityEvent onFinished;
 
     private bool hasPlayed;
     private bool waitingForTrigger;
 
-    private void Start()
+    private void OnEnable()
     {
+        // Одноразовый триггер уже отработал — повторно не подписываемся.
+        if (hasPlayed)
+        {
+            return;
+        }
+
         if (dialogueSystem != null)
         {
             dialogueSystem.DialogueEnded += OnDialogueEnded;
@@ -73,6 +88,7 @@ public class OneShotDepartureCutscene : MonoBehaviour
 
     private void OnDialogueEnded(DialogueData dialogue)
     {
+        Debug.Log($"{gameObject.name} HasPlayed: {hasPlayed}");
         if (hasPlayed)
         {
             return;
@@ -89,9 +105,9 @@ public class OneShotDepartureCutscene : MonoBehaviour
         // Триггер одноразовый — отписываемся сразу.
         dialogueSystem.DialogueEnded -= OnDialogueEnded;
         waitingForTrigger = false;
-
-        // Miroslav: Намеренно выключил чтобы не конфликтовало с OneShotEntranceCutscene
-        // SetPlayerBlocked(true);
+        
+        if(disablePlayerControls)
+            SetPlayerBlocked(true);
 
         StartCoroutine(LeaveRoutine());
     }
@@ -121,14 +137,17 @@ public class OneShotDepartureCutscene : MonoBehaviour
         }
 
         SetWalking(false);
-
-        // Miroslav: Намеренно выключил чтобы не конфликтовало с OneShotEntranceCutscene
-        // SetPlayerBlocked(false);
+        
+        if(disablePlayerControls)
+            SetPlayerBlocked(false);
 
         if (deactivateAfterLeave && character != null)
         {
             character.gameObject.SetActive(false);
         }
+
+        // Скрипт отработал, управление уже возвращено игроку — дёргаем внешние реакции.
+        onFinished?.Invoke();
     }
 
     private void SetWalking(bool walking)

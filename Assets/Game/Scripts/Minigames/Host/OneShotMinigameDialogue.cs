@@ -26,7 +26,7 @@ public class OneShotMinigameDialogue : MonoBehaviour
 
     private bool hasPlayed;
 
-    private void Start()
+    private void OnEnable()
     {
         if (GameContext.Instance != null && GameContext.Instance.MinigameSystem != null)
         {
