@@ -5,6 +5,14 @@ public class NPCInteractable : IInteractable
     [Header("Dialogues")]
     [SerializeField] private DialogueData[] dialogues;
 
+    [Header("Required Item Check")]
+    [Tooltip("Если включено, перед обычной цепочкой диалогов NPC проверяет, есть ли у игрока нужный предмет.")]
+    [SerializeField] private bool requireItem;
+    [Tooltip("Предмет, который должен быть у игрока, чтобы запустилась обычная цепочка диалогов.")]
+    [SerializeField] private ItemData requiredItem;
+    [Tooltip("Диалог, который проигрывается, если у игрока НЕТ нужного предмета.")]
+    [SerializeField] private DialogueData noItemDialogue;
+
     [Header("InteractableObject")]
     [SerializeField] private PickupInteractable pickupInteractable;
     [SerializeField] private bool activateInteractableAfterDialogue;
@@ -52,6 +60,14 @@ public class NPCInteractable : IInteractable
     {
         Debug.Log($"Передаем NPC диалоговой системе | ObjectID : {ObjectID}");
 
+        // Проверяем, есть ли у игрока нужный предмет. Если предмета нет — играем
+        // отдельный диалог и не запускаем обычную цепочку (и связанную с ней логику).
+        if (!HasRequiredItem())
+        {
+            PlayNoItemDialogue();
+            return;
+        }
+
         // Если текущий диалог — «дроповый», подписываемся ДО запуска, чтобы поймать
         // его завершение. Игрок на время диалога заблокирован, поэтому ближайший
         // DialogueEnded — гарантированно этот диалог.
@@ -63,6 +79,35 @@ public class NPCInteractable : IInteractable
         {
             ActivatePickupInteractable();
         }
+    }
+
+    private bool HasRequiredItem()
+    {
+        if (!requireItem)
+        {
+            return true;
+        }
+
+        if (requiredItem == null)
+        {
+            Debug.LogWarning($"NPC '{ObjectID}': requireItem включён, но requiredItem не назначен — проверка пропущена.");
+            return true;
+        }
+        
+        return GameContext.Instance.PlayerInventory.HasItem(requiredItem.ItemID);
+    }
+
+    private void PlayNoItemDialogue()
+    {
+        Debug.Log($"NPC '{ObjectID}': у игрока нет предмета '{requiredItem.DisplayName}' — играем диалог без предмета.");
+
+        if (noItemDialogue == null)
+        {
+            Debug.LogWarning($"NPC '{ObjectID}': noItemDialogue не назначен — нечего проигрывать.");
+            return;
+        }
+
+        GameContext.Instance.DialogueSelector.SelectDialogue(noItemDialogue);
     }
 
     private void TrySubscribeForDrop()

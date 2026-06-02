@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3410569699852127241, guid: 190bc04de3660184b9354011a5998940, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
       propertyPath: m_LocalPosition.x
@@ -917,13 +917,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 154089569}
     m_Modifications:
+    - target: {fileID: 2019177479931200863, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+      propertyPath: locationId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4595146562692629028, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.80685
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4595146562692629028, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.57217
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4595146562692629028, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -960,6 +964,10 @@ PrefabInstance:
     - target: {fileID: 7314985848606021343, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
       propertyPath: m_Name
       value: Level_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314985848606021343, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3458,6 +3466,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1341991602}
     m_Modifications:
+    - target: {fileID: 3688184649833670379, guid: 35055c1f54d55d04abd1ca2805f627b1, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: ba8d9fe9a958158498ded09664e94085, type: 2}
     - target: {fileID: 3954765980292194714, guid: 35055c1f54d55d04abd1ca2805f627b1, type: 3}
       propertyPath: m_Name
       value: Berushi
@@ -3583,7 +3595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3410569699852127241, guid: 190bc04de3660184b9354011a5998940, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
       propertyPath: m_LocalPosition.x

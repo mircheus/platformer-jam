@@ -249,9 +249,11 @@ MonoBehaviour:
   promptText: Interact
   isInteractable: 1
   dialogues:
-  - {fileID: 11400000, guid: fd26bc86f1904e043804a7654b6ec79d, type: 2}
-  - {fileID: 11400000, guid: 6c0b94634ad46b846b7f978ef68f5167, type: 2}
-  - {fileID: 11400000, guid: 0a08fef4b6964cb44b8fa2100b0f165d, type: 2}
+  - {fileID: 11400000, guid: 6105d3aee9f338347bf1be228c349283, type: 2}
+  - {fileID: 11400000, guid: 8554b4e7b3a7c714ba6ed61fad4e229c, type: 2}
+  requireItem: 1
+  requiredItem: {fileID: 11400000, guid: ba8d9fe9a958158498ded09664e94085, type: 2}
+  noItemDialogue: {fileID: 11400000, guid: 8a05acc2045299a4c8a420d784402e81, type: 2}
   pickupInteractable: {fileID: 0}
   activateInteractableAfterDialogue: 0
   dropAfterDialogueIndex: -1
