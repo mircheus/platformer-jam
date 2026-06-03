@@ -19,6 +19,12 @@ public class NPCInteractable : IInteractable
     [SerializeField] private PickupInteractable pickupInteractable;
     [SerializeField] private bool activateInteractableAfterDialogue;
 
+    [Header("NpcPresenceZone")]
+    [Tooltip("Если включено, этот NPC игнорируется зонами NpcPresenceZone и не блокирует взаимодействие (напр. с лифтом).")]
+    [SerializeField] private bool ignoredByNpcPresenceZone = false;
+
+    public bool IgnoredByNpcPresenceZone => ignoredByNpcPresenceZone;
+
     [Header("Item Drop After Dialogue")]
     [Tooltip("Индекс диалога (progress), после ЗАВЕРШЕНИЯ которого возле NPC появляется предмет. -1 — дроп выключен.")]
     [SerializeField] private int dropAfterDialogueIndex = -1;

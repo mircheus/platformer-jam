@@ -1,5 +1,86 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &553879328699752336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4358907520331026691}
+  - component: {fileID: 8068437149570020006}
+  - component: {fileID: 224023655745153338}
+  m_Layer: 0
+  m_Name: NpcBlockZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4358907520331026691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553879328699752336}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9046969034668407887}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &8068437149570020006
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553879328699752336}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 4.21
+--- !u!114 &224023655745153338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553879328699752336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7934282e8ea14d218c1b033853f8f6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcPresenceZone
 --- !u!1 &4121933798252901964
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,7 +111,8 @@ Transform:
   m_LocalPosition: {x: -4.03, y: 0.34999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4358907520331026691}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6661087600474972030
@@ -96,19 +178,28 @@ MonoBehaviour:
   promptText: Interact
   isInteractable: 1
   liftPanel: {fileID: 0}
+  npcBlockZone: {fileID: 224023655745153338}
+  floors:
+  - locationId: 0
+    unlockQuestId: 
+    requiredState: 0
+  - locationId: 1
+    unlockQuestId: Pigeon
+    requiredState: 2
+  - locationId: 2
+    unlockQuestId: Krot_1
+    requiredState: 2
+  - locationId: 3
+    unlockQuestId: Ending
+    requiredState: 2
+  - locationId: 4
+    unlockQuestId: 
+    requiredState: 0
   cabinAnimator: {fileID: 0}
   rideAnchor: {fileID: 0}
   delayBeforeFade: 0.3
   delayAfterArrival: 0.3
-  up:
-    targetLocationId: 1
-    unlockQuestId: 
-    requiredState: 2
-    animationState: Up
-    arrivalState: Up_arrive
-  down:
-    targetLocationId: 
-    unlockQuestId: 
-    requiredState: 2
-    animationState: Down
-    arrivalState: Down_arrive
+  upAnimationState: Up
+  upArrivalState: Up_arrive
+  downAnimationState: Down
+  downArrivalState: Down_arrive

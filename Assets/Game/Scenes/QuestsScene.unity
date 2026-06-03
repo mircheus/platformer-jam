@@ -904,6 +904,10 @@ PrefabInstance:
       propertyPath: 'dialogues.Array.data[2]'
       value: 
       objectReference: {fileID: 11400000, guid: 0a08fef4b6964cb44b8fa2100b0f165d, type: 2}
+    - target: {fileID: 8140624477164409563, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
+      propertyPath: ignoredByNpcPresenceZone
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3537838060459291817, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
@@ -3395,62 +3399,6 @@ PrefabInstance:
       propertyPath: cabinAnimator
       value: 
       objectReference: {fileID: 1089696333}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: up.requiredState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: floors.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: down.targetLocationId
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: floors.Array.data[0].locationId
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: floors.Array.data[1].locationId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: floors.Array.data[2].locationId
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: floors.Array.data[3].locationId
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: floors.Array.data[4].locationId
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: floors.Array.data[1].requiredState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: floors.Array.data[1].unlockQuestId
-      value: Pigeon
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: floors.Array.data[2].requiredState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: floors.Array.data[2].unlockQuestId
-      value: Krot_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: floors.Array.data[3].requiredState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
-      propertyPath: floors.Array.data[3].unlockQuestId
-      value: Ending
-      objectReference: {fileID: 0}
     - target: {fileID: 9046969034668407887, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.03
@@ -3494,7 +3442,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 553879328699752336, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2020808918}
   m_SourcePrefab: {fileID: 100100000, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
 --- !u!4 &1130804844 stripped
 Transform:
@@ -5101,6 +5052,38 @@ Transform:
   - {fileID: 1604166142}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2020808914 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 553879328699752336, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
+  m_PrefabInstance: {fileID: 1130804843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &2020808918
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020808914}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &2064981640
 PrefabInstance:
   m_ObjectHideFlags: 0

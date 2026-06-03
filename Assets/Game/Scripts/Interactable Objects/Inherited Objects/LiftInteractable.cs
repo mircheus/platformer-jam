@@ -26,6 +26,9 @@ public class LiftInteractable : IInteractable
     [Header("Lift")]
     [SerializeField] private LiftPanelUI liftPanel;
 
+    [Tooltip("Опциональная зона: пока в ней находится NPC, лифт заблокирован для взаимодействия.")]
+    [SerializeField] private NpcPresenceZone npcBlockZone;
+
     [Tooltip("Этажи снизу вверх: индекс 0 — самый нижний. Вверх — следующий индекс, вниз — предыдущий.")]
     [SerializeField] private List<Floor> floors = new List<Floor>();
 
@@ -47,6 +50,15 @@ public class LiftInteractable : IInteractable
     [SerializeField] private string downAnimationState = "Down";
     [Tooltip("Стейт анимации прибытия после спуска.")]
     [SerializeField] private string downArrivalState = "Down_arrive";
+
+    public override bool CanInteract()
+    {
+        // Пока в зоне стоит NPC — лифт недоступен.
+        if (npcBlockZone != null && npcBlockZone.IsOccupied)
+            return false;
+
+        return base.CanInteract();
+    }
 
     protected override void OnInteract()
     {
