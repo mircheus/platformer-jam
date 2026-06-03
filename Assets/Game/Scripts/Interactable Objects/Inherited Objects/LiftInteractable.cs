@@ -15,6 +15,10 @@ public class LiftInteractable : IInteractable
 
         [Tooltip("Состояние квеста, при котором подъём вверх с этого этажа становится доступен.")]
         public QuestState requiredState = QuestState.Completed;
+
+        [Tooltip("Сообщение, которое показывается в панели лифта, когда подъём вверх с этого " +
+                 "этажа ещё закрыт квест-гейтом. Пусто — панель покажет своё стандартное сообщение.")]
+        [TextArea] public string lockedUpMessage;
     }
 
     private enum MoveDirection
@@ -86,7 +90,7 @@ public class LiftInteractable : IInteractable
 
         if (!CanGo(current, targetIndex, direction))
         {
-            liftPanel.ShowBrokenMessage();
+            liftPanel.ShowBrokenMessage(GetBlockedUpMessage(current, direction));
             return;
         }
 
@@ -133,6 +137,18 @@ public class LiftInteractable : IInteractable
             delayAfterArrival = delayAfterArrival,
             rideAnchor = rideAnchor
         };
+    }
+
+    /// <summary>
+    /// Уникальное сообщение этажа о том, почему подъём вверх закрыт. Возвращается только
+    /// для случая «вверх» с распознанного этажа; иначе null — панель покажет своё стандартное.
+    /// </summary>
+    private string GetBlockedUpMessage(int current, MoveDirection direction)
+    {
+        if (direction != MoveDirection.Up || current < 0 || current >= floors.Count)
+            return null;
+
+        return floors[current].lockedUpMessage;
     }
 
     private bool CanGo(int current, int targetIndex, MoveDirection direction)

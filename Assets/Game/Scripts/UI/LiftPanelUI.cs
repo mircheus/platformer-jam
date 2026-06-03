@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,9 @@ public class LiftPanelUI : MonoBehaviour
 
     [Header("Broken direction placeholder")]
     [SerializeField] private GameObject brokenMessage;
+    [Tooltip("Текст внутри brokenMessage. Подменяется уникальным сообщением этажа; " +
+             "если этаж сообщение не задал — возвращается текст по умолчанию из префаба.")]
+    [SerializeField] private TMP_Text brokenMessageText;
     [SerializeField] private float brokenMessageDuration = 2f;
 
     [Header("Player")]
@@ -21,9 +25,13 @@ public class LiftPanelUI : MonoBehaviour
 
     private LiftInteractable currentSource;
     private Coroutine brokenRoutine;
+    private string defaultBrokenMessage;
 
     private void Awake()
     {
+        if (brokenMessageText != null)
+            defaultBrokenMessage = brokenMessageText.text;
+
         if (upButton != null)
             upButton.onClick.AddListener(OnUpClicked);
 
@@ -63,10 +71,14 @@ public class LiftPanelUI : MonoBehaviour
         playerController.EnableInteraction();
     }
 
-    public void ShowBrokenMessage()
+    public void ShowBrokenMessage(string message = null)
     {
         if (brokenMessage == null)
             return;
+
+        // Уникальное сообщение этажа подменяет текст; пусто — возвращаем стандартное из префаба.
+        if (brokenMessageText != null)
+            brokenMessageText.text = string.IsNullOrEmpty(message) ? defaultBrokenMessage : message;
 
         if (brokenRoutine != null)
             StopCoroutine(brokenRoutine);

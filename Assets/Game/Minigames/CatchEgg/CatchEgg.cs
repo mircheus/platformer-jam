@@ -1,4 +1,5 @@
 using Minigames.Contract;
+using TMPro;
 using UnityEngine;
 
 namespace Minigames
@@ -12,6 +13,10 @@ namespace Minigames
         [Tooltip("Сколько объектов нужно поймать для победы.")]
         [SerializeField] private int targetCatchCount = 5;
 
+        [Header("UI")]
+        [Tooltip("Текст счётчика пойманных объектов.")]
+        [SerializeField] private TMP_Text counterText;
+
         private int _caughtCount;
 
         public override void Begin(MinigameContext ctx)
@@ -19,6 +24,7 @@ namespace Minigames
             Debug.Log($"CatchEgg started | source: {ctx.SourceObjectID}");
 
             _caughtCount = 0;
+            UpdateCounterText();
 
             playerCatcher.EnableControl();
             objectSpawner.EggCaught += OnEggCaught;
@@ -28,12 +34,21 @@ namespace Minigames
         private void OnEggCaught()
         {
             _caughtCount++;
+            UpdateCounterText();
 
             Debug.Log($"CatchEgg: caught {_caughtCount}/{targetCatchCount}");
 
             if (_caughtCount >= targetCatchCount)
             {
                 Win();
+            }
+        }
+
+        private void UpdateCounterText()
+        {
+            if (counterText != null)
+            {
+                counterText.text = $"{_caughtCount}/{targetCatchCount}";
             }
         }
 

@@ -691,6 +691,7 @@ MonoBehaviour:
   displayName: 
   promptText: Interact
   isInteractable: 1
+  interactionPrompt: {fileID: 0}
   requiredItem: {fileID: 11400000, guid: 38e4fd5bdc600a846827678b12fe26bb, type: 2}
   advanceNPCProgress: 1
   targetNPC: {fileID: 0}
