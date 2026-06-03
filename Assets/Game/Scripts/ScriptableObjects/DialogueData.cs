@@ -7,6 +7,9 @@ public class DialogueData : ScriptableObject
 {
     public string dialogueID;
 
+    [Tooltip("Звук-«голос» персонажа: проигрывается при показе каждой реплики этого диалога. Пусто — без голоса.")]
+    public AudioClip voiceClip;
+
     public List<DialogueLine> lines;
 }
 

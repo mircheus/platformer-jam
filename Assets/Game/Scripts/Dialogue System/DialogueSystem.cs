@@ -130,6 +130,10 @@ public class DialogueSystem : MonoBehaviour
     private void ShowCurrentLine()
     {
         dialogueText.text = currentLines[currentLineIndex].text;
+
+        // «Голос» персонажа на каждую реплику. Клип задан на уровне диалога.
+        if (currentDialogue.voiceClip != null && AudioManager.Instance != null)
+            AudioManager.Instance.PlayVoice(currentDialogue.voiceClip);
     }
 
     public void EndDialogue()

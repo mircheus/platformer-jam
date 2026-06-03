@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlayerInventoryController : MonoBehaviour
 {
+    [Tooltip("Звук получения предмета по умолчанию. Используется, если у ItemData нет своего pickupSound.")]
+    [SerializeField] private AudioClip defaultPickupSound;
+
     private PlayerInventoryModel model;
 
     private void Awake()
@@ -26,6 +29,12 @@ public class PlayerInventoryController : MonoBehaviour
         model.SetItem(item);
 
         Debug.Log($"Item picked up: {item.DisplayName} | ID: {item.ItemID}");
+
+        if (AudioManager.Instance != null)
+        {
+            AudioClip clip = item.pickupSound != null ? item.pickupSound : defaultPickupSound;
+            AudioManager.Instance.PlaySfx(clip);
+        }
 
         return true;
     }

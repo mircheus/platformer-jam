@@ -15,6 +15,10 @@ public class PlayerMovementController : MonoBehaviour
 
     [SerializeField] private float groundCheckRadius = 0.2f;
 
+    [Header("Audio")]
+    [Tooltip("Зацикленный звук шагов: играет, пока игрок движется по земле.")]
+    [SerializeField] private AudioClip moveLoopClip;
+
     [Header("Performance")]
     [SerializeField] private InteractionSystemController interactionSystemController;
 
@@ -49,6 +53,28 @@ public class PlayerMovementController : MonoBehaviour
         // горизонтальную скорость. Иначе зажатая клавиша оставляет moveInput
         // ненулевым, и игрок продолжает ехать сквозь диалог.
         view.Move(canMove ? moveInput.x : 0f, moveSpeed);
+
+        UpdateMoveLoop();
+    }
+
+    /// <summary>
+    /// Включает/выключает звук шагов: только когда игрок реально едет по земле
+    /// (есть ввод, движение разрешено и под ногами есть опора). AudioManager сам
+    /// гасит лишние повторные вызовы и сглаживает старт/стоп микрофейдом.
+    /// </summary>
+    private void UpdateMoveLoop()
+    {
+        if (moveLoopClip == null || AudioManager.Instance == null)
+            return;
+
+        bool grounded = groundTrigger != null
+            && view.CheckGround(groundTrigger, groundLayer, groundCheckRadius);
+        bool walking = canMove && Mathf.Abs(moveInput.x) > 0.01f && grounded;
+
+        if (walking)
+            AudioManager.Instance.StartMoveLoop(moveLoopClip);
+        else
+            AudioManager.Instance.StopMoveLoop();
     }
 
     private void OnEnable()
