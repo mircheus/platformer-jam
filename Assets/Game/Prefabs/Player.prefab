@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 5849447892107036264}
   - component: {fileID: 3603803559424809786}
   - component: {fileID: 834906071143663483}
+  - component: {fileID: 5814823920774049328}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -176,6 +177,7 @@ MonoBehaviour:
   groundCheckRadius: 0.2
   moveLoopClip: {fileID: 0}
   walkAnimator: {fileID: 0}
+  facingController: {fileID: 0}
   interactionSystemController: {fileID: 2347554373307414538}
   limitFPS: 0
 --- !u!114 &5849447892107036264
@@ -234,6 +236,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWalkAnimator
   animator: {fileID: 7827362331076883725}
+  walkDropDistance: 0.1
+--- !u!114 &5814823920774049328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481458387893683715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cc7a58599d44e4c87a70129e8a159d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFacingController
+  spriteRenderer: {fileID: 2003987992088680070}
+  interactableTrigger: {fileID: 1235815101251790891}
+  spriteFacesRight: 1
 --- !u!1 &2391584188273132186
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +472,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.9530251, y: 0.02485013}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}

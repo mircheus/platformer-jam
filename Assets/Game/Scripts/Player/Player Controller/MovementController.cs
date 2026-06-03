@@ -21,6 +21,7 @@ public class PlayerMovementController : MonoBehaviour
 
     [Header("Animation")]
     [SerializeField] private PlayerWalkAnimator walkAnimator;
+    [SerializeField] private PlayerFacingController facingController;
 
     [Header("Performance")]
     [SerializeField] private InteractionSystemController interactionSystemController;
@@ -59,10 +60,14 @@ public class PlayerMovementController : MonoBehaviour
 
         // Прыжка нет, поэтому опору не проверяем: идём = есть ввод по X и движение
         // разрешено. Этот же признак питает и анимацию, и звук шагов.
-        bool walking = canMove && Mathf.Abs(moveInput.x) > 0.01f;
+        float inputX = canMove ? moveInput.x : 0f;
+        bool walking = Mathf.Abs(inputX) > 0.01f;
 
         if (walkAnimator != null)
             walkAnimator.SetWalking(walking);
+
+        if (facingController != null)
+            facingController.SetDirection(inputX);
 
         UpdateMoveLoop(walking);
     }

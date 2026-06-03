@@ -14,11 +14,15 @@ public class PlayerWalkAnimator : MonoBehaviour
     [Tooltip("Animator со спрайтом игрока (объект SpriteAnim, висит дочерним).")]
     [SerializeField] private Animator animator;
 
+    [Tooltip("Дочерний AttachPoint — опускается вместе со спрайтом во время ходьбы.")]
+    [SerializeField] private Transform attachPoint;
+
     [Tooltip("На сколько опустить спрайт по Y во время ходьбы (в юнитах).")]
     [SerializeField] private float walkDropDistance = 0.1f;
 
     private Transform spriteTransform;
-    private Vector3 baseLocalPosition;
+    private Vector3 baseSpriteLocalPosition;
+    private Vector3 baseAttachLocalPosition;
 
     private bool isWalking;
     private bool initialized;
@@ -29,8 +33,11 @@ public class PlayerWalkAnimator : MonoBehaviour
         {
             // Animator висит на SpriteAnim — его же трансформ и опускаем.
             spriteTransform = animator.transform;
-            baseLocalPosition = spriteTransform.localPosition;
+            baseSpriteLocalPosition = spriteTransform.localPosition;
         }
+
+        if (attachPoint != null)
+            baseAttachLocalPosition = attachPoint.localPosition;
     }
 
     /// <summary>
@@ -51,8 +58,11 @@ public class PlayerWalkAnimator : MonoBehaviour
 
         animator.Play(walking ? WalkState : IdleState);
 
-        spriteTransform.localPosition = walking
-            ? baseLocalPosition - new Vector3(0f, walkDropDistance, 0f)
-            : baseLocalPosition;
+        Vector3 drop = walking ? new Vector3(0f, walkDropDistance, 0f) : Vector3.zero;
+
+        spriteTransform.localPosition = baseSpriteLocalPosition - drop;
+
+        if (attachPoint != null)
+            attachPoint.localPosition = baseAttachLocalPosition - drop;
     }
 }
