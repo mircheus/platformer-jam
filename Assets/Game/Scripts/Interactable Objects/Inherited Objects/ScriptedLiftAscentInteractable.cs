@@ -8,6 +8,11 @@ using UnityEngine;
 /// промежуточные локации и квест-гейты. Переиспользует список этажей и конфиг
 /// анимации кабины самого LiftInteractable.
 ///
+/// Опционально по ОКОНЧАНИИ приезда лифта (когда отыграла анимация прибытия и
+/// игроку вернули управление) проигрывает второй диалог <see cref="arrivalDialogue"/>.
+/// «Лифт доехал» ловится через обобщённое событие
+/// <see cref="LocationTransitionController.ArrivedAtLocation"/>.
+///
 /// Катсцена разовая: после первого прохода скрипт больше не отрабатывает.
 ///
 /// ВАЖНО про переключение: InteractionSystem берёт интерактабл через
@@ -27,6 +32,8 @@ public class ScriptedLiftAscentInteractable : IInteractable
     [Header("Dialogue")]
     [Tooltip("Набор реплик, который проигрывается перед подъёмом лифта.")]
     [SerializeField] private DialogueData dialogue;
+    [Tooltip("Опциональный набор реплик, который проигрывается ПОСЛЕ того, как лифт приедет на целевой этаж. Если пусто — после приезда ничего не играется.")]
+    [SerializeField] private DialogueData arrivalDialogue;
     [Tooltip("Тот же DialogueSystem, что и в сцене — нужен, чтобы поймать завершение диалога.")]
     [SerializeField] private DialogueSystem dialogueSystem;
 
@@ -68,23 +75,66 @@ public class ScriptedLiftAscentInteractable : IInteractable
             return;
 
         dialogueSystem.DialogueEnded -= OnDialogueEnded;
-        isRunning = false;
         hasPlayed = true;
+        // isRunning остаётся true: катсцена продолжается — едем и ждём приезда.
+
+        // Ловим ОКОНЧАНИЕ приезда лифта. Игрок заблокирован на всю поездку, а
+        // LocationTransition не пускает параллельные переходы (IsRunning), поэтому
+        // ближайший ArrivedAtLocation — гарантированно прибытие нашего лифта.
+        GameContext.Instance.LocationTransition.ArrivedAtLocation += OnLiftArrived;
 
         // EndDialogue уже вернул управление игроку; LocationTransition.Go снова
         // его заблокирует на время поездки.
         lift.GoToFloor(targetFloorIndex, goingUp: true);
     }
 
+    private void OnLiftArrived(Location location)
+    {
+        GameContext.Instance.LocationTransition.ArrivedAtLocation -= OnLiftArrived;
+
+        // Нет реплики на приезд — на этом катсцена завершена.
+        if (arrivalDialogue == null)
+        {
+            isRunning = false;
+            return;
+        }
+
+        // Игрок только что получил управление обратно (приезд завершился) — диалог
+        // снова его заблокирует. isRunning держим до конца этой реплики.
+        dialogueSystem.DialogueEnded += OnArrivalDialogueEnded;
+        GameContext.Instance.DialogueSelector.SelectDialogue(arrivalDialogue);
+    }
+
+    private void OnArrivalDialogueEnded(DialogueData ended)
+    {
+        // Не наш диалог — ждём дальше.
+        if (ended != arrivalDialogue)
+            return;
+
+        dialogueSystem.DialogueEnded -= OnArrivalDialogueEnded;
+        isRunning = false;
+    }
+
     private void OnDisable()
     {
-        // Объект могут выключить посреди диалога — снимаем подписку, чтобы не
-        // словить событие в неактивном состоянии. hasPlayed не трогаем: если
-        // катсцена уже отработала, при повторном включении она не запустится.
-        if (isRunning && dialogueSystem != null)
+        // Объект могут выключить посреди катсцены (диалог / поездка / реплика на
+        // приезд) — снимаем все подписки, чтобы не словить событие в неактивном
+        // состоянии. hasPlayed не трогаем: если катсцена уже отработала, при
+        // повторном включении она не запустится.
+        if (!isRunning)
+            return;
+
+        isRunning = false;
+
+        if (dialogueSystem != null)
         {
             dialogueSystem.DialogueEnded -= OnDialogueEnded;
-            isRunning = false;
+            dialogueSystem.DialogueEnded -= OnArrivalDialogueEnded;
+        }
+
+        if (GameContext.Instance != null && GameContext.Instance.LocationTransition != null)
+        {
+            GameContext.Instance.LocationTransition.ArrivedAtLocation -= OnLiftArrived;
         }
     }
 }

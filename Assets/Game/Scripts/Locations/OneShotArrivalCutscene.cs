@@ -33,6 +33,9 @@ public class OneShotArrivalCutscene : MonoBehaviour
     [Tooltip("Имя bool-параметра аниматора, включающего анимацию ходьбы. Пусто — не трогаем аниматор.")]
     [SerializeField] private string walkBoolParam;
 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private bool flipX = false;
+
     private bool hasPlayed;
     private bool waitingForDialogueEnd;
 
@@ -128,6 +131,11 @@ public class OneShotArrivalCutscene : MonoBehaviour
 
     private void SetWalking(bool walking)
     {
+        if (flipX)
+        {
+            spriteRenderer.flipX = true;
+        }
+        
         if (animator != null && !string.IsNullOrEmpty(walkBoolParam))
         {
             animator.SetBool(walkBoolParam, walking);

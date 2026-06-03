@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2336462428386532861}
+  - {fileID: 3481002262100398979}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4565659203164718797
@@ -157,6 +158,7 @@ MonoBehaviour:
   displayName: Tim
   promptText: Interact
   isInteractable: 1
+  interactionPrompt: {fileID: 7581277657989233295}
   dialogues:
   - {fileID: 11400000, guid: cee0f9322e9ba8d4898371b4a61acdcb, type: 2}
   - {fileID: 11400000, guid: e74ef5f91972e904cbd827605321157d, type: 2}
@@ -164,10 +166,13 @@ MonoBehaviour:
   requireItem: 0
   requiredItem: {fileID: 0}
   noItemDialogue: {fileID: 0}
+  consumeItem: 0
   pickupInteractable: {fileID: 0}
   activateInteractableAfterDialogue: 0
+  ignoredByNpcPresenceZone: 0
   dropAfterDialogueIndex: 1
-  dropPickup: {fileID: 7529702625885534410}
+  drop:
+    dropPickup: {fileID: 0}
   dialogueSystem: {fileID: 0}
 --- !u!114 &634768760404870433
 MonoBehaviour:
@@ -183,6 +188,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OneShotMinigameDialogue
   triggerMinigame: {fileID: 11400000, guid: 19efa008d3162214791d749e2a7368bc, type: 2}
   dialogue: {fileID: 11400000, guid: e74ef5f91972e904cbd827605321157d, type: 2}
+  dialogueSystem: {fileID: 0}
+  drop:
+    dropPickup: {fileID: 0}
 --- !u!1001 &6580305242407689761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -270,14 +278,70 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8880316652619514844, guid: 35055c1f54d55d04abd1ca2805f627b1, type: 3}
   m_PrefabInstance: {fileID: 6580305242407689761}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7529702625885534410 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3688184649833670379, guid: 35055c1f54d55d04abd1ca2805f627b1, type: 3}
-  m_PrefabInstance: {fileID: 6580305242407689761}
+--- !u!1001 &8869249837509417730
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8950443713025153883}
+    m_Modifications:
+    - target: {fileID: 1307165809084014989, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_Name
+      value: InteractionPrompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.724
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+--- !u!4 &3481002262100398979 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+  m_PrefabInstance: {fileID: 8869249837509417730}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1274829cae93174b87025ed1d373e28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PickupInteractable
+--- !u!1 &7581277657989233295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1307165809084014989, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+  m_PrefabInstance: {fileID: 8869249837509417730}
+  m_PrefabAsset: {fileID: 0}

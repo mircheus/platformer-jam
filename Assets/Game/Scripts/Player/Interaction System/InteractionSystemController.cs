@@ -9,9 +9,17 @@ public class InteractionSystemController : MonoBehaviour
 
     private Collider2D triggerZone;
 
+    // Объект, на котором сейчас горит pop-up (всегда ближайший интерактивный).
+    private IInteractable promptedInteractable;
+
     private void Awake()
     {
         triggerZone = GetComponent<Collider2D>();
+    }
+
+    private void Update()
+    {
+        UpdatePrompt();
     }
 
     /// <summary>
@@ -74,7 +82,7 @@ public class InteractionSystemController : MonoBehaviour
     {
         if (!_canInteract)
             return;
-        
+
         if (nearbyInteractables.Count == 0)
         {
             Debug.Log("В непосредственной близости нет интерактивных объектов.");
@@ -82,7 +90,32 @@ public class InteractionSystemController : MonoBehaviour
             return;
         }
 
-        IInteractable closestInteractable = null;
+        IInteractable closestInteractable = FindClosestInteractable(playerTransform.position);
+
+        if (closestInteractable == null)
+        {
+            Debug.Log("Ближайший интерактивный объект не найден.");
+
+            return;
+        }
+
+        Debug.Log(
+            $"Ближайший интерактивный объект | " +
+            $"Name: {closestInteractable.DisplayName} | " +
+            $"ID : {closestInteractable.ObjectID}"
+            );
+
+        closestInteractable.Interact();
+    }
+
+    /// <summary>
+    /// Возвращает ближайший к точке интерактивный объект из находящихся в зоне
+    /// (пропуская уже уничтоженные). Один и тот же метод используют и подсветка
+    /// pop-up, и само взаимодействие — чтобы они всегда указывали на один объект.
+    /// </summary>
+    private IInteractable FindClosestInteractable(Vector3 fromPosition)
+    {
+        IInteractable closest = null;
 
         float closestDistance = Mathf.Infinity;
 
@@ -95,35 +128,47 @@ public class InteractionSystemController : MonoBehaviour
                 continue;
             }
 
-            float distance = Vector2.Distance(
-                playerTransform.position,
-                interactableObject.transform.position
-                );
+            float distance = Vector2.Distance(fromPosition, interactableObject.transform.position);
 
             if (distance < closestDistance)
             {
                 closestDistance = distance;
-                closestInteractable = interactable;
+                closest = interactable;
             }
         }
 
-        if (closestInteractable == null)
-        {
-            Debug.Log("Ближайший интерактивный объект не найден.");
+        return closest;
+    }
 
-            return;
+    /// <summary>
+    /// Каждый кадр держит pop-up включённым ровно на одном объекте — ближайшем,
+    /// с которым прямо сейчас сработает кнопка взаимодействия. Если взаимодействие
+    /// выключено, рядом ничего нет или ближайший сейчас не интерактивен — гасит подсветку.
+    /// </summary>
+    private void UpdatePrompt()
+    {
+        IInteractable target = null;
+
+        if (_canInteract && nearbyInteractables.Count > 0)
+        {
+            IInteractable closest = FindClosestInteractable(transform.position);
+
+            if (closest != null && closest.CanInteract())
+                target = closest;
         }
 
-        Debug.Log(
-            $"Ближайший интерактивный объект | " +
-            $"Name: {closestInteractable.DisplayName} | " +
-            $"ID : {closestInteractable.ObjectID} | " +
-            $"Distance: {closestDistance}"
-            );
+        if (ReferenceEquals(target, promptedInteractable))
+            return;
 
-        closestInteractable.Interact();
+        if (promptedInteractable != null)
+            promptedInteractable.HidePrompt();
+
+        promptedInteractable = target;
+
+        if (promptedInteractable != null)
+            promptedInteractable.ShowPrompt();
     }
-    
+
     public void EnableInteraction()
     {
         _canInteract = true;
@@ -132,5 +177,11 @@ public class InteractionSystemController : MonoBehaviour
     public void DisableInteraction()
     {
         _canInteract = false;
+
+        // Сразу гасим подсветку, чтобы pop-up не висел во время катсцен/диалогов.
+        if (promptedInteractable != null)
+            promptedInteractable.HidePrompt();
+
+        promptedInteractable = null;
     }
 }
