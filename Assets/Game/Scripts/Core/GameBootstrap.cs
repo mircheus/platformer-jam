@@ -22,9 +22,6 @@ public class GameBootstrap : MonoBehaviour
     /// </summary>
     private void PrewarmInteractionPrompt()
     {
-        // Компиляция шейдеров (в т.ч. TMP SDF) — основной источник фриза.
-        Shader.WarmupAllShaders();
-
         if (interactionPromptPrefab == null)
             return;
 

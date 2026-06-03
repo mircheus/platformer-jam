@@ -8,6 +8,7 @@ public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private GameObject dialogueBg;
     [SerializeField] private PlayerMovementController playerController;
     [SerializeField] private InteractionSystemController playerInteraction;
 
@@ -63,6 +64,7 @@ public class DialogueSystem : MonoBehaviour
         isPaused = false;
 
         dialoguePanel.SetActive(true);
+        dialogueBg.SetActive(true);
         playerController.DisableMovement();
         playerInteraction.DisableInteraction();
         
@@ -86,6 +88,7 @@ public class DialogueSystem : MonoBehaviour
     {
         isPaused = true;
         dialoguePanel.SetActive(false);
+        dialogueBg.SetActive(false);
 
         DialoguePaused?.Invoke(currentDialogue, currentLineIndex);
     }
@@ -119,6 +122,7 @@ public class DialogueSystem : MonoBehaviour
         // (мини-игра могла вернуть управление и спрятать панель).
         playerController.DisableMovement();
         dialoguePanel.SetActive(true);
+        dialogueBg.SetActive(true);
 
         ShowCurrentLine();
     }
@@ -141,6 +145,7 @@ public class DialogueSystem : MonoBehaviour
         currentLineIndex = 0;
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
+        dialogueBg.SetActive(false);
         playerController.EnableMovement();
         playerInteraction.EnableInteraction();
 
