@@ -22,7 +22,7 @@ namespace Game.Minigames.Skillcheck
         private bool _active;
         private int _hits;
 
-        public override void Begin(MinigameContext ctx)
+        protected override void OnBegin(MinigameContext ctx)
         {
             Debug.Log($"Skillcheck started | source: {ctx.SourceObjectID}");
 
@@ -57,6 +57,9 @@ namespace Game.Minigames.Skillcheck
             if (skillcheckSlider.IsInTargetZone())
             {
                 _hits++;
+
+                // Звук на каждое успешное попадание (в т.ч. последнее перед победой).
+                PlaySuccessSound();
 
                 Debug.Log($"Skillcheck: HIT! {_hits}/{requiredHits} | value = {skillcheckSlider.Value:F2}");
 

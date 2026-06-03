@@ -12,6 +12,10 @@ public class MinigameData : ScriptableObject
     public MinigameBase prefab;
     public MinigameRenderType renderType;
 
+    [Header("Audio")]
+    [Tooltip("Звук успешного завершения. Играет в конце игры, до задержки перед Complete.")]
+    public AudioClip successSound;
+
     [Header("Success Effects (optional)")]
     public string questIdToComplete;
     public string targetNpcId;

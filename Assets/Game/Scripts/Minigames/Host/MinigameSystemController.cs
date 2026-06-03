@@ -71,7 +71,8 @@ public class MinigameSystemController : MonoBehaviour
         MinigameContext ctx = new MinigameContext
         {
             SourceObjectID = data.id,
-            RenderRoot = root
+            RenderRoot = root,
+            SuccessSound = data.successSound
         };
 
         currentInstance.Begin(ctx);

@@ -38,7 +38,7 @@ namespace Game.Minigames.Tetris
         private bool _active;
         private TetrisPiece _dragging;
 
-        public override void Begin(MinigameContext ctx)
+        protected override void OnBegin(MinigameContext ctx)
         {
             Debug.Log($"[Tetris] Begin | source: {ctx.SourceObjectID}");
 
@@ -224,6 +224,8 @@ namespace Game.Minigames.Tetris
         public void Win()
         {
             Debug.Log("[Tetris] Сетка заполнена — победа!");
+
+            PlaySuccessSound();
 
             _active = false;
             StartCoroutine(CompleteAfterDelay());

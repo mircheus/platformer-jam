@@ -16,5 +16,8 @@ MonoBehaviour:
   displayName: 
   prefab: {fileID: 8105524052692928053, guid: 3fa8a06b51ae82848a25ad30d82716ed, type: 3}
   renderType: 1
+  successSound: {fileID: 8300000, guid: 7650cf15479ffe646a6066d89848162f, type: 3}
   questIdToComplete: Pigeon
   targetNpcId: Pigeon
+  takePlayerItem: 0
+  itemToTake: {fileID: 0}

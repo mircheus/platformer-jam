@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: 
   prefab: {fileID: 4230079662221834695, guid: 77e776047dade7440890edddc901ed22, type: 3}
   renderType: 1
+  successSound: {fileID: 8300000, guid: 7650cf15479ffe646a6066d89848162f, type: 3}
   questIdToComplete: Rabbit
   targetNpcId: 
   takePlayerItem: 1

@@ -6,5 +6,8 @@ namespace Minigames.Contract
     {
         public string SourceObjectID;
         public Transform RenderRoot;
+
+        /// <summary>Звук успешного завершения из MinigameData. Может быть null.</summary>
+        public AudioClip SuccessSound;
     }
 }

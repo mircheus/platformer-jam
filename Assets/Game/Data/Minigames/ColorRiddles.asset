@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: 
   prefab: {fileID: 7650395246898074020, guid: ec3cb92c4bb01404284a8e99b2c2907d, type: 3}
   renderType: 0
+  successSound: {fileID: 0}
   questIdToComplete: Krot_1
   targetNpcId: 
   takePlayerItem: 0

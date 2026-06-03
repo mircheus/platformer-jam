@@ -43,6 +43,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private float musicVolume = 1f;
     [Range(0f, 1f)]
     [SerializeField] private float ambientVolume = 1f;
+    [Range(0f, 1f)]
+    [Tooltip("Базовая громкость разовых SFX внутри менеджера (поверх неё работает громкость микшера).")]
+    [SerializeField] private float sfxVolume = 1f;
     [Tooltip("Длительность кроссфейда/fade музыки по умолчанию, сек.")]
     [SerializeField] private float defaultMusicFade = 1.5f;
     [Tooltip("Микрофейд старта/останова лупа шагов — убирает щелчок, сек.")]
@@ -103,6 +106,11 @@ public class AudioManager : MonoBehaviour
         sfxSource = CreateSource("SFX", musicGroup: sfxGroup, loop: false);
         voiceSource = CreateSource("Voice", musicGroup: sfxGroup, loop: false);
         moveLoopSource = CreateSource("MoveLoop", musicGroup: sfxGroup, loop: true);
+
+        // Эти источники не фейдятся — играют сразу на полной громкости.
+        // (Музыка/эмбиент/move-loop остаются на 0 и выводятся фейдом.)
+        sfxSource.volume = 1f;
+        voiceSource.volume = 1f;
     }
 
     private AudioSource CreateSource(string label, AudioMixerGroup musicGroup, bool loop)
@@ -257,8 +265,14 @@ public class AudioManager : MonoBehaviour
     /// <summary>Разовый звук (получение предмета и т.п.). Несколько вызовов микшируются.</summary>
     public void PlaySfx(AudioClip clip, float volume = 1f)
     {
-        if (clip != null)
-            sfxSource.PlayOneShot(clip, Mathf.Clamp01(volume));
+        if (clip == null)
+            return;
+
+        // PlayOneShot масштабируется от volume источника, а в BuildSources он
+        // инициализируется нулём (под фейды) — держим SFX-источник на базовой
+        // громкости sfxVolume, а пер-звуковой volume уходит в volumeScale.
+        sfxSource.volume = sfxVolume;
+        sfxSource.PlayOneShot(clip, Mathf.Clamp01(volume));
     }
 
     // ────────────────────────────── Voice ──────────────────────────────
@@ -273,7 +287,7 @@ public class AudioManager : MonoBehaviour
             return;
 
         voiceSource.Stop();
-        voiceSource.volume = 1f;
+        voiceSource.volume = sfxVolume;
         voiceSource.clip = clip;
         voiceSource.Play();
     }
