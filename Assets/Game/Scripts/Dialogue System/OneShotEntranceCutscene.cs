@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -59,7 +60,7 @@ public class OneShotEntranceCutscene : MonoBehaviour
     private bool hasPlayed;
     private bool waitingForTrigger;
 
-    private void Start()
+    private void OnEnable()
     {
         if (dialogueSystem != null)
         {
