@@ -45,8 +45,11 @@ public class PlayerMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        view.Move(moveInput.x, moveSpeed);
-    } 
+        // Пока движение заблокировано (например, на время диалога) — гасим
+        // горизонтальную скорость. Иначе зажатая клавиша оставляет moveInput
+        // ненулевым, и игрок продолжает ехать сквозь диалог.
+        view.Move(canMove ? moveInput.x : 0f, moveSpeed);
+    }
 
     private void OnEnable()
     {
