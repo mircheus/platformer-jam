@@ -954,7 +954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Minigames.CatchEgg
   playerCatcher: {fileID: 6442676436287787796}
   objectSpawner: {fileID: 6720211582130518159}
-  targetCatchCount: 5
+  targetCatchCount: 1
   counterText: {fileID: 2592937657530526354}
 --- !u!1 &7579937965846062206
 GameObject:

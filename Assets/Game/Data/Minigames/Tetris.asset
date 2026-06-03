@@ -18,5 +18,5 @@ MonoBehaviour:
   renderType: 1
   questIdToComplete: 
   targetNpcId: Frog
-  takePlayerItem: 0
-  itemToTake: {fileID: 0}
+  takePlayerItem: 1
+  itemToTake: {fileID: 11400000, guid: 101d204d9c67a5e4080885d8fb6e493e, type: 2}

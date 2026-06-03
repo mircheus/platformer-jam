@@ -50,7 +50,9 @@ MonoBehaviour:
   displayName: TEST
   promptText: Interact
   isInteractable: 1
+  interactionPrompt: {fileID: 0}
   itemData: {fileID: 11400000, guid: ccd8ec5555a054543b2a4bca84a026ea, type: 2}
+  pickUp: 1
   advanceProgressForNpc: 0
   targetNPC: {fileID: 0}
   dialogueOnPickup:
@@ -181,7 +183,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 20
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.48113203, b: 0.96688443, a: 1}
