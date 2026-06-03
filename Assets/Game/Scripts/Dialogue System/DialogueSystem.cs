@@ -67,7 +67,11 @@ public class DialogueSystem : MonoBehaviour
         dialogueBg.SetActive(true);
         playerController.DisableMovement();
         playerInteraction.DisableInteraction();
-        
+
+        // «Голос» персонажа — один раз в начале диалога, не на каждую реплику.
+        if (dialogue.voiceClip != null && AudioManager.Instance != null)
+            AudioManager.Instance.PlayVoice(dialogue.voiceClip);
+
         ShowCurrentLine();
     }
 
@@ -105,6 +109,11 @@ public class DialogueSystem : MonoBehaviour
         }
 
         isPaused = false;
+
+        // Возврат из мини-игры — снова даём «голос» персонажа, как при старте диалога.
+        if (currentDialogue.voiceClip != null && AudioManager.Instance != null)
+            AudioManager.Instance.PlayVoice(currentDialogue.voiceClip);
+
         GoToNextLineOrEnd();
     }
 
@@ -130,10 +139,6 @@ public class DialogueSystem : MonoBehaviour
     private void ShowCurrentLine()
     {
         dialogueText.text = currentLines[currentLineIndex].text;
-
-        // «Голос» персонажа на каждую реплику. Клип задан на уровне диалога.
-        if (currentDialogue.voiceClip != null && AudioManager.Instance != null)
-            AudioManager.Instance.PlayVoice(currentDialogue.voiceClip);
     }
 
     public void EndDialogue()

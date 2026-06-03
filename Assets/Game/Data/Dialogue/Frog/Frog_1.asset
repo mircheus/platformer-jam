@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Frog_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   dialogueID: Frog
+  voiceClip: {fileID: 8300000, guid: 2c53922e6d4ad8a4a99394af9d94d9aa, type: 3}
   lines:
   - text: "\u0412\u0438\u0434\u0438\u0448\u044C \u043B\u0438, \u043C\u043D\u0435
       \u043D\u0443\u0436\u043D\u043E \u0443\u043F\u0430\u043A\u043E\u0432\u0430\u0442\u044C

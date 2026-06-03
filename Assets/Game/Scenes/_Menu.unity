@@ -1410,8 +1410,8 @@ MonoBehaviour:
   ambientGroup: {fileID: 24300002, guid: c3a7d04443f549e4ba9d85960c0233e1, type: 2}
   ambientClip: {fileID: 8300000, guid: b3cee2cf499d9b24b94e76ccecb0435e, type: 3}
   startMusic: {fileID: 8300000, guid: f4af608323c25c349baf8dac22c93356, type: 3}
-  musicVolume: 1
-  ambientVolume: 1
+  musicVolume: 0
+  ambientVolume: 0
   defaultMusicFade: 1.5
   moveLoopFade: 0.08
 --- !u!4 &1063812353

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cat_0
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   dialogueID: 
+  voiceClip: {fileID: 8300000, guid: b9b3a0fb486d53241a19a10a4d1ccea1, type: 3}
   lines:
   - text: "\u041D\u0430\u043A\u043E\u043D\u0435\u0446-\u0442\u043E, \u0442\u0438\u0448\u0438\u043D\u0430!
       \u041A\u0430\u043A \u0436\u0435 \u044F \u0437\u0430\u043C\u0443\u0447\u0430\u043B\u0430\u0441\u044C

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pigeon_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   dialogueID: 
+  voiceClip: {fileID: 8300000, guid: 02ea82f708d826e468f1336075f9be1e, type: 3}
   lines:
   - text: "\u0424\u0443\u0445. \u041D\u0443 \u0438 \u043C\u043D\u043E\u0433\u043E
       \u0436\u0435 \u0443 \u043D\u0430\u0441 \u043C\u0443\u0441\u043E\u0440\u0430

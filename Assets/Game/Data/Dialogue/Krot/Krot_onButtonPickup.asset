@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Krot_onButtonPickup
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   dialogueID: 
+  voiceClip: {fileID: 8300000, guid: 43ad5adf5d112ab4fa5b36aac3d0e8c5, type: 3}
   lines:
   - text: "\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u0432\u0441\u0442\u0430\u0432\u044C
       \u0435\u0435 \u0432 \u043F\u0430\u043D\u0435\u043B\u044C."
