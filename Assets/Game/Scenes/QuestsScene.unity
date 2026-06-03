@@ -888,6 +888,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Krot
       objectReference: {fileID: 0}
+    - target: {fileID: 7481473227930241182, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
+      propertyPath: m_SortingOrder
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 8140624477164409563, guid: a53543d5c20f4844782788e57cae4c07, type: 3}
       propertyPath: introDialogue
       value: 
@@ -3058,6 +3062,7 @@ MonoBehaviour:
   displayName: 
   promptText: Interact
   isInteractable: 1
+  interactionPrompt: {fileID: 0}
   lift: {fileID: 1130804845}
   dialogue: {fileID: 11400000, guid: ee7a5f33a4ada014d832580820fbeac4, type: 2}
   dialogueSystem: {fileID: 1635875037}
@@ -5231,6 +5236,7 @@ MonoBehaviour:
   displayName: 
   promptText: Interact
   isInteractable: 1
+  interactionPrompt: {fileID: 0}
   lift: {fileID: 1130804845}
   targetFloorIndex: 4
   dialogue: {fileID: 11400000, guid: 690ce50d81fabf44094bd61a271ea67c, type: 2}
