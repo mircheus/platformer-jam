@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &5824551 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1234189428038041280, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+  m_PrefabInstance: {fileID: 1309836478}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5917917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -280,6 +285,67 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1001 &43779423
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1345693988690641561, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.49567
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345693988690641561, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7948
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345693988690641561, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345693988690641561, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345693988690641561, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345693988690641561, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345693988690641561, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345693988690641561, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345693988690641561, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345693988690641561, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889216766295171129, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937380094713140201, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: sfxVolume
+      value: 0.238
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
 --- !u!1 &66281217
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +1032,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &230170373 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 834906071143663483, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+  m_PrefabInstance: {fileID: 1309836478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230170352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef3701a608750b41ac770842cc4d7b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWalkAnimator
+--- !u!114 &230170377 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5814823920774049328, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+  m_PrefabInstance: {fileID: 1309836478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230170352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cc7a58599d44e4c87a70129e8a159d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFacingController
 --- !u!1001 &252683003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4511,6 +4599,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 834906071143663483, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+      propertyPath: attachPoint
+      value: 
+      objectReference: {fileID: 5824551}
+    - target: {fileID: 834906071143663483, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+      propertyPath: walkDropDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235815101251790891, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1433218769150873985, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4559,10 +4659,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5814823920774049328, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+      propertyPath: spriteFacesRight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5849447892107036264, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
       propertyPath: defaultPickupSound
       value: 
-      objectReference: {fileID: 8300000, guid: 1934389f0fb68f24ca6f2cc27203030f, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234888035927048608, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+      propertyPath: moveSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234888035927048608, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+      propertyPath: moveLoopClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 29c3eae8142510145a92293f2dc2bcda, type: 3}
+    - target: {fileID: 8234888035927048608, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+      propertyPath: walkAnimator
+      value: 
+      objectReference: {fileID: 230170373}
+    - target: {fileID: 8234888035927048608, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+      propertyPath: facingController
+      value: 
+      objectReference: {fileID: 230170377}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6916,3 +7036,4 @@ SceneRoots:
   - {fileID: 2004979800}
   - {fileID: 5917917}
   - {fileID: 337605407}
+  - {fileID: 43779423}

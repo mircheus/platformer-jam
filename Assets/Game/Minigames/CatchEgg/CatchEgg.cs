@@ -1,3 +1,4 @@
+using System.Collections;
 using Minigames.Contract;
 using TMPro;
 using UnityEngine;
@@ -13,13 +14,16 @@ namespace Minigames
         [Tooltip("Сколько объектов нужно поймать для победы.")]
         [SerializeField] private int targetCatchCount = 5;
 
+        [Tooltip("Пауза после победы перед завершением — звук успеха успевает доиграть, переход не выглядит резким.")]
+        [SerializeField] private float winDelay = 0.6f;
+
         [Header("UI")]
         [Tooltip("Текст счётчика пойманных объектов.")]
         [SerializeField] private TMP_Text counterText;
 
         private int _caughtCount;
 
-        public override void Begin(MinigameContext ctx)
+        protected override void OnBegin(MinigameContext ctx)
         {
             Debug.Log($"CatchEgg started | source: {ctx.SourceObjectID}");
 
@@ -35,6 +39,9 @@ namespace Minigames
         {
             _caughtCount++;
             UpdateCounterText();
+
+            // Звук на каждую успешную поимку (в т.ч. последнюю перед победой).
+            PlaySuccessSound();
 
             Debug.Log($"CatchEgg: caught {_caughtCount}/{targetCatchCount}");
 
@@ -57,6 +64,16 @@ namespace Minigames
             playerCatcher.DisableControl();
             objectSpawner.StopSpawning();
             objectSpawner.EggCaught -= OnEggCaught;
+
+            StartCoroutine(CompleteAfterDelay());
+        }
+
+        private IEnumerator CompleteAfterDelay()
+        {
+            if (winDelay > 0f)
+            {
+                yield return new WaitForSeconds(winDelay);
+            }
 
             Complete(new MinigameResult());
         }

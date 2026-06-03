@@ -16,5 +16,8 @@ MonoBehaviour:
   displayName: 
   prefab: {fileID: 6003824567969825894, guid: ec084f4b22028ce4f95e6b4aef6241b9, type: 3}
   renderType: 0
+  successSound: {fileID: 0}
   questIdToComplete: 
   targetNpcId: 
+  takePlayerItem: 0
+  itemToTake: {fileID: 0}

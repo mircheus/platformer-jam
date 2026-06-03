@@ -33,7 +33,7 @@ public class DeliverCats : MinigameBase
     private bool _acceptingInput;
     private Coroutine _errorCoroutine;
 
-    public override void Begin(MinigameContext ctx)
+    protected override void OnBegin(MinigameContext ctx)
     {
         Debug.Log($"DeliverCats started | source: {ctx.SourceObjectID}");
 
@@ -169,6 +169,8 @@ public class DeliverCats : MinigameBase
 
     public void Win()
     {
+        PlaySuccessSound();
+
         _acceptingInput = false;
         HideAllHints();
         HideErrorWindow();

@@ -18,7 +18,7 @@ namespace Minigames
         private int _currentIndex = 0;
         private Coroutine _mistakeLineCoroutine;
         
-        public override void Begin(MinigameContext ctx)
+        protected override void OnBegin(MinigameContext ctx)
         {
             Debug.Log($"ColorRiddles started | source: {ctx.SourceObjectID}");
 
@@ -79,6 +79,8 @@ namespace Minigames
         // Повесить на кнопку/условие победы.
         public void Win()
         {
+            PlaySuccessSound();
+
             Complete(new MinigameResult());
         }
     }

@@ -19,6 +19,10 @@ public class PlayerMovementController : MonoBehaviour
     [Tooltip("Зацикленный звук шагов: играет, пока игрок движется по земле.")]
     [SerializeField] private AudioClip moveLoopClip;
 
+    [Header("Animation")]
+    [SerializeField] private PlayerWalkAnimator walkAnimator;
+    [SerializeField] private PlayerFacingController facingController;
+
     [Header("Performance")]
     [SerializeField] private InteractionSystemController interactionSystemController;
 
@@ -26,7 +30,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private Rigidbody2D rigidBody;
     private PlayerInput playerInput;
-    
+
     private PlayerMovementView view;
 
     private Vector2 moveInput;
@@ -38,7 +42,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
-        
+
         view = new PlayerMovementView(rigidBody);
     }
 
@@ -54,22 +58,29 @@ public class PlayerMovementController : MonoBehaviour
         // ненулевым, и игрок продолжает ехать сквозь диалог.
         view.Move(canMove ? moveInput.x : 0f, moveSpeed);
 
-        UpdateMoveLoop();
+        // Прыжка нет, поэтому опору не проверяем: идём = есть ввод по X и движение
+        // разрешено. Этот же признак питает и анимацию, и звук шагов.
+        float inputX = canMove ? moveInput.x : 0f;
+        bool walking = Mathf.Abs(inputX) > 0.01f;
+
+        if (walkAnimator != null)
+            walkAnimator.SetWalking(walking);
+
+        if (facingController != null)
+            facingController.SetDirection(inputX);
+
+        UpdateMoveLoop(walking);
     }
 
     /// <summary>
-    /// Включает/выключает звук шагов: только когда игрок реально едет по земле
-    /// (есть ввод, движение разрешено и под ногами есть опора). AudioManager сам
-    /// гасит лишние повторные вызовы и сглаживает старт/стоп микрофейдом.
+    /// Включает/выключает звук шагов: когда игрок реально едет (есть ввод и
+    /// движение разрешено). AudioManager сам гасит лишние повторные вызовы и
+    /// сглаживает старт/стоп микрофейдом.
     /// </summary>
-    private void UpdateMoveLoop()
+    private void UpdateMoveLoop(bool walking)
     {
         if (moveLoopClip == null || AudioManager.Instance == null)
             return;
-
-        bool grounded = groundTrigger != null
-            && view.CheckGround(groundTrigger, groundLayer, groundCheckRadius);
-        bool walking = canMove && Mathf.Abs(moveInput.x) > 0.01f && grounded;
 
         if (walking)
             AudioManager.Instance.StartMoveLoop(moveLoopClip);
