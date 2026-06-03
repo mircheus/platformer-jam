@@ -21,17 +21,6 @@ public class SettingsMenuController : MonoBehaviour
 
     private void Awake()
     {
-        if (volumeController != null)
-        {
-            // SetValueWithoutNotify — чтобы инициализация слайдера не вызвала
-            // onValueChanged и не перезаписала только что прочитанное значение.
-            if (musicSlider != null)
-                musicSlider.SetValueWithoutNotify(volumeController.MusicVolume);
-
-            if (sfxSlider != null)
-                sfxSlider.SetValueWithoutNotify(volumeController.SFXVolume);
-        }
-
         if (musicSlider != null)
             musicSlider.onValueChanged.AddListener(OnMusicChanged);
 
@@ -40,6 +29,24 @@ public class SettingsMenuController : MonoBehaviour
 
         if (backButton != null)
             backButton.onClick.AddListener(OnBackClicked);
+    }
+
+    // Инициализацию слайдеров делаем в Start, а не в Awake: значения громкости
+    // заполняются в Awake самого AudioVolumeController, а порядок Awake между
+    // объектами не гарантирован. Все Awake завершаются до любого Start, поэтому
+    // здесь volumeController уже прочитал сохранённые значения.
+    private void Start()
+    {
+        if (volumeController == null)
+            return;
+
+        // SetValueWithoutNotify — чтобы инициализация слайдера не вызвала
+        // onValueChanged и не перезаписала только что прочитанное значение.
+        if (musicSlider != null)
+            musicSlider.SetValueWithoutNotify(volumeController.MusicVolume);
+
+        if (sfxSlider != null)
+            sfxSlider.SetValueWithoutNotify(volumeController.SFXVolume);
     }
 
     private void OnMusicChanged(float value)

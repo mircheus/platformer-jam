@@ -1027,6 +1027,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &230170373 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 834906071143663483, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+  m_PrefabInstance: {fileID: 1309836478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230170352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef3701a608750b41ac770842cc4d7b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWalkAnimator
 --- !u!1001 &252683003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4572,6 +4583,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 834906071143663483, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+      propertyPath: walkDropDistance
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1433218769150873985, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4624,6 +4639,10 @@ PrefabInstance:
       propertyPath: defaultPickupSound
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8234888035927048608, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
+      propertyPath: walkAnimator
+      value: 
+      objectReference: {fileID: 230170373}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
