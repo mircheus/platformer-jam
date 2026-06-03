@@ -29,6 +29,11 @@ public class LiftInteractable : IInteractable
     [Tooltip("Опциональная зона: пока в ней находится NPC, лифт заблокирован для взаимодействия.")]
     [SerializeField] private NpcPresenceZone npcBlockZone;
 
+    [Tooltip("Опционально: контроллер переходов между локациями. Пока идёт переход " +
+             "(поездка на лифте), pop-up подсказка прячется и сама возвращается после " +
+             "прибытия. Пусто — поведение не меняется.")]
+    [SerializeField] private LocationTransitionController locationTransition;
+
     [Tooltip("Этажи снизу вверх: индекс 0 — самый нижний. Вверх — следующий индекс, вниз — предыдущий.")]
     [SerializeField] private List<Floor> floors = new List<Floor>();
 
@@ -53,6 +58,11 @@ public class LiftInteractable : IInteractable
 
     public override bool CanInteract()
     {
+        // Пока идёт переход (едем на лифте) — недоступен. Заодно это гасит pop-up
+        // на время поездки: UpdatePrompt каждый кадр опрашивает CanInteract().
+        if (locationTransition != null && locationTransition.IsRunning)
+            return false;
+
         // Пока в зоне стоит NPC — лифт недоступен.
         if (npcBlockZone != null && npcBlockZone.IsOccupied)
             return false;
