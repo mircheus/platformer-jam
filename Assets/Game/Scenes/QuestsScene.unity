@@ -4623,7 +4623,7 @@ PrefabInstance:
     - target: {fileID: 5849447892107036264, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
       propertyPath: defaultPickupSound
       value: 
-      objectReference: {fileID: 8300000, guid: 1934389f0fb68f24ca6f2cc27203030f, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
