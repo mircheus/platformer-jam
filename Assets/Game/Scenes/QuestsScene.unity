@@ -1559,12 +1559,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1635875037}
     - target: {fileID: 3688184649833670379, guid: 1061882caa16f49458671a3d7108dd51, type: 3}
+      propertyPath: dialogueEndSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d675b28ff6bc08246b2567aa78fdf0e3, type: 3}
+    - target: {fileID: 3688184649833670379, guid: 1061882caa16f49458671a3d7108dd51, type: 3}
       propertyPath: interactionPrompt
       value: 
       objectReference: {fileID: 1879997796}
     - target: {fileID: 3688184649833670379, guid: 1061882caa16f49458671a3d7108dd51, type: 3}
       propertyPath: playSoundAfterDialogue
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3688184649833670379, guid: 1061882caa16f49458671a3d7108dd51, type: 3}
       propertyPath: dialogueOnPickup.dialogue
