@@ -311,11 +311,13 @@ MonoBehaviour:
   promptText: Interact
   isInteractable: 1
   interactionPrompt: {fileID: 8104482925161044538}
-  dialogues: []
-  requireItem: 0
-  requiredItem: {fileID: 0}
+  dialogues:
+  - {fileID: 11400000, guid: 09c5ea8b7cc595d468a5ab4b35d699e6, type: 2}
+  - {fileID: 11400000, guid: f6906d73a4ccf2446bafbe6e46b105ec, type: 2}
+  requireItem: 1
+  requiredItem: {fileID: 11400000, guid: 101d204d9c67a5e4080885d8fb6e493e, type: 2}
   noItemDialogue: {fileID: 0}
-  consumeItem: 0
+  consumeItem: 1
   pickupInteractable: {fileID: 0}
   activateInteractableAfterDialogue: 0
   ignoredByNpcPresenceZone: 0

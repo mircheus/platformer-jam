@@ -2469,29 +2469,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7ad8ba12ada4c54448c12f4a49a366f9, type: 2}
     - target: {fileID: 2883152594441415137, guid: 4e74f03b34fc7d2419b94922e4e49907, type: 3}
-      propertyPath: consumeItem
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2883152594441415137, guid: 4e74f03b34fc7d2419b94922e4e49907, type: 3}
-      propertyPath: requireItem
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2883152594441415137, guid: 4e74f03b34fc7d2419b94922e4e49907, type: 3}
-      propertyPath: requiredItem
+      propertyPath: noItemDialogue
       value: 
-      objectReference: {fileID: 11400000, guid: 101d204d9c67a5e4080885d8fb6e493e, type: 2}
-    - target: {fileID: 2883152594441415137, guid: 4e74f03b34fc7d2419b94922e4e49907, type: 3}
-      propertyPath: dialogues.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2883152594441415137, guid: 4e74f03b34fc7d2419b94922e4e49907, type: 3}
-      propertyPath: 'dialogues.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 09c5ea8b7cc595d468a5ab4b35d699e6, type: 2}
-    - target: {fileID: 2883152594441415137, guid: 4e74f03b34fc7d2419b94922e4e49907, type: 3}
-      propertyPath: 'dialogues.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: f6906d73a4ccf2446bafbe6e46b105ec, type: 2}
+      objectReference: {fileID: 11400000, guid: 1df9512a5c349da4bae4fbee97258fbf, type: 2}
     - target: {fileID: 2883152594441415137, guid: 4e74f03b34fc7d2419b94922e4e49907, type: 3}
       propertyPath: 'dialogues.Array.data[2]'
       value: 
@@ -6339,10 +6319,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5691479337928789521, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
 --- !u!4 &1879997795 stripped
 Transform:
