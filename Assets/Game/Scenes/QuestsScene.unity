@@ -6035,12 +6035,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8140624477164409563, guid: 3f3d34c155079564688c6de484b928fb, type: 3}
+      propertyPath: noItemDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 56cf3d5e2a3133145b49997706a10de7, type: 2}
+    - target: {fileID: 8140624477164409563, guid: 3f3d34c155079564688c6de484b928fb, type: 3}
       propertyPath: pickupInteractable
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8140624477164409563, guid: 3f3d34c155079564688c6de484b928fb, type: 3}
       propertyPath: dialogues.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8140624477164409563, guid: 3f3d34c155079564688c6de484b928fb, type: 3}
       propertyPath: 'dialogues.Array.data[0]'
@@ -6049,7 +6053,7 @@ PrefabInstance:
     - target: {fileID: 8140624477164409563, guid: 3f3d34c155079564688c6de484b928fb, type: 3}
       propertyPath: 'dialogues.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 6d8181b80d61c3d40bfc02dcb2767b4d, type: 2}
+      objectReference: {fileID: 11400000, guid: c5e030540a0122742810b4ccf088b9aa, type: 2}
     - target: {fileID: 8140624477164409563, guid: 3f3d34c155079564688c6de484b928fb, type: 3}
       propertyPath: 'dialogues.Array.data[2]'
       value: 
