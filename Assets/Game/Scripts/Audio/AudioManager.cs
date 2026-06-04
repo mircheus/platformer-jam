@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Центральная точка всего звука в игре. Синглтон, переживает загрузку сцен
@@ -34,8 +35,20 @@ public class AudioManager : MonoBehaviour
     [Header("Стартовые клипы (опционально)")]
     [Tooltip("Зацикленный фоновый ambient. Запускается на старте, если задан.")]
     [SerializeField] private AudioClip ambientClip;
-    [Tooltip("Музыка, играющая по умолчанию при старте. Пусто — тишина до первого PlayMusic.")]
-    [SerializeField] private AudioClip startMusic;
+
+    [Header("Музыкальные темы")]
+    [Tooltip("Тема главного меню. Играет, пока активна сцена меню (menuSceneName).")]
+    [SerializeField] private AudioClip menuMusic;
+    [Tooltip("Тема основного геймплея. Играет, пока активна игровая сцена (gameplaySceneName).")]
+    [SerializeField] private AudioClip gameplayMusic;
+    [Tooltip("Тема концовки. Запускается вручную через PlayEndingMusic() в момент финала.")]
+    [SerializeField] private AudioClip endingMusic;
+
+    [Header("Привязка тем к сценам")]
+    [Tooltip("Имя сцены главного меню (как в .unity и Build Settings) — под неё играет menuMusic.")]
+    [SerializeField] private string menuSceneName = "_Menu";
+    [Tooltip("Имя игровой сцены — под неё играет gameplayMusic.")]
+    [SerializeField] private string gameplaySceneName = "QuestsScene";
 
     [Header("Параметры")]
     [Range(0f, 1f)]
@@ -86,9 +99,33 @@ public class AudioManager : MonoBehaviour
         if (ambientClip != null)
             PlayAmbient(ambientClip);
 
-        if (startMusic != null)
-            PlayMusic(startMusic);
+        // Музыка следует за активной сценой: меню ↔ игра. Менеджер переживает
+        // загрузку сцен (DontDestroyOnLoad), поэтому подписка живёт до выхода из игры,
+        // а смену темы ловим в одном месте, а не дёргаем из каждого контроллера.
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        PlayMusicForScene(SceneManager.GetActiveScene().name);
     }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        PlayMusicForScene(scene.name);
+    }
+
+    /// <summary>
+    /// Включает тему, привязанную к сцене (меню/геймплей). Незнакомые сцены не трогают
+    /// музыку — это важно для концовки: она запускается через <see cref="PlayEndingMusic"/>
+    /// поверх игровой сцены, которая не перезагружается.
+    /// </summary>
+    private void PlayMusicForScene(string sceneName, float fadeDuration = -1f)
+    {
+        if (sceneName == menuSceneName)
+            PlayMusic(menuMusic, fadeDuration);
+        else if (sceneName == gameplaySceneName)
+            PlayMusic(gameplayMusic, fadeDuration);
+    }
+
+    /// <summary>Плавно переходит на тему концовки. Вешается на финал игры (например, на завершение квеста «Ending»).</summary>
+    public void PlayEndingMusic(float fadeDuration = -1f) => PlayMusic(endingMusic, fadeDuration);
 
     /// <summary>Создаёт все AudioSource в коде и направляет их в нужные группы микшера.</summary>
     private void BuildSources()
@@ -194,8 +231,11 @@ public class AudioManager : MonoBehaviour
     {
         if (enabled)
         {
-            AudioClip clip = currentMusicClip != null ? currentMusicClip : startMusic;
-            PlayMusic(clip, fadeDuration);
+            // Возобновляем последний трек; если его ещё не было — берём тему текущей сцены.
+            if (currentMusicClip != null)
+                PlayMusic(currentMusicClip, fadeDuration);
+            else
+                PlayMusicForScene(SceneManager.GetActiveScene().name, fadeDuration);
         }
         else
         {
@@ -354,6 +394,9 @@ public class AudioManager : MonoBehaviour
     private void OnDestroy()
     {
         if (Instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
             Instance = null;
+        }
     }
 }
