@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8158809392042558661}
   - component: {fileID: 8752012530175632645}
   m_Layer: 0
-  m_Name: Egg
+  m_Name: Item 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,7 +191,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 20
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 6019215155398699314, guid: 2f28a4aa5144d7846adbb2e76fd227b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
