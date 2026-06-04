@@ -2108,6 +2108,14 @@ PrefabInstance:
       propertyPath: locationId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4589031255346927196, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+      propertyPath: exitPoint
+      value: 
+      objectReference: {fileID: 1150180971}
+    - target: {fileID: 4589031255346927196, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+      propertyPath: dialogueSystem
+      value: 
+      objectReference: {fileID: 1635875037}
     - target: {fileID: 4595146562692629028, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2198,10 +2206,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5361227570692593573, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 543646440}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2824692405953016467, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 803074749}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
 --- !u!4 &534618168 stripped
 Transform:
@@ -3121,47 +3126,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &803074742 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2824692405953016467, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
-  m_PrefabInstance: {fileID: 534618167}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &803074743 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5012471511021906112, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
-  m_PrefabInstance: {fileID: 534618167}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &803074749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803074742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4eab4b99482f354ea2eff6d551efe62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OneShotDepartureCutscene
-  triggerDialogue: {fileID: 11400000, guid: 8554b4e7b3a7c714ba6ed61fad4e229c, type: 2}
-  dialogueSystem: {fileID: 1635875037}
-  character: {fileID: 803074743}
-  exitPoint: {fileID: 1150180971}
-  moveSpeed: 3
-  arriveThreshold: 0.05
-  deactivateAfterLeave: 1
-  delayBeforeLeave: 0.5
-  animator: {fileID: 0}
-  walkBoolParam: 
-  spriteRenderer: {fileID: 0}
-  spriteFacesRight: 0
-  disablePlayerControls: 0
-  onStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  onFinished:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &805016722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6981244269726556069, guid: a35ee6627c3e73f4a88a4a2cdea8bb8d, type: 3}
@@ -6992,12 +6956,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2883152594441415137, guid: 9efdf8b690bff0d4ab131c7752a0ce4c, type: 3}
       propertyPath: dialogues.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2883152594441415137, guid: 9efdf8b690bff0d4ab131c7752a0ce4c, type: 3}
       propertyPath: 'dialogues.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: e74ef5f91972e904cbd827605321157d, type: 2}
+      objectReference: {fileID: 11400000, guid: 0a92cddc48ba8c443a63a91bb2088850, type: 2}
     - target: {fileID: 2883152594441415137, guid: 9efdf8b690bff0d4ab131c7752a0ce4c, type: 3}
       propertyPath: 'dialogues.Array.data[1]'
       value: 

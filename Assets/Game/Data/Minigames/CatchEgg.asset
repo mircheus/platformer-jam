@@ -18,6 +18,6 @@ MonoBehaviour:
   renderType: 1
   successSound: {fileID: 8300000, guid: 7650cf15479ffe646a6066d89848162f, type: 3}
   questIdToComplete: Pigeon
-  targetNpcId: Pigeon
+  targetNpcId: 
   takePlayerItem: 0
   itemToTake: {fileID: 0}

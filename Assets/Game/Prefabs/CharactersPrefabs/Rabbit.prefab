@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 1443098915827532270}
   - component: {fileID: 2440215207041327288}
   - component: {fileID: 99976843715685190}
+  - component: {fileID: 7462884866019305027}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
@@ -239,6 +240,7 @@ Transform:
   m_Children:
   - {fileID: 2683861761187522020}
   - {fileID: 2150447928152779458}
+  - {fileID: 3634092959398765774}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1443098915827532270
@@ -335,6 +337,37 @@ MonoBehaviour:
   dialogueSystem: {fileID: 0}
   drop:
     dropPickup: {fileID: 0}
+--- !u!114 &7462884866019305027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9155166466649408140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4eab4b99482f354ea2eff6d551efe62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotDepartureCutscene
+  triggerDialogue: {fileID: 11400000, guid: 8554b4e7b3a7c714ba6ed61fad4e229c, type: 2}
+  dialogueSystem: {fileID: 0}
+  character: {fileID: 2139524188931594463}
+  exitPoint: {fileID: 0}
+  moveSpeed: 3
+  arriveThreshold: 0.05
+  deactivateAfterLeave: 1
+  delayBeforeLeave: 0.5
+  animator: {fileID: 0}
+  walkBoolParam: 
+  spriteRenderer: {fileID: 2008957236480087346}
+  spriteFacesRight: 0
+  disablePlayerControls: 0
+  onStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8733608788127771727
 PrefabInstance:
   m_ObjectHideFlags: 0
