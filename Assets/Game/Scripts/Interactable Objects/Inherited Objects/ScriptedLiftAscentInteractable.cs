@@ -69,6 +69,11 @@ public class ScriptedLiftAscentInteractable : IInteractable
         if (interactSound != null && AudioManager.Instance != null)
             AudioManager.Instance.PlaySfx(interactSound);
 
+        // Катсцена подъёма разовая — здесь же плавно поднимаем тему концовки
+        // поверх геймплейной.
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayEndingMusic();
+
         // Подписываемся ДО старта: игрок на время диалога заблокирован, поэтому
         // ближайший DialogueEnded — гарантированно наш. Фильтр по ссылке — на всякий.
         dialogueSystem.DialogueEnded += OnDialogueEnded;

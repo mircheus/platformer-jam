@@ -53,9 +53,9 @@ public class ScriptedLiftInteractable : IInteractable
         isRunning = true;
 
         // Финал игры: с этим лифтом игрок взаимодействует один раз (катсцена разовая),
-        // поэтому здесь же плавно поднимаем тему концовки поверх геймплейной.
+        // поэтому здесь же плавно глушим всю музыку.
         if (AudioManager.Instance != null)
-            AudioManager.Instance.PlayEndingMusic();
+            AudioManager.Instance.StopMusic();
 
         // Подписываемся ДО старта: игрок на время диалога заблокирован, поэтому
         // ближайший DialogueEnded — гарантированно наш. Фильтр по ссылке — на всякий.
