@@ -2353,12 +2353,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8728399713517410161, guid: 4d4a7607c3078fb47834d159c24b4c63, type: 3}
       propertyPath: dialogues.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8728399713517410161, guid: 4d4a7607c3078fb47834d159c24b4c63, type: 3}
       propertyPath: dropAfterDialogueIndex
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 8728399713517410161, guid: 4d4a7607c3078fb47834d159c24b4c63, type: 3}
+      propertyPath: 'dialogues.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ad4eae038ed3af459c4aee1e31f767d, type: 2}
     - target: {fileID: 8728399713517410161, guid: 4d4a7607c3078fb47834d159c24b4c63, type: 3}
       propertyPath: activateInteractableAfterDialogue
       value: 0
