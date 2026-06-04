@@ -11,6 +11,13 @@ namespace Game.Minigames.Skillcheck
         [SerializeField] private SkillcheckSlider skillcheckSlider;
         [SerializeField] private SkillcheckPlayerMover playerMover;
 
+        [Header("Animation")]
+        [Tooltip("Аниматор объекта, который должен проигрывать анимацию всю игру.")]
+        [SerializeField] private Animator loopingAnimator;
+
+        [Tooltip("Название стейта анимации, который нужно проигрывать.")]
+        [SerializeField] private string loopingAnimationState;
+
         [Header("Win Condition")]
         [Tooltip("Сколько успешных нажатий нужно для победы.")]
         [SerializeField] private int requiredHits = 3;
@@ -32,6 +39,11 @@ namespace Game.Minigames.Skillcheck
             if (playerMover != null)
             {
                 playerMover.ResetToStart();
+            }
+
+            if (loopingAnimator != null && !string.IsNullOrEmpty(loopingAnimationState))
+            {
+                loopingAnimator.Play(loopingAnimationState);
             }
 
             skillcheckSlider.StartMoving();

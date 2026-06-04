@@ -124,71 +124,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1234189428038041280, guid: 14bad23244d5a2c409496ef476185af1, type: 3}
   m_PrefabInstance: {fileID: 1309836478}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5917917
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3410569699852127241, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: m_Name
-      value: MiniGameInteractable (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3410569699852127241, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.7093439
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8709512755009192909, guid: 190bc04de3660184b9354011a5998940, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: c4c89189ba3836c4f96bc07c1083a3c4, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 190bc04de3660184b9354011a5998940, type: 3}
 --- !u!224 &11927273 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4098799657553392790, guid: 9415f12f6d5e49f4fa4441cde5161ee2, type: 3}
@@ -6075,8 +6010,8 @@ MonoBehaviour:
   delayBeforeLeave: 0.5
   animator: {fileID: 0}
   walkBoolParam: 
-  spriteRenderer: {fileID: 0}
-  spriteFacesRight: 0
+  spriteRenderer: {fileID: 1705509345}
+  spriteFacesRight: 1
   disablePlayerControls: 1
   onStarted:
     m_PersistentCalls:
@@ -6099,6 +6034,11 @@ MonoBehaviour:
   objectsToDisable: []
   objectsToEnable:
   - {fileID: 823493380}
+--- !u!212 &1705509345 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3381336431192675492, guid: 3f3d34c155079564688c6de484b928fb, type: 3}
+  m_PrefabInstance: {fileID: 1705509326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1712218360 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2239467310810984981, guid: badd8e4433251704d8da3fccc4fdb4d3, type: 3}
@@ -6411,7 +6351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3410569699852127241, guid: 190bc04de3660184b9354011a5998940, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7524,5 +7464,4 @@ SceneRoots:
   - {fileID: 1602910016}
   - {fileID: 768943717}
   - {fileID: 2004979800}
-  - {fileID: 5917917}
   - {fileID: 337605407}

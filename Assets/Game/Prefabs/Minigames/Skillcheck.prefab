@@ -1123,6 +1123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Minigames.Skillcheck.Skillcheck
   skillcheckSlider: {fileID: 2651915850358306997}
   playerMover: {fileID: 4562081007455340330}
+  loopingAnimator: {fileID: 7025407737466744219}
+  loopingAnimationState: Rabbit_Fear
   requiredHits: 3
   winDelay: 3
 --- !u!1 &7449870095267817565
