@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff158bc9336545969294a433b78b998a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Minigames.PlayerCatcher
-  moveSpeed: 6
+  moveSpeed: 9
   minX: -3
   maxX: 3
 --- !u!1 &5761725737576731737
