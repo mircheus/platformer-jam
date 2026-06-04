@@ -4604,6 +4604,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1089696333}
     - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
+      propertyPath: playsEndingMusic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
       propertyPath: interactionPrompt
       value: 
       objectReference: {fileID: 144917171}
