@@ -217,6 +217,11 @@ GameObject:
   - component: {fileID: 3761011354485730040}
   - component: {fileID: 2883152594441415137}
   - component: {fileID: 634768760404870433}
+  - component: {fileID: 6937542279150027359}
+  - component: {fileID: 7722073964654763872}
+  - component: {fileID: 8310366485956653150}
+  - component: {fileID: 5825985605810638964}
+  - component: {fileID: 4429546670544490730}
   m_Layer: 0
   m_Name: Frog
   m_TagString: Untagged
@@ -240,6 +245,7 @@ Transform:
   - {fileID: 2336462428386532861}
   - {fileID: 2849600794437917506}
   - {fileID: 5143814616357014766}
+  - {fileID: 2954909488285463350}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3761011354485730040
@@ -334,6 +340,150 @@ MonoBehaviour:
   dialogueSystem: {fileID: 0}
   drop:
     dropPickup: {fileID: 0}
+--- !u!114 &6937542279150027359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123623103091864190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4eab4b99482f354ea2eff6d551efe62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotDepartureCutscene
+  triggerDialogue: {fileID: 11400000, guid: 09c5ea8b7cc595d468a5ab4b35d699e6, type: 2}
+  dialogueSystem: {fileID: 0}
+  character: {fileID: 8950443713025153883}
+  exitPoint: {fileID: 0}
+  moveSpeed: 3
+  arriveThreshold: 0.05
+  deactivateAfterLeave: 0
+  delayBeforeLeave: 0.5
+  animator: {fileID: 0}
+  walkBoolParam: 
+  spriteRenderer: {fileID: 5558323432799795831}
+  spriteFacesRight: 0
+  disablePlayerControls: 1
+  onStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: NpcAdvanceAndDisableAction, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ObjectsToggleAction, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7722073964654763872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123623103091864190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe81f5b6c3cb3541b34c995adf42c58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcAdvanceAndDisableAction
+  npcId: Frog
+  objectToDisable: {fileID: 0}
+--- !u!114 &8310366485956653150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123623103091864190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4eab4b99482f354ea2eff6d551efe62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotDepartureCutscene
+  triggerDialogue: {fileID: 11400000, guid: 776deb926b7fc5b438673a0a76fad70e, type: 2}
+  dialogueSystem: {fileID: 0}
+  character: {fileID: 8950443713025153883}
+  exitPoint: {fileID: 0}
+  moveSpeed: 3
+  arriveThreshold: 0.05
+  deactivateAfterLeave: 0
+  delayBeforeLeave: 0.5
+  animator: {fileID: 0}
+  walkBoolParam: 
+  spriteRenderer: {fileID: 5558323432799795831}
+  spriteFacesRight: 0
+  disablePlayerControls: 1
+  onStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ObjectsToggleAction, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onFinished:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5825985605810638964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123623103091864190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192b0493400b0d34cbe025ba76a7cc16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectsToggleAction
+  objectsToDisable:
+  - {fileID: 0}
+  objectsToEnable:
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &4429546670544490730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123623103091864190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192b0493400b0d34cbe025ba76a7cc16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectsToggleAction
+  objectsToDisable: []
+  objectsToEnable:
+  - {fileID: 0}
 --- !u!1001 &6580305242407689761
 PrefabInstance:
   m_ObjectHideFlags: 0

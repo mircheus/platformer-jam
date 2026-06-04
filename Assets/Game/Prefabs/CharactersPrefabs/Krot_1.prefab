@@ -13,6 +13,11 @@ GameObject:
   - component: {fileID: 4704298233831131654}
   - component: {fileID: 8140624477164409563}
   - component: {fileID: 3205415659213526126}
+  - component: {fileID: 7346322093138210751}
+  - component: {fileID: 1535844433431363295}
+  - component: {fileID: 174042856119906923}
+  - component: {fileID: 2318267976538009517}
+  - component: {fileID: 8328557545388778757}
   m_Layer: 0
   m_Name: Krot_1
   m_TagString: Untagged
@@ -163,7 +168,7 @@ MonoBehaviour:
   dialogues:
   - {fileID: 11400000, guid: fd26bc86f1904e043804a7654b6ec79d, type: 2}
   - {fileID: 11400000, guid: 6c0b94634ad46b846b7f978ef68f5167, type: 2}
-  - {fileID: 11400000, guid: 0a08fef4b6964cb44b8fa2100b0f165d, type: 2}
+  - {fileID: 0}
   requireItem: 0
   requiredItem: {fileID: 0}
   noItemDialogue: {fileID: 0}
@@ -197,6 +202,138 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7346322093138210751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6825891439388075180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4eab4b99482f354ea2eff6d551efe62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotDepartureCutscene
+  triggerDialogue: {fileID: 11400000, guid: 6bcab49bbe6bb7b4bb89ae7510c7806e, type: 2}
+  dialogueSystem: {fileID: 0}
+  character: {fileID: 1616532146428276043}
+  exitPoint: {fileID: 0}
+  moveSpeed: 5
+  arriveThreshold: 0.05
+  deactivateAfterLeave: 0
+  delayBeforeLeave: 0.5
+  animator: {fileID: 0}
+  walkBoolParam: 
+  spriteRenderer: {fileID: 0}
+  spriteFacesRight: 1
+  disablePlayerControls: 1
+  onStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: NpcAdvanceAndDisableAction, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ObjectsToggleAction, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1535844433431363295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6825891439388075180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe81f5b6c3cb3541b34c995adf42c58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcAdvanceAndDisableAction
+  npcId: Krot_1
+  objectToDisable: {fileID: 0}
+--- !u!114 &174042856119906923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6825891439388075180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5950d20d1e3b154784799908584c27e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotMinigameDialogue
+  triggerMinigame: {fileID: 11400000, guid: 24f0409a02c06f04188db4cb78cbf221, type: 2}
+  dialogue: {fileID: 11400000, guid: 4f6a4eb9c15247148bbbd85242315882, type: 2}
+  dialogueSystem: {fileID: 0}
+  drop:
+    dropPickup: {fileID: 0}
+--- !u!114 &2318267976538009517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6825891439388075180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4eab4b99482f354ea2eff6d551efe62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotDepartureCutscene
+  triggerDialogue: {fileID: 11400000, guid: 4f6a4eb9c15247148bbbd85242315882, type: 2}
+  dialogueSystem: {fileID: 0}
+  character: {fileID: 1616532146428276043}
+  exitPoint: {fileID: 0}
+  moveSpeed: 5
+  arriveThreshold: 0.05
+  deactivateAfterLeave: 0
+  delayBeforeLeave: 0.5
+  animator: {fileID: 0}
+  walkBoolParam: 
+  spriteRenderer: {fileID: 3381336431192675492}
+  spriteFacesRight: 1
+  disablePlayerControls: 1
+  onStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinished:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8328557545388778757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6825891439388075180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192b0493400b0d34cbe025ba76a7cc16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectsToggleAction
+  objectsToDisable: []
+  objectsToEnable:
+  - {fileID: 0}
 --- !u!1 &6930246244430004580
 GameObject:
   m_ObjectHideFlags: 0
