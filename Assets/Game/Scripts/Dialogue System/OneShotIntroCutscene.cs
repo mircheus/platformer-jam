@@ -13,9 +13,9 @@ using UnityEngine;
 ///   3. Затемнение на пару секунд; под чёрным экраном переключаемся на камеру паука
 ///      (spiderVcam); осветление — и диалог spiderDialogue.
 ///   4. Финальное затемнение; под чёрным экраном Default Blend в Brain переключается
-///      в Cut и приоритет отдаётся основной (геймплейной) камере слежения — переход
-///      мгновенный, без видимого «проезда». Default Blend восстанавливается,
-///      опциональный звук, осветление — и управление возвращается игроку.
+///      в Cut (насовсем) и приоритет отдаётся основной (геймплейной) камере слежения —
+///      переход мгновенный, без видимого «проезда». Дальше геймплей переключает камеры
+///      мгновенно. Опциональный звук, осветление — и управление возвращается игроку.
 ///
 /// В стиле <see cref="OneShotEntranceCutscene"/>/<see cref="OneShotArrivalCutscene"/>:
 /// вешается на отдельный всегда-активный объект-оркестратор, подписывается на
@@ -102,6 +102,18 @@ public class OneShotIntroCutscene : MonoBehaviour
     // Ожидание завершения конкретного диалога внутри мастер-корутины.
     private DialogueData awaitedDialogue;
     private bool awaitedDialogueEnded;
+
+    private void Awake()
+    {
+        // Снимаем неоднозначность ещё ДО того, как CinemachineBrain в своём OnEnable
+        // выберет активную камеру: Unity вызывает все Awake() раньше любого OnEnable().
+        // Если этого не сделать, а wide/down/spider лежат в сцене с одинаковым Priority,
+        // Brain может залатчить down/spider как стартовую камеру — и на первом кадре
+        // получится паразитный blend down → wide.
+        SetPriority(wideVcam, widePriorityActive);
+        SetPriority(downVcam, downPriorityInactive);
+        SetPriority(spiderVcam, spiderPriorityInactive);
+    }
 
     private void Start()
     {
@@ -251,19 +263,15 @@ public class OneShotIntroCutscene : MonoBehaviour
         }
 
         // Под чёрным экраном переключаемся на геймплейную камеру МГНОВЕННО (cut), чтобы
-        // не было видимого «проезда» к игроку. Меняем Default Blend в Brain на Cut,
-        // опускаем все катсценовые камеры НИЖЕ геймплейной — фокус перехватывает камера
-        // слежения за игроком. Исходный Default Blend восстановим перед осветлением,
-        // чтобы остальной геймплей продолжал блендить как обычно.
+        // не было видимого «проезда» к игроку. Default Blend в Brain переключаем на Cut
+        // НАСОВСЕМ (без восстановления) — дальше геймплей переключает камеры мгновенно.
+        // Опускаем все катсценовые камеры НИЖЕ геймплейной — фокус перехватывает камера
+        // слежения за игроком.
         CinemachineBrain activeBrain = ResolveBrain();
-        bool blendOverridden = false;
-        CinemachineBlendDefinition savedBlend = default;
 
         if (activeBrain != null)
         {
-            savedBlend = activeBrain.DefaultBlend;
             activeBrain.DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Styles.Cut, 0f);
-            blendOverridden = true;
         }
         else
         {
@@ -282,13 +290,6 @@ public class OneShotIntroCutscene : MonoBehaviour
         if (delayUnderBlack > 0f)
         {
             yield return new WaitForSeconds(delayUnderBlack);
-        }
-
-        // Cut уже отработал под чёрным экраном — возвращаем исходный Default Blend,
-        // чтобы дальнейшие переключения камер шли плавно.
-        if (blendOverridden)
-        {
-            activeBrain.DefaultBlend = savedBlend;
         }
 
         // Осветление уже на геймплейной камере слежения за игроком.
