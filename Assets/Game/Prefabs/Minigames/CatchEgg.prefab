@@ -576,6 +576,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Minigames.PlayerCatcher
   moveSpeed: 6
+  minX: -3
+  maxX: 3
 --- !u!1 &5761725737576731737
 GameObject:
   m_ObjectHideFlags: 0
