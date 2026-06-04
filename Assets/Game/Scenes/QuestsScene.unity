@@ -1839,10 +1839,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5691479337928789521, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
 --- !u!1 &409973599 stripped
 GameObject:
@@ -2243,7 +2240,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5361227570692593573, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 543646440}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2824692405953016467, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 534618172}
   m_SourcePrefab: {fileID: 100100000, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
 --- !u!4 &534618168 stripped
 Transform:
@@ -2261,6 +2261,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8eb40542f814444a74277be3f2cf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Location
+--- !u!95 &534618170 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7412813405705600060, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+  m_PrefabInstance: {fileID: 534618167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &534618171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2824692405953016467, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
+  m_PrefabInstance: {fileID: 534618167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &534618172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534618171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8570f8753cc5c1648b2848ebfe4e303a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OneShotMinigameIdleSwap
+  triggerMinigame: {fileID: 11400000, guid: c4c89189ba3836c4f96bc07c1083a3c4, type: 2}
+  animator: {fileID: 534618170}
+  idleStateName: Rabbit_Idle_Berushi
+  layer: 0
 --- !u!1001 &543646439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2804,7 +2830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314985848606021343, guid: de1b8944d88633747bdadc65a5f53d4b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -5445,10 +5471,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5691479337928789521, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
 --- !u!4 &1477016085 stripped
 Transform:
