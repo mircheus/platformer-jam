@@ -3,35 +3,38 @@ using Unity.Cinemachine;
 using UnityEngine;
 
 /// <summary>
-/// Разовая вступительная катсцена. Оркеструет открытие игры:
+/// Разовая вступительная катсцена. Оркеструет открытие игры цепочкой камер и
+/// диалогов:
 ///
-///   1. Общий план дерева + вступительный диалог (Space листает реплики сам
-///      DialogueSystem).
-///   2. После диалога камера блендом спускается к берлоге (фокус перехватывает
-///      геймплейная камера слежения за игроком).
-///   3. Затемнение, опциональный звук под чёрным экраном, осветление обратно на
-///      той же берлоге — и управление возвращается игроку.
+///   1. Общий план дерева (wideVcam) + вступительный диалог introDialogue
+///      (Space листает реплики сам DialogueSystem).
+///   2. Камера спуска (downVcam) перехватывает приоритет ВЫШЕ общего плана — Brain
+///      плавным blend'ом опускает кадр к берлоге; затем диалог downDialogue.
+///   3. Затемнение на пару секунд; под чёрным экраном переключаемся на камеру паука
+///      (spiderVcam); осветление — и диалог spiderDialogue.
+///   4. Финальное затемнение; под чёрным экраном Default Blend в Brain переключается
+///      в Cut и приоритет отдаётся основной (геймплейной) камере слежения — переход
+///      мгновенный, без видимого «проезда». Default Blend восстанавливается,
+///      опциональный звук, осветление — и управление возвращается игроку.
 ///
 /// В стиле <see cref="OneShotEntranceCutscene"/>/<see cref="OneShotArrivalCutscene"/>:
 /// вешается на отдельный всегда-активный объект-оркестратор, подписывается на
-/// обобщённое событие DialogueSystem.DialogueEnded и фильтрует по вступительному
-/// диалогу. Ядро (DialogueSystem, камеры) про эту сцену ничего не знает.
+/// обобщённое событие DialogueSystem.DialogueEnded. Ядро (DialogueSystem, камеры)
+/// про эту сцену ничего не знает.
 ///
-/// Спуск камеры реализован приоритетами Cinemachine: на старте поднимаем Priority
-/// у vcam общего плана ВЫШЕ геймплейной камеры слежения, а при спуске опускаем его
-/// НИЖЕ неё — фокус перехватывает камера слежения за игроком, и CinemachineBrain сам
-/// делает плавный blend (отдельная vcam берлоги не нужна). Длительность blend задаётся
-/// в Brain (Default Blend) — её же нужно проставить в descentDuration, чтобы корутина
-/// дождалась окончания перехода перед затемнением.
+/// Вся последовательность живёт в одной мастер-корутине: каждый диалог стартуется и
+/// «ожидается» через флаг, выставляемый в OnDialogueEnded. Переключения камер — через
+/// приоритеты Cinemachine (камера-победитель = наибольший Priority среди активных).
+/// Финальный переход к геймплейной камере делается под чёрным экраном с временной
+/// сменой Default Blend на Cut, чтобы не было видимого проезда.
 /// </summary>
 public class OneShotIntroCutscene : MonoBehaviour
 {
     /// <summary>Текущая фаза катсцены.</summary>
     private enum Phase
     {
-        Idle,           // ещё не начали
-        IntroDialogue,  // показан общий план, идёт вступительный диалог
-        Finishing,      // спуск камеры → затемнение → осветление
+        Idle,     // ещё не начали
+        Running,  // идёт последовательность
         Done
     }
 
@@ -48,31 +51,57 @@ public class OneShotIntroCutscene : MonoBehaviour
     [Header("1. Intro — Wide Shot + Dialogue")]
     [Tooltip("Опциональный объект фона (общий план дерева, рамка с текстом и т.п.). Включается на старте.")]
     [SerializeField] private GameObject introBackground;
+    [Tooltip("Cinemachine-камера общего плана дерева (активна в начале интро).")]
+    [SerializeField] private CinemachineCamera wideVcam;
+    [Tooltip("Priority общего плана, пока идёт интро. Должен быть ВЫШЕ приоритета геймплейной камеры слежения, чтобы wide гарантированно выигрывал.")]
+    [SerializeField] private int widePriorityActive = 90;
+    [Tooltip("Priority, на который опускается общий план под финальным чёрным экраном (cut к геймплейной камере). Должен быть НИЖЕ приоритета геймплейной камеры слежения.")]
+    [SerializeField] private int widePriorityInactive = -10;
     [Tooltip("Вступительный диалог, который листается по Space на общем плане.")]
     [SerializeField] private DialogueData introDialogue;
 
-    [Header("2. Camera Descent To Burrow")]
-    [Tooltip("Cinemachine-камера общего плана дерева (активна в начале интро).")]
-    [SerializeField] private CinemachineCamera wideVcam;
-    [Tooltip("Priority общего плана, пока идёт интро. Должен быть ВЫШЕ приоритета геймплейной камеры слежения, чтобы wide гарантированно выигрывал (мини-игровая камера = 100 в интро не активна).")]
-    [SerializeField] private int widePriorityActive = 90;
-    [Tooltip("Priority, на который опускается общий план при спуске. Должен быть НИЖЕ приоритета геймплейной камеры, чтобы она перехватила фокус и Brain сделал blend к слежению за игроком.")]
-    [SerializeField] private int widePriorityInactive = -10;
-    [Tooltip("Пауза после диалога перед началом спуска камеры.")]
+    [Header("2. Camera Descent (Wide → Down) + Dialogue")]
+    [Tooltip("Cinemachine-камера спуска к берлоге. На неё Brain плавно сводит кадр с общего плана.")]
+    [SerializeField] private CinemachineCamera downVcam;
+    [Tooltip("Priority камеры спуска во время спуска. Должен быть ВЫШЕ widePriorityActive, чтобы Brain сделал blend wide → down.")]
+    [SerializeField] private int downPriorityActive = 100;
+    [Tooltip("Priority камеры спуска под финальным чёрным экраном (cut к геймплейной камере). Должен быть НИЖЕ приоритета геймплейной камеры слежения.")]
+    [SerializeField] private int downPriorityInactive = -10;
+    [Tooltip("Пауза после вступительного диалога перед началом спуска камеры.")]
     [SerializeField] private float delayBeforeDescent = 0.4f;
-    [Tooltip("Сколько ждать завершения блenda камеры. Выстави равным длительности Default Blend в CinemachineBrain (на Main Camera).")]
+    [Tooltip("Сколько ждать завершения блenda камеры wide → down. Выстави равным длительности Default Blend в CinemachineBrain (на Main Camera).")]
     [SerializeField] private float descentDuration = 2f;
-    [Tooltip("Выключить фон общего плана под чёрным экраном. Оставь выключенным, если фон прятать не нужно.")]
-    [SerializeField] private bool hideBackgroundAfterDescent = true;
+    [Tooltip("Диалог на камере спуска (берлога). Можно оставить пустым — тогда шаг просто пропускается.")]
+    [SerializeField] private DialogueData downDialogue;
 
-    [Header("3. Fade Out / In")]
-    [Tooltip("Опциональный звук под чёрным экраном (например, стук молотков/пиление). Можно оставить пустым.")]
+    [Header("3. Fade → Spider Cam + Dialogue")]
+    [Tooltip("Cinemachine-камера паука. Переключение на неё происходит под чёрным экраном.")]
+    [SerializeField] private CinemachineCamera spiderVcam;
+    [Tooltip("Priority камеры паука, пока идёт её диалог. Должен быть ВЫШЕ wide/down, чтобы она выиграла фокус.")]
+    [SerializeField] private int spiderPriorityActive = 110;
+    [Tooltip("Priority камеры паука под финальным чёрным экраном (cut к геймплейной камере). Должен быть НИЖЕ приоритета геймплейной камеры слежения.")]
+    [SerializeField] private int spiderPriorityInactive = -10;
+    [Tooltip("Сколько держать чёрный экран при переключении на камеру паука. Должно быть НЕ МЕНЬШЕ длительности Default Blend, чтобы переход успел пройти под чёрным.")]
+    [SerializeField] private float blackHoldBeforeSpider = 2f;
+    [Tooltip("Выключить фон общего плана под чёрным экраном перед камерой паука. Оставь выключенным, если фон прятать не нужно.")]
+    [SerializeField] private bool hideBackgroundAfterDescent = true;
+    [Tooltip("Диалог на камере паука. Можно оставить пустым — тогда шаг просто пропускается.")]
+    [SerializeField] private DialogueData spiderDialogue;
+
+    [Header("4. Fade → Cut To Gameplay → Fade In")]
+    [Tooltip("CinemachineBrain (обычно на Main Camera). Под чёрным экраном его Default Blend временно ставится в Cut, чтобы переход к геймплейной камере был мгновенным. Если пусто — попробуем найти на Camera.main.")]
+    [SerializeField] private CinemachineBrain brain;
+    [Tooltip("Опциональный звук под финальным чёрным экраном (например, стук молотков/пиление). Можно оставить пустым.")]
     [SerializeField] private AudioSource audioUnderBlack;
-    [Tooltip("Пауза под чёрным экраном (даём звуку/таймскипу прозвучать) перед осветлением.")]
+    [Tooltip("Пауза под финальным чёрным экраном (даём звуку/таймскипу прозвучать) перед осветлением.")]
     [SerializeField] private float delayUnderBlack = 1.5f;
 
     private Phase phase = Phase.Idle;
     private bool subscribed;
+
+    // Ожидание завершения конкретного диалога внутри мастер-корутины.
+    private DialogueData awaitedDialogue;
+    private bool awaitedDialogueEnded;
 
     private void Start()
     {
@@ -87,7 +116,7 @@ public class OneShotIntroCutscene : MonoBehaviour
 
         if (playOnStart)
         {
-            StartCoroutine(BeginIntroRoutine());
+            StartCoroutine(IntroRoutine());
         }
     }
 
@@ -111,26 +140,25 @@ public class OneShotIntroCutscene : MonoBehaviour
             return;
         }
 
-        StartCoroutine(BeginIntroRoutine());
+        StartCoroutine(IntroRoutine());
     }
 
-    private IEnumerator BeginIntroRoutine()
+    private IEnumerator IntroRoutine()
     {
         if (phase != Phase.Idle)
         {
             yield break;
         }
 
-        phase = Phase.IntroDialogue;
+        phase = Phase.Running;
 
         SetPlayerBlocked(true);
 
-        // Явно отдаём фокус общему плану ВЫШЕ геймплейной камеры — чтобы на старте
-        // не было ничьей с камерой слежения за игроком.
-        if (wideVcam != null)
-        {
-            wideVcam.Priority = widePriorityActive;
-        }
+        // Расставляем стартовые приоритеты: общий план — наверху, остальные камеры
+        // катсцены пока внизу, чтобы не было ничьей с геймплейной камерой слежения.
+        SetPriority(wideVcam, widePriorityActive);
+        SetPriority(downVcam, downPriorityInactive);
+        SetPriority(spiderVcam, spiderPriorityInactive);
 
         if (introBackground != null)
         {
@@ -142,59 +170,26 @@ public class OneShotIntroCutscene : MonoBehaviour
             yield return new WaitForSeconds(startDelay);
         }
 
-        if (introDialogue == null)
-        {
-            Debug.LogWarning($"OneShotIntroCutscene ('{name}'): introDialogue не назначен — пропускаю вступление, сразу к спуску камеры.");
-            StartCoroutine(DescendAndFinishRoutine());
-            yield break;
-        }
+        // --- Шаг 1: общий план + вступительный диалог ---
+        yield return PlayDialogueAndWait(introDialogue);
 
-        // Дальше ход у игрока: листает реплики по Space. Продолжим в OnDialogueEnded.
-        dialogueSystem.StartDialogue(introDialogue);
-    }
-
-    private void OnDialogueEnded(DialogueData dialogue)
-    {
-        // Ждём завершения именно вступительного диалога.
-        if (phase != Phase.IntroDialogue || dialogue != introDialogue)
-        {
-            return;
-        }
-
-        StartCoroutine(DescendAndFinishRoutine());
-    }
-
-    private IEnumerator DescendAndFinishRoutine()
-    {
-        phase = Phase.Finishing;
-
-        // Триггер одноразовый — отписываемся сразу, чтобы не ловить лишние диалоги.
-        if (subscribed && dialogueSystem != null)
-        {
-            dialogueSystem.DialogueEnded -= OnDialogueEnded;
-            subscribed = false;
-        }
-
-        // DialogueSystem.EndDialogue вернул управление игроку — снова блокируем,
-        // пока идёт спуск камеры и затемнение.
-        SetPlayerBlocked(true);
-
+        // --- Шаг 2: спуск wide → down + диалог берлоги ---
         if (delayBeforeDescent > 0f)
         {
             yield return new WaitForSeconds(delayBeforeDescent);
         }
 
-        // Опускаем приоритет общего плана НИЖЕ геймплейной камеры — фокус честно
-        // перехватывает камера слежения за игроком, и Brain плавно сводит wide → слежение.
-        // (Если экран «телепортируется» вместо плавного спуска — Default Blend в
-        // CinemachineBrain стоит в Cut или 0с; поставь Ease In Out со временем.)
-        if (wideVcam != null)
+        // Поднимаем приоритет камеры спуска ВЫШЕ общего плана — Brain плавно сводит
+        // кадр с wide на down (Default Blend, Ease In Out).
+        // (Если экран «телепортируется» вместо плавного спуска — Default Blend в Brain
+        // стоит в Cut или 0с; поставь Ease In Out со временем.)
+        if (downVcam != null)
         {
-            wideVcam.Priority = widePriorityInactive;
+            downVcam.Priority = downPriorityActive;
         }
         else
         {
-            Debug.LogWarning($"OneShotIntroCutscene ('{name}'): wideVcam не назначена — спуск камеры не произойдёт.");
+            Debug.LogWarning($"OneShotIntroCutscene ('{name}'): downVcam не назначена — спуск камеры не произойдёт.");
         }
 
         if (descentDuration > 0f)
@@ -202,7 +197,9 @@ public class OneShotIntroCutscene : MonoBehaviour
             yield return new WaitForSeconds(descentDuration);
         }
 
-        // Затемнение.
+        yield return PlayDialogueAndWait(downDialogue);
+
+        // --- Шаг 3: затемнение → камера паука под чёрным → осветление + диалог ---
         if (screenFader != null)
         {
             yield return screenFader.FadeOut();
@@ -214,6 +211,69 @@ public class OneShotIntroCutscene : MonoBehaviour
             introBackground.SetActive(false);
         }
 
+        // Переключаемся на камеру паука под чёрным экраном. Держим чёрный не меньше
+        // длительности Default Blend, чтобы переход успел пройти невидимым.
+        if (spiderVcam != null)
+        {
+            spiderVcam.Priority = spiderPriorityActive;
+        }
+        else
+        {
+            Debug.LogWarning($"OneShotIntroCutscene ('{name}'): spiderVcam не назначена — переключение на паука не произойдёт.");
+        }
+
+        if (blackHoldBeforeSpider > 0f)
+        {
+            yield return new WaitForSeconds(blackHoldBeforeSpider);
+        }
+
+        if (screenFader != null)
+        {
+            yield return screenFader.FadeIn();
+        }
+
+        yield return PlayDialogueAndWait(spiderDialogue);
+
+        // --- Шаг 4: финальное затемнение → cut к геймплейной камере ---
+        yield return FinishToGameplayRoutine();
+
+        phase = Phase.Done;
+
+        // Управление — игроку.
+        SetPlayerBlocked(false);
+    }
+
+    private IEnumerator FinishToGameplayRoutine()
+    {
+        if (screenFader != null)
+        {
+            yield return screenFader.FadeOut();
+        }
+
+        // Под чёрным экраном переключаемся на геймплейную камеру МГНОВЕННО (cut), чтобы
+        // не было видимого «проезда» к игроку. Меняем Default Blend в Brain на Cut,
+        // опускаем все катсценовые камеры НИЖЕ геймплейной — фокус перехватывает камера
+        // слежения за игроком. Исходный Default Blend восстановим перед осветлением,
+        // чтобы остальной геймплей продолжал блендить как обычно.
+        CinemachineBrain activeBrain = ResolveBrain();
+        bool blendOverridden = false;
+        CinemachineBlendDefinition savedBlend = default;
+
+        if (activeBrain != null)
+        {
+            savedBlend = activeBrain.DefaultBlend;
+            activeBrain.DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Styles.Cut, 0f);
+            blendOverridden = true;
+        }
+        else
+        {
+            Debug.LogWarning($"OneShotIntroCutscene ('{name}'): CinemachineBrain не найден — переход к геймплейной камере может пройти блендом, а не cut'ом.");
+        }
+
+        SetPriority(wideVcam, widePriorityInactive);
+        SetPriority(downVcam, downPriorityInactive);
+        SetPriority(spiderVcam, spiderPriorityInactive);
+
         if (audioUnderBlack != null)
         {
             audioUnderBlack.Play();
@@ -224,16 +284,81 @@ public class OneShotIntroCutscene : MonoBehaviour
             yield return new WaitForSeconds(delayUnderBlack);
         }
 
-        // Осветление обратно на той же берлоге.
+        // Cut уже отработал под чёрным экраном — возвращаем исходный Default Blend,
+        // чтобы дальнейшие переключения камер шли плавно.
+        if (blendOverridden)
+        {
+            activeBrain.DefaultBlend = savedBlend;
+        }
+
+        // Осветление уже на геймплейной камере слежения за игроком.
         if (screenFader != null)
         {
             yield return screenFader.FadeIn();
         }
+    }
 
-        phase = Phase.Done;
+    /// <summary>
+    /// Стартует диалог и ждёт именно его завершения. null/пустой диалог — шаг
+    /// пропускается. После завершения повторно блокирует игрока, т.к.
+    /// DialogueSystem.EndDialogue возвращает ему управление.
+    /// </summary>
+    private IEnumerator PlayDialogueAndWait(DialogueData dialogue)
+    {
+        if (dialogue == null)
+        {
+            yield break;
+        }
 
-        // Управление — игроку.
-        SetPlayerBlocked(false);
+        awaitedDialogue = dialogue;
+        awaitedDialogueEnded = false;
+
+        dialogueSystem.StartDialogue(dialogue);
+
+        // Дальше ход у игрока: листает реплики по Space. Ждём флаг из OnDialogueEnded.
+        while (!awaitedDialogueEnded)
+        {
+            yield return null;
+        }
+
+        awaitedDialogue = null;
+
+        // EndDialogue вернул управление игроку — снова блокируем до конца катсцены.
+        SetPlayerBlocked(true);
+    }
+
+    private void OnDialogueEnded(DialogueData dialogue)
+    {
+        if (awaitedDialogue != null && dialogue == awaitedDialogue)
+        {
+            awaitedDialogueEnded = true;
+        }
+    }
+
+    private static void SetPriority(CinemachineCamera vcam, int priority)
+    {
+        if (vcam != null)
+        {
+            vcam.Priority = priority;
+        }
+    }
+
+    /// <summary>
+    /// Возвращает назначенный Brain, либо пытается найти его на Camera.main.
+    /// </summary>
+    private CinemachineBrain ResolveBrain()
+    {
+        if (brain != null)
+        {
+            return brain;
+        }
+
+        if (Camera.main != null)
+        {
+            brain = Camera.main.GetComponent<CinemachineBrain>();
+        }
+
+        return brain;
     }
 
     private void SetPlayerBlocked(bool blocked)
