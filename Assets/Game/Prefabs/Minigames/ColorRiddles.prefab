@@ -78,6 +78,7 @@ MonoBehaviour:
   correctSequence: 02000000010000000000000003000000
   npcCurrentLine: {fileID: 2377094195334264768}
   winDelay: 1
+  correctPressClip: {fileID: 8300000, guid: 23b4f9b8dfc6e6a4ea4ca0f38518c3af, type: 3}
 --- !u!1 &1440299837767219233
 GameObject:
   m_ObjectHideFlags: 0
