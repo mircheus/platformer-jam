@@ -14,8 +14,10 @@ namespace Minigames
         [SerializeField] private string npcMistakeLine;
         [SerializeField] private List<int> correctSequence = new List<int>();
         [SerializeField] private TMP_Text npcCurrentLine;
+        [SerializeField] private float winDelay = 1f;
 
         private int _currentIndex = 0;
+        private bool _isWon;
         private Coroutine _mistakeLineCoroutine;
         
         protected override void OnBegin(MinigameContext ctx)
@@ -34,20 +36,29 @@ namespace Minigames
 
         private void ColorButtonOnButtonPressedEvent(int buttonIndex)
         {
+            // Игра уже выиграна и ждёт выхода — игнорируем нажатия.
+            if (_isWon)
+            {
+                return;
+            }
+
             if (buttonIndex == correctSequence[_currentIndex])
             {
+                colorButtons[buttonIndex].SetPressed();
+
                 if (_currentIndex >= correctSequence.Count - 1)
                 {
                     Win();
                     return;
                 }
-                
+
                 _currentIndex++;
                 TriggerNextNpcLine();
             }
             else
             {
                 _currentIndex = 0;
+                ResetAllButtons();
                 TriggerMistakeLine();
 
                 if (_mistakeLineCoroutine != null)
@@ -60,6 +71,14 @@ namespace Minigames
                 
         }
         
+        private void ResetAllButtons()
+        {
+            foreach (var colorButton in colorButtons)
+            {
+                colorButton.ResetSprite();
+            }
+        }
+
         private void TriggerNextNpcLine()
         {
             npcCurrentLine.text = npcLines[_currentIndex];
@@ -79,8 +98,20 @@ namespace Minigames
         // Повесить на кнопку/условие победы.
         public void Win()
         {
+            if (_isWon)
+            {
+                return;
+            }
+
+            _isWon = true;
             PlaySuccessSound();
 
+            StartCoroutine(CompleteWithDelay());
+        }
+
+        private IEnumerator CompleteWithDelay()
+        {
+            yield return new WaitForSeconds(winDelay);
             Complete(new MinigameResult());
         }
     }
