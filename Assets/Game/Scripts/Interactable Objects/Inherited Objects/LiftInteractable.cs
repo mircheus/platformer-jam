@@ -50,6 +50,10 @@ public class LiftInteractable : IInteractable
     [Tooltip("Пауза после осветления, чтобы анимация прибытия доиграла, перед возвратом управления.")]
     [SerializeField] private float delayAfterArrival = 0.3f;
 
+    [Header("Sound")]
+    [Tooltip("Звук поездки лифта. Проигрывается разово в момент старта движения (вверх или вниз).")]
+    [SerializeField] private AudioClip liftMoveClip;
+
     [Header("Animation states (общие для всех этажей)")]
     [Tooltip("Стейт анимации отъезда вверх.")]
     [SerializeField] private string upAnimationState = "Up";
@@ -96,7 +100,7 @@ public class LiftInteractable : IInteractable
 
         liftPanel.Close();
 
-        GameContext.Instance.LocationTransition.Go(floors[targetIndex].locationId, BuildDeparture(direction));
+        StartRide(targetIndex, direction);
     }
 
     /// <summary>
@@ -121,6 +125,19 @@ public class LiftInteractable : IInteractable
         }
 
         MoveDirection direction = goingUp ? MoveDirection.Up : MoveDirection.Down;
+        StartRide(targetIndex, direction);
+    }
+
+    /// <summary>
+    /// Единая точка старта поездки: проигрывает звук лифта и запускает переход локации.
+    /// Через неё идут все способы вызвать движение (панель и скриптовые надстройки),
+    /// поэтому звук гарантированно сопровождает любую поездку.
+    /// </summary>
+    private void StartRide(int targetIndex, MoveDirection direction)
+    {
+        if (liftMoveClip != null && AudioManager.Instance != null)
+            AudioManager.Instance.PlaySfx(liftMoveClip);
+
         GameContext.Instance.LocationTransition.Go(floors[targetIndex].locationId, BuildDeparture(direction));
     }
 
