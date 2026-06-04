@@ -1,0 +1,4251 @@
+fileFormatVersion: 2
+guid: 06c0dfd1b145002438c75cab1bc0b922
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3058727559766565029
+    second: grid1_0
+  - first:
+      213: 8633978570338877367
+    second: grid1_1
+  - first:
+      213: 8510559351213160120
+    second: grid1_2
+  - first:
+      213: 8893834885572344216
+    second: grid1_3
+  - first:
+      213: -409649571580477450
+    second: grid1_4
+  - first:
+      213: 6664869869334713647
+    second: grid1_5
+  - first:
+      213: 7499748807874563964
+    second: grid1_6
+  - first:
+      213: 5702390901305433732
+    second: grid1_7
+  - first:
+      213: 8240314530317592621
+    second: grid1_8
+  - first:
+      213: 4151579893419115661
+    second: grid1_9
+  - first:
+      213: -4653780714168943201
+    second: grid1_10
+  - first:
+      213: 8334741608057281444
+    second: grid1_11
+  - first:
+      213: 5574778809566576428
+    second: grid1_12
+  - first:
+      213: -7505256433796825263
+    second: grid1_13
+  - first:
+      213: 2418159373904184300
+    second: grid1_14
+  - first:
+      213: -6338851483725553589
+    second: grid1_15
+  - first:
+      213: -2187127304511768317
+    second: grid1_16
+  - first:
+      213: -661344096379800648
+    second: grid1_17
+  - first:
+      213: 2561268150480763386
+    second: grid1_18
+  - first:
+      213: -2173453661332405746
+    second: grid1_19
+  - first:
+      213: -9148661562679392473
+    second: grid1_20
+  - first:
+      213: 2641425085228827788
+    second: grid1_21
+  - first:
+      213: 4515149530165342408
+    second: grid1_22
+  - first:
+      213: -5374384126353362854
+    second: grid1_23
+  - first:
+      213: 2309042149229797871
+    second: grid1_24
+  - first:
+      213: 7505630972568386203
+    second: grid1_25
+  - first:
+      213: -809512941771756793
+    second: grid1_26
+  - first:
+      213: 9014255197138769420
+    second: grid1_27
+  - first:
+      213: -5195886133932403019
+    second: grid1_28
+  - first:
+      213: 7148198668876345311
+    second: grid1_29
+  - first:
+      213: 5481317858008000474
+    second: grid1_30
+  - first:
+      213: -38724164426674829
+    second: grid1_31
+  - first:
+      213: 8215689251453138988
+    second: grid1_32
+  - first:
+      213: 1775381719058931730
+    second: grid1_33
+  - first:
+      213: 638650974515140622
+    second: grid1_34
+  - first:
+      213: 5869826033501586172
+    second: grid1_35
+  - first:
+      213: 9206814544029844103
+    second: grid1_36
+  - first:
+      213: -7326635033956879141
+    second: grid1_37
+  - first:
+      213: -1457599229178481481
+    second: grid1_38
+  - first:
+      213: 3296357926292060379
+    second: grid1_39
+  - first:
+      213: 3964882307430791707
+    second: grid1_40
+  - first:
+      213: -8804456126294314932
+    second: grid1_41
+  - first:
+      213: 7244970544065009594
+    second: grid1_42
+  - first:
+      213: -809086142238876217
+    second: grid1_43
+  - first:
+      213: 1428750943446115603
+    second: grid1_44
+  - first:
+      213: 2415224999609381487
+    second: grid1_45
+  - first:
+      213: -6476674780680362908
+    second: grid1_46
+  - first:
+      213: 2010629472277981992
+    second: grid1_47
+  - first:
+      213: 8269084058991577051
+    second: grid1_48
+  - first:
+      213: -4676036813324976878
+    second: grid1_49
+  - first:
+      213: 6220990813893965119
+    second: grid1_50
+  - first:
+      213: -6622462867176794459
+    second: grid1_51
+  - first:
+      213: -1724579371612775537
+    second: grid1_52
+  - first:
+      213: -4885664349463798594
+    second: grid1_53
+  - first:
+      213: -2739844407600913537
+    second: grid1_54
+  - first:
+      213: -8437292414773542873
+    second: grid1_55
+  - first:
+      213: -3046100818029795780
+    second: grid1_56
+  - first:
+      213: -5460754594741165534
+    second: grid1_57
+  - first:
+      213: -7582238795098947161
+    second: grid1_58
+  - first:
+      213: 3069290512296677588
+    second: grid1_59
+  - first:
+      213: -4961987183200748550
+    second: grid1_60
+  - first:
+      213: 6966137256141773449
+    second: grid1_61
+  - first:
+      213: -3710176561521712983
+    second: grid1_62
+  - first:
+      213: -7237962579367556505
+    second: grid1_63
+  - first:
+      213: -3546000681663984088
+    second: grid1_64
+  - first:
+      213: -1897768361033406256
+    second: grid1_65
+  - first:
+      213: 3558786192269342988
+    second: grid1_66
+  - first:
+      213: -3115817668793537744
+    second: grid1_67
+  - first:
+      213: 23107068887456457
+    second: grid1_68
+  - first:
+      213: -7660657730287786917
+    second: grid1_69
+  - first:
+      213: -7531709353513792455
+    second: grid1_70
+  - first:
+      213: 1377179853721850538
+    second: grid1_71
+  - first:
+      213: 4657613794000208967
+    second: grid1_72
+  - first:
+      213: -5777329084809341375
+    second: grid1_73
+  - first:
+      213: 605595119189190861
+    second: grid1_74
+  - first:
+      213: 6046671434940808051
+    second: grid1_75
+  - first:
+      213: -5159675397458984459
+    second: grid1_76
+  - first:
+      213: -8639942979792301500
+    second: grid1_77
+  - first:
+      213: 433964780408678637
+    second: grid1_78
+  - first:
+      213: -5791309447710454529
+    second: grid1_79
+  - first:
+      213: 8777814571552132739
+    second: grid1_80
+  - first:
+      213: 2843659555165955088
+    second: grid1_81
+  - first:
+      213: -8145376533994432563
+    second: grid1_82
+  - first:
+      213: 9062126405695512508
+    second: grid1_83
+  - first:
+      213: -557121274688171485
+    second: grid1_84
+  - first:
+      213: 639919943499423988
+    second: grid1_85
+  - first:
+      213: 2053511572194620383
+    second: grid1_86
+  - first:
+      213: -2904638248470058176
+    second: grid1_87
+  - first:
+      213: -3373495883303963480
+    second: grid1_88
+  - first:
+      213: -1348961770370348236
+    second: grid1_89
+  - first:
+      213: 2046743003835726131
+    second: grid1_90
+  - first:
+      213: 2583760377243933603
+    second: grid1_91
+  - first:
+      213: 8057662000064104984
+    second: grid1_92
+  - first:
+      213: 2744272260093735706
+    second: grid1_93
+  - first:
+      213: 9192058313777477570
+    second: grid1_94
+  - first:
+      213: -5699392590424010722
+    second: grid1_95
+  - first:
+      213: -3273240219599009815
+    second: grid1_96
+  - first:
+      213: 3520109929090973947
+    second: grid1_97
+  - first:
+      213: 3941764278630537938
+    second: grid1_98
+  - first:
+      213: -6865083207104392916
+    second: grid1_99
+  - first:
+      213: 3792680932501786020
+    second: grid1_100
+  - first:
+      213: -4504566205216708967
+    second: grid1_101
+  - first:
+      213: 7394413226854229560
+    second: grid1_102
+  - first:
+      213: -6350724309274150791
+    second: grid1_103
+  - first:
+      213: 2864525258555282055
+    second: grid1_104
+  - first:
+      213: -266710549249194964
+    second: grid1_105
+  - first:
+      213: 1136165916320775777
+    second: grid1_106
+  - first:
+      213: -6718897948351750488
+    second: grid1_107
+  - first:
+      213: -3567417925914212115
+    second: grid1_108
+  - first:
+      213: -1503757653927126032
+    second: grid1_109
+  - first:
+      213: -1312631265144577273
+    second: grid1_110
+  - first:
+      213: -1062543959682553553
+    second: grid1_111
+  - first:
+      213: 1581601499569887149
+    second: grid1_112
+  - first:
+      213: -4847485550518385525
+    second: grid1_113
+  - first:
+      213: -855755303675230455
+    second: grid1_114
+  - first:
+      213: 3485302511560885926
+    second: grid1_115
+  - first:
+      213: 6946794114214314556
+    second: grid1_116
+  - first:
+      213: 2589569661885267723
+    second: grid1_117
+  - first:
+      213: -1784438401483640977
+    second: grid1_118
+  - first:
+      213: -4930191670491753103
+    second: grid1_119
+  - first:
+      213: -7020745099708386502
+    second: grid1_120
+  - first:
+      213: 8247438678981886830
+    second: grid1_121
+  - first:
+      213: 8080856908618149187
+    second: grid1_122
+  - first:
+      213: 2060765480164872849
+    second: grid1_123
+  - first:
+      213: -4692479385290487724
+    second: grid1_124
+  - first:
+      213: -821756792537262201
+    second: grid1_125
+  - first:
+      213: 692979993354386020
+    second: grid1_126
+  - first:
+      213: 7967056044786429214
+    second: grid1_127
+  - first:
+      213: 4133144062270094068
+    second: grid1_128
+  - first:
+      213: 292394442120599529
+    second: grid1_129
+  - first:
+      213: 1755581805555010207
+    second: grid1_130
+  - first:
+      213: -7396118803567223113
+    second: grid1_131
+  - first:
+      213: -800423284771018960
+    second: grid1_132
+  - first:
+      213: -4092929891599546377
+    second: grid1_133
+  - first:
+      213: -7048435142243289031
+    second: grid1_134
+  - first:
+      213: -7834533857068377708
+    second: grid1_135
+  - first:
+      213: 6006385984028524534
+    second: grid1_136
+  - first:
+      213: 4415792505116518719
+    second: grid1_137
+  - first:
+      213: -3541512832647412717
+    second: grid1_138
+  - first:
+      213: 8769963159002550369
+    second: grid1_139
+  - first:
+      213: 7819983261257806289
+    second: grid1_140
+  - first:
+      213: 676995994740190297
+    second: grid1_141
+  - first:
+      213: -1810025824141009981
+    second: grid1_142
+  - first:
+      213: -1104193682784772380
+    second: grid1_143
+  - first:
+      213: -2270148945259469547
+    second: grid1_144
+  - first:
+      213: -1760864418738150523
+    second: grid1_145
+  - first:
+      213: 2965751210267668909
+    second: grid1_146
+  - first:
+      213: -7267707408297545479
+    second: grid1_147
+  - first:
+      213: 7316433479290170299
+    second: grid1_148
+  - first:
+      213: -493655407685055863
+    second: grid1_149
+  - first:
+      213: 626736698993707247
+    second: grid1_150
+  - first:
+      213: 7897929448731680044
+    second: grid1_151
+  - first:
+      213: 5303008736023944666
+    second: grid1_152
+  - first:
+      213: 5983352847107638268
+    second: grid1_153
+  - first:
+      213: -37427683277965675
+    second: grid1_154
+  - first:
+      213: -2602998051842369925
+    second: grid1_155
+  - first:
+      213: -2521472054894101267
+    second: grid1_156
+  - first:
+      213: -7348627562476466651
+    second: grid1_157
+  - first:
+      213: 1508238676755216843
+    second: grid1_158
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grid1_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 710
+        width: 38
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a065908288c27a20800000000000000
+      internalID: 3058727559766565029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 729
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bf3263d3cd02d770800000000000000
+      internalID: 8633978570338877367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_2
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 729
+        width: 36
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b670f893a49b1670800000000000000
+      internalID: 8510559351213160120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 729
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8993485f4bf3d6b70800000000000000
+      internalID: 8893834885572344216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_4
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 698
+        width: 16
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fffd8392e1a05af0800000000000000
+      internalID: -409649571580477450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_5
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 729
+        width: 80
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2556eb85df5e7c50800000000000000
+      internalID: 6664869869334713647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_6
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 729
+        width: 45
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7fc50e2ec5741860800000000000000
+      internalID: 7499748807874563964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_7
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 700
+        width: 54
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48edabaef46f22f40800000000000000
+      internalID: 5702390901305433732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_8
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 729
+        width: 45
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d28e111086a7b5270800000000000000
+      internalID: 8240314530317592621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_9
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 729
+        width: 49
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8486e3caef5d9930800000000000000
+      internalID: 4151579893419115661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_10
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 701
+        width: 47
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9d7565e8137a6fb0800000000000000
+      internalID: -4653780714168943201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_11
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 729
+        width: 36
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ab1cea4553faa370800000000000000
+      internalID: 8334741608057281444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_12
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 729
+        width: 38
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f37957ac79d5d40800000000000000
+      internalID: 5574778809566576428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_13
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 729
+        width: 36
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15f335bb909f7d790800000000000000
+      internalID: -7505256433796825263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_14
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 705
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce307db73270f8120800000000000000
+      internalID: 2418159373904184300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_15
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 729
+        width: 38
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b40a4940920e708a0800000000000000
+      internalID: -6338851483725553589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_16
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 729
+        width: 43
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 309b400fd43c5a1e0800000000000000
+      internalID: -2187127304511768317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_17
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 725
+        width: 43
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b3fafc5c0f62d6f0800000000000000
+      internalID: -661344096379800648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_18
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 685
+        width: 16
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af97deb00d37b8320800000000000000
+      internalID: 2561268150480763386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_19
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 673
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e028284196756d1e0800000000000000
+      internalID: -2173453661332405746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_20
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 663
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 727893ac7cc690180800000000000000
+      internalID: -9148661562679392473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 659
+        width: 16
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c84ced1ce1a38a420800000000000000
+      internalID: 2641425085228827788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_22
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 657
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c0f64d439809ae30800000000000000
+      internalID: 4515149530165342408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_23
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 657
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a50b53e9c1a5a65b0800000000000000
+      internalID: -5374384126353362854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_24
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 640
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe12f34d99d5b0020800000000000000
+      internalID: 2309042149229797871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_25
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 625
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9abb1f5a9b592860800000000000000
+      internalID: 7505630972568386203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_26
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 626
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70bec98b44804c4f0800000000000000
+      internalID: -809512941771756793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_27
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 616
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c06dc2c9751191d70800000000000000
+      internalID: 9014255197138769420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_28
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 613
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b6d495171184e7b0800000000000000
+      internalID: -5195886133932403019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_29
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 612
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdf6b4a01d0833360800000000000000
+      internalID: 7148198668876345311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_30
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 595
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad76293fc8d811c40800000000000000
+      internalID: 5481317858008000474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_31
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 581
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37dcf1fd39c667ff0800000000000000
+      internalID: -38724164426674829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_32
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 540
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c28fbd978ddf30270800000000000000
+      internalID: 8215689251453138988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_33
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 582
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 210ea31644c63a810800000000000000
+      internalID: 1775381719058931730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_34
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 582
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e089e677da1fcd800800000000000000
+      internalID: 638650974515140622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_35
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 580
+        width: 48
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf2c3348dafc57150800000000000000
+      internalID: 5869826033501586172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_36
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 582
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7828cc94c0d25cf70800000000000000
+      internalID: 9206814544029844103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_37
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 582
+        width: 46
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd4711a3140925a90800000000000000
+      internalID: -7326635033956879141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_38
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 582
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b4fee7493195cbe0800000000000000
+      internalID: -1457599229178481481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_39
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 555
+        width: 39
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd87e21b1140fbd20800000000000000
+      internalID: 3296357926292060379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_40
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 582
+        width: 35
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1ab4a6a377160730800000000000000
+      internalID: 3964882307430791707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_41
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 582
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4037b71dc940d580800000000000000
+      internalID: -8804456126294314932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_42
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 582
+        width: 38
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab7d927035e4b8460800000000000000
+      internalID: 7244970544065009594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_43
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 553
+        width: 41
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cd192bb07c85c4f0800000000000000
+      internalID: -809086142238876217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_44
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 582
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3152c98c961f3d310800000000000000
+      internalID: 1428750943446115603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_45
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 582
+        width: 45
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f623c5a375a948120800000000000000
+      internalID: 2415224999609381487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_46
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 582
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 464e0d31a9a3e16a0800000000000000
+      internalID: -6476674780680362908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_47
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 555
+        width: 43
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82b6f0e2ad037eb10800000000000000
+      internalID: 2010629472277981992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_48
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 582
+        width: 48
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd7c902e320b1c270800000000000000
+      internalID: 8269084058991577051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_49
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 582
+        width: 40
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21d7d110b416b1fb0800000000000000
+      internalID: -4676036813324976878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_50
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 548
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f353e1d5f26655650800000000000000
+      internalID: 6220990813893965119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_51
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 546
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a656bf0c194814a0800000000000000
+      internalID: -6622462867176794459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_52
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 502
+        width: 16
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8bdd00e2301118e0800000000000000
+      internalID: -1724579371612775537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_53
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 504
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc9b66d822a23cb0800000000000000
+      internalID: -4885664349463798594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_54
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 509
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f736b11170e1af9d0800000000000000
+      internalID: -2739844407600913537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_55
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 504
+        width: 16
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 720435f5047b8ea80800000000000000
+      internalID: -8437292414773542873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_56
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 496
+        width: 16
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36ae47e1731ab5d0800000000000000
+      internalID: -3046100818029795780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_57
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 501
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 222eeded0a08734b0800000000000000
+      internalID: -5460754594741165534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_58
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 464
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a101fffcf976c690800000000000000
+      internalID: -7582238795098947161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_59
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 460
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d09be9857f489a20800000000000000
+      internalID: 3069290512296677588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_60
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 454
+        width: 16
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afb374552fa732bb0800000000000000
+      internalID: -4961987183200748550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_61
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 418
+        width: 38
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98ad1f02de0bca060800000000000000
+      internalID: 6966137256141773449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_62
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 459
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a0a48c131ec28cc0800000000000000
+      internalID: -3710176561521712983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_63
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 453
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76a0a37e1679d8b90800000000000000
+      internalID: -7237962579367556505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_64
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 413
+        width: 63
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82e0024ea231acec0800000000000000
+      internalID: -3546000681663984088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_65
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 414
+        width: 55
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d8e0aefab5c9a5e0800000000000000
+      internalID: -1897768361033406256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_66
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 411
+        width: 45
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0977c5cf29536130800000000000000
+      internalID: 3558786192269342988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_67
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 438
+        width: 38
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03becaaa65462c4d0800000000000000
+      internalID: -3115817668793537744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_68
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 438
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca56d8b1c7125000800000000000000
+      internalID: 23107068887456457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_69
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 438
+        width: 36
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54a858d160efa590800000000000000
+      internalID: -7660657730287786917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_70
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 438
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93cc2586f3ef97790800000000000000
+      internalID: -7531709353513792455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_71
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 438
+        width: 44
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa25ae4c7c9bc1310800000000000000
+      internalID: 1377179853721850538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_72
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 414
+        width: 74
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 744875c811b23a040800000000000000
+      internalID: 4657613794000208967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_73
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 438
+        width: 45
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14618659ecdc2dfa0800000000000000
+      internalID: -5777329084809341375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_74
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 438
+        width: 39
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc86bf46d81876800800000000000000
+      internalID: 605595119189190861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_75
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 438
+        width: 48
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37bf52922a71ae350800000000000000
+      internalID: 6046671434940808051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_76
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 438
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f1822a20962568b0800000000000000
+      internalID: -5159675397458984459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_77
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 438
+        width: 50
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44299d1e2a1c81880800000000000000
+      internalID: -8639942979792301500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_78
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 438
+        width: 46
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de82a452ba0c50600800000000000000
+      internalID: 433964780408678637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_79
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 401
+        width: 51
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffccad0bdb221afa0800000000000000
+      internalID: -5791309447710454529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_80
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 273
+        width: 16
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38ecc9198df01d970800000000000000
+      internalID: 8777814571552132739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_81
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 376
+        width: 16
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 014efcf8c45b67720800000000000000
+      internalID: 2843659555165955088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_82
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 365
+        width: 16
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc79579c23fc5fe80800000000000000
+      internalID: -8145376533994432563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_83
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 361
+        width: 16
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf1b29e3f323cd70800000000000000
+      internalID: 9062126405695512508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_84
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 371
+        width: 16
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32216650725b448f0800000000000000
+      internalID: -557121274688171485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_85
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 341
+        width: 16
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f0a8f45cc371e800800000000000000
+      internalID: 639919943499423988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_86
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 324
+        width: 16
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd370da15e98f7c10800000000000000
+      internalID: 2053511572194620383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_87
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 315
+        width: 16
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04bede607e6a0b7d0800000000000000
+      internalID: -2904638248470058176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_88
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 312
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a4bc602e5fee21d0800000000000000
+      internalID: -3373495883303963480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_89
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 327
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43b4e7dba66874de0800000000000000
+      internalID: -1348961770370348236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_90
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 292
+        width: 37
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 339f42afaed776c10800000000000000
+      internalID: 2046743003835726131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_91
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 292
+        width: 42
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ab9a5eaf5c5bd320800000000000000
+      internalID: 2583760377243933603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_92
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 292
+        width: 49
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81a0cf1d5e092df60800000000000000
+      internalID: 8057662000064104984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_93
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 292
+        width: 40
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1378dda41d951620800000000000000
+      internalID: 2744272260093735706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_94
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 266
+        width: 46
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c7f163b550c09f70800000000000000
+      internalID: 9192058313777477570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_95
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 292
+        width: 44
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e10984cb2a0b7e0b0800000000000000
+      internalID: -5699392590424010722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_96
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 292
+        width: 45
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e78746dc5d1392d0800000000000000
+      internalID: -3273240219599009815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_97
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 266
+        width: 53
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf00bc58451f9d030800000000000000
+      internalID: 3520109929090973947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_98
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 292
+        width: 49
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dad8102ab5f3b630800000000000000
+      internalID: 3941764278630537938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_99
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 292
+        width: 45
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c211b0722335ab0a0800000000000000
+      internalID: -6865083207104392916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_100
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 257
+        width: 61
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ad8a20b63f42a430800000000000000
+      internalID: 3792680932501786020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_101
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 292
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99624de07e09c71c0800000000000000
+      internalID: -4504566205216708967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_102
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 292
+        width: 42
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 836a81d07ab3e9660800000000000000
+      internalID: 7394413226854229560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_103
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 266
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 978b64763e1bdd7a0800000000000000
+      internalID: -6350724309274150791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_104
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 292
+        width: 50
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7825256bb86d0c720800000000000000
+      internalID: 2864525258555282055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_105
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 292
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2407262b247c4cf0800000000000000
+      internalID: -266710549249194964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_106
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 241
+        width: 16
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16eb43891e874cf00800000000000000
+      internalID: 1136165916320775777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_107
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 224
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ae946a0aeda1c2a0800000000000000
+      internalID: -6718897948351750488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_108
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 213
+        width: 16
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de8c5802c4cfd7ec0800000000000000
+      internalID: -3567417925914212115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_109
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 213
+        width: 16
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb16698164912be0800000000000000
+      internalID: -1503757653927126032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_110
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 203
+        width: 16
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7036cf7a1d898cde0800000000000000
+      internalID: -1312631265144577273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_111
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 211
+        width: 16
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2962e4f5e51141f0800000000000000
+      internalID: -1062543959682553553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_112
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 192
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da796162f2af2f510800000000000000
+      internalID: 1581601499569887149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_113
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 175
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b84438b23954abcb0800000000000000
+      internalID: -4847485550518385525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_114
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 168
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90708c5d51fbf14f0800000000000000
+      internalID: -855755303675230455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_115
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 172
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a60d581b284e5030800000000000000
+      internalID: 3485302511560885926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_116
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 160
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c32c481f078f76060800000000000000
+      internalID: 6946794114214314556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_117
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 162
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0fbcc923efffe320800000000000000
+      internalID: 2589569661885267723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_118
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 137
+        width: 46
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6f600c6ab66c37e0800000000000000
+      internalID: -1784438401483640977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_119
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 120
+        width: 54
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 175dfb50cc0749bb0800000000000000
+      internalID: -4930191670491753103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_120
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 146
+        width: 51
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a333151878d419e90800000000000000
+      internalID: -7020745099708386502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_121
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 146
+        width: 48
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e63488f18c9c47270800000000000000
+      internalID: 8247438678981886830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_122
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 111
+        width: 56
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d22fe4b88f42070800000000000000
+      internalID: 8080856908618149187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_123
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 146
+        width: 54
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1925d9a294f499c10800000000000000
+      internalID: 2060765480164872849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_124
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 119
+        width: 59
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 458cae36cd6f0eeb0800000000000000
+      internalID: -4692479385290487724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_125
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 146
+        width: 53
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7875d011d888894f0800000000000000
+      internalID: -821756792537262201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_126
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 146
+        width: 45
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46a3754e1a5fd9900800000000000000
+      internalID: 692979993354386020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_127
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 109
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1daf1fe24ba09e60800000000000000
+      internalID: 7967056044786429214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_128
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 146
+        width: 52
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fabf1550a0eb5930800000000000000
+      internalID: 4133144062270094068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_129
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 146
+        width: 54
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e795e8223bce0400800000000000000
+      internalID: 292394442120599529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_130
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 106
+        width: 58
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9ace36c9541d5810800000000000000
+      internalID: 1755581805555010207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_131
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 146
+        width: 47
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bed9cc6225bb5990800000000000000
+      internalID: -7396118803567223113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_132
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 146
+        width: 44
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 037a549634354e4f0800000000000000
+      internalID: -800423284771018960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_133
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 76
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f781a8e2fdf237c0800000000000000
+      internalID: -4092929891599546377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_134
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 67
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9387534159dee2e90800000000000000
+      internalID: -7048435142243289031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_135
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 70
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4991ba457f4264390800000000000000
+      internalID: -7834533857068377708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_136
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 64
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ffb7e1ba38fa5350800000000000000
+      internalID: 6006385984028524534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_137
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 57
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f396d4533eb084d30800000000000000
+      internalID: 4415792505116518719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_138
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 90
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 314409aa7d40adec0800000000000000
+      internalID: -3541512832647412717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_139
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 31
+        width: 16
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1601c91270b25b970800000000000000
+      internalID: 8769963159002550369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_140
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 18
+        width: 16
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d1b5c41859268c60800000000000000
+      internalID: 7819983261257806289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_141
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 26
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95ce9d4354c256900800000000000000
+      internalID: 676995994740190297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_142
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 0
+        width: 49
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cb9ac55a1f71e6e0800000000000000
+      internalID: -1810025824141009981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_143
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 1
+        width: 54
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ee126e12bd1da0f0800000000000000
+      internalID: -1104193682784772380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_144
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 41
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 515e492ef8fce70e0800000000000000
+      internalID: -2270148945259469547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_145
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 45
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 583ec7ff3272097e0800000000000000
+      internalID: -1760864418738150523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_146
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 3
+        width: 53
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da170343307782920800000000000000
+      internalID: 2965751210267668909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_147
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 3
+        width: 40
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f033fc3e9ae32b90800000000000000
+      internalID: -7267707408297545479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_148
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 3
+        width: 44
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbbaddb3c71398560800000000000000
+      internalID: 7316433479290170299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_149
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 3
+        width: 48
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98a4b7fa50f2629f0800000000000000
+      internalID: -493655407685055863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_150
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 3
+        width: 50
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe8883705bd92b800800000000000000
+      internalID: 626736698993707247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_151
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 0
+        width: 53
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2d9fb41df41b9d60800000000000000
+      internalID: 7897929448731680044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_152
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 3
+        width: 49
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: add108f4952189940800000000000000
+      internalID: 5303008736023944666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_153
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 3
+        width: 44
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf34ca996b3290350800000000000000
+      internalID: 5983352847107638268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_154
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 3
+        width: 44
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 596737968b70b7ff0800000000000000
+      internalID: -37427683277965675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_155
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 3
+        width: 49
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b76d6e8201b40ebd0800000000000000
+      internalID: -2602998051842369925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_156
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 3
+        width: 55
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec76f0868ee10dd0800000000000000
+      internalID: -2521472054894101267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_157
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 3
+        width: 42
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e02f7aa2e640a90800000000000000
+      internalID: -7348627562476466651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid1_158
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 0
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc9ff74e5175ee410800000000000000
+      internalID: 1508238676755216843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      grid1_0: 3058727559766565029
+      grid1_1: 8633978570338877367
+      grid1_10: -4653780714168943201
+      grid1_100: 3792680932501786020
+      grid1_101: -4504566205216708967
+      grid1_102: 7394413226854229560
+      grid1_103: -6350724309274150791
+      grid1_104: 2864525258555282055
+      grid1_105: -266710549249194964
+      grid1_106: 1136165916320775777
+      grid1_107: -6718897948351750488
+      grid1_108: -3567417925914212115
+      grid1_109: -1503757653927126032
+      grid1_11: 8334741608057281444
+      grid1_110: -1312631265144577273
+      grid1_111: -1062543959682553553
+      grid1_112: 1581601499569887149
+      grid1_113: -4847485550518385525
+      grid1_114: -855755303675230455
+      grid1_115: 3485302511560885926
+      grid1_116: 6946794114214314556
+      grid1_117: 2589569661885267723
+      grid1_118: -1784438401483640977
+      grid1_119: -4930191670491753103
+      grid1_12: 5574778809566576428
+      grid1_120: -7020745099708386502
+      grid1_121: 8247438678981886830
+      grid1_122: 8080856908618149187
+      grid1_123: 2060765480164872849
+      grid1_124: -4692479385290487724
+      grid1_125: -821756792537262201
+      grid1_126: 692979993354386020
+      grid1_127: 7967056044786429214
+      grid1_128: 4133144062270094068
+      grid1_129: 292394442120599529
+      grid1_13: -7505256433796825263
+      grid1_130: 1755581805555010207
+      grid1_131: -7396118803567223113
+      grid1_132: -800423284771018960
+      grid1_133: -4092929891599546377
+      grid1_134: -7048435142243289031
+      grid1_135: -7834533857068377708
+      grid1_136: 6006385984028524534
+      grid1_137: 4415792505116518719
+      grid1_138: -3541512832647412717
+      grid1_139: 8769963159002550369
+      grid1_14: 2418159373904184300
+      grid1_140: 7819983261257806289
+      grid1_141: 676995994740190297
+      grid1_142: -1810025824141009981
+      grid1_143: -1104193682784772380
+      grid1_144: -2270148945259469547
+      grid1_145: -1760864418738150523
+      grid1_146: 2965751210267668909
+      grid1_147: -7267707408297545479
+      grid1_148: 7316433479290170299
+      grid1_149: -493655407685055863
+      grid1_15: -6338851483725553589
+      grid1_150: 626736698993707247
+      grid1_151: 7897929448731680044
+      grid1_152: 5303008736023944666
+      grid1_153: 5983352847107638268
+      grid1_154: -37427683277965675
+      grid1_155: -2602998051842369925
+      grid1_156: -2521472054894101267
+      grid1_157: -7348627562476466651
+      grid1_158: 1508238676755216843
+      grid1_16: -2187127304511768317
+      grid1_17: -661344096379800648
+      grid1_18: 2561268150480763386
+      grid1_19: -2173453661332405746
+      grid1_2: 8510559351213160120
+      grid1_20: -9148661562679392473
+      grid1_21: 2641425085228827788
+      grid1_22: 4515149530165342408
+      grid1_23: -5374384126353362854
+      grid1_24: 2309042149229797871
+      grid1_25: 7505630972568386203
+      grid1_26: -809512941771756793
+      grid1_27: 9014255197138769420
+      grid1_28: -5195886133932403019
+      grid1_29: 7148198668876345311
+      grid1_3: 8893834885572344216
+      grid1_30: 5481317858008000474
+      grid1_31: -38724164426674829
+      grid1_32: 8215689251453138988
+      grid1_33: 1775381719058931730
+      grid1_34: 638650974515140622
+      grid1_35: 5869826033501586172
+      grid1_36: 9206814544029844103
+      grid1_37: -7326635033956879141
+      grid1_38: -1457599229178481481
+      grid1_39: 3296357926292060379
+      grid1_4: -409649571580477450
+      grid1_40: 3964882307430791707
+      grid1_41: -8804456126294314932
+      grid1_42: 7244970544065009594
+      grid1_43: -809086142238876217
+      grid1_44: 1428750943446115603
+      grid1_45: 2415224999609381487
+      grid1_46: -6476674780680362908
+      grid1_47: 2010629472277981992
+      grid1_48: 8269084058991577051
+      grid1_49: -4676036813324976878
+      grid1_5: 6664869869334713647
+      grid1_50: 6220990813893965119
+      grid1_51: -6622462867176794459
+      grid1_52: -1724579371612775537
+      grid1_53: -4885664349463798594
+      grid1_54: -2739844407600913537
+      grid1_55: -8437292414773542873
+      grid1_56: -3046100818029795780
+      grid1_57: -5460754594741165534
+      grid1_58: -7582238795098947161
+      grid1_59: 3069290512296677588
+      grid1_6: 7499748807874563964
+      grid1_60: -4961987183200748550
+      grid1_61: 6966137256141773449
+      grid1_62: -3710176561521712983
+      grid1_63: -7237962579367556505
+      grid1_64: -3546000681663984088
+      grid1_65: -1897768361033406256
+      grid1_66: 3558786192269342988
+      grid1_67: -3115817668793537744
+      grid1_68: 23107068887456457
+      grid1_69: -7660657730287786917
+      grid1_7: 5702390901305433732
+      grid1_70: -7531709353513792455
+      grid1_71: 1377179853721850538
+      grid1_72: 4657613794000208967
+      grid1_73: -5777329084809341375
+      grid1_74: 605595119189190861
+      grid1_75: 6046671434940808051
+      grid1_76: -5159675397458984459
+      grid1_77: -8639942979792301500
+      grid1_78: 433964780408678637
+      grid1_79: -5791309447710454529
+      grid1_8: 8240314530317592621
+      grid1_80: 8777814571552132739
+      grid1_81: 2843659555165955088
+      grid1_82: -8145376533994432563
+      grid1_83: 9062126405695512508
+      grid1_84: -557121274688171485
+      grid1_85: 639919943499423988
+      grid1_86: 2053511572194620383
+      grid1_87: -2904638248470058176
+      grid1_88: -3373495883303963480
+      grid1_89: -1348961770370348236
+      grid1_9: 4151579893419115661
+      grid1_90: 2046743003835726131
+      grid1_91: 2583760377243933603
+      grid1_92: 8057662000064104984
+      grid1_93: 2744272260093735706
+      grid1_94: 9192058313777477570
+      grid1_95: -5699392590424010722
+      grid1_96: -3273240219599009815
+      grid1_97: 3520109929090973947
+      grid1_98: 3941764278630537938
+      grid1_99: -6865083207104392916
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
