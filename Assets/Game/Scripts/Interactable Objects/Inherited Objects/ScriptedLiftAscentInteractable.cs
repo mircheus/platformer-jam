@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Скриптовая надстройка над <see cref="LiftInteractable"/>, аналог
@@ -12,6 +14,15 @@ using UnityEngine;
 /// игроку вернули управление) проигрывает второй диалог <see cref="arrivalDialogue"/>.
 /// «Лифт доехал» ловится через обобщённое событие
 /// <see cref="LocationTransitionController.ArrivedAtLocation"/>.
+///
+/// Это ФИНАЛЬНАЯ катсцена игры: после завершения последнего диалога (приездного,
+/// либо стартового, если приездного нет) выжидает <see cref="endingDelay"/> секунд,
+/// затемняет экран через <see cref="ScreenFader"/> в полную темноту и плавно
+/// проявляет надпись «Конец» (<see cref="endScreen"/>). Затем — после паузы
+/// <see cref="creditsDelay"/> — мягко гасит «Конец» и проявляет опциональные
+/// статичные титры (<see cref="creditsScreen"/>). Длительность фейда надписей —
+/// <see cref="labelFadeDuration"/>. После титров (пауза <see cref="returnToMenuDelay"/>)
+/// автоматически загружает сцену главного меню <see cref="mainMenuSceneName"/>.
 ///
 /// Катсцена разовая: после первого прохода скрипт больше не отрабатывает.
 ///
@@ -40,6 +51,25 @@ public class ScriptedLiftAscentInteractable : IInteractable
     [SerializeField] private DialogueData arrivalDialogue;
     [Tooltip("Тот же DialogueSystem, что и в сцене — нужен, чтобы поймать завершение диалога.")]
     [SerializeField] private DialogueSystem dialogueSystem;
+
+    [Header("Ending")]
+    [Tooltip("Пауза (сек) после завершения последнего диалога перед затемнением экрана.")]
+    [SerializeField] private float endingDelay = 3f;
+    [Tooltip("ScreenFader, которым экран затемняется в полную темноту в финале катсцены.")]
+    [SerializeField] private ScreenFader screenFader;
+    [Tooltip("CanvasGroup надписи «Конец», которая появляется после затемнения и плавно " +
+             "гаснет перед показом титров.")]
+    [SerializeField] private CanvasGroup endScreen;
+    [Tooltip("Пауза (сек) после показа надписи «Конец» перед переходом к титрам.")]
+    [SerializeField] private float creditsDelay = 3f;
+    [Tooltip("CanvasGroup статичных титров, которые плавно проявляются после надписи «Конец». Пусто — титры не показываются.")]
+    [SerializeField] private CanvasGroup creditsScreen;
+    [Tooltip("Длительность (сек) мягкого фейда надписей: затухание «Конца» и проявление титров.")]
+    [SerializeField] private float labelFadeDuration = 1f;
+    [Tooltip("Пауза (сек) после показа титров перед автоматической загрузкой главного меню.")]
+    [SerializeField] private float returnToMenuDelay = 5f;
+    [Tooltip("Имя сцены главного меню (как в Build Settings), в которую возвращаемся после титров.")]
+    [SerializeField] private string mainMenuSceneName = "_Menu";
 
     // Защита от повторного запуска, пока реплики идут и лифт ещё не уехал.
     private bool isRunning;
@@ -105,10 +135,10 @@ public class ScriptedLiftAscentInteractable : IInteractable
     {
         GameContext.Instance.LocationTransition.ArrivedAtLocation -= OnLiftArrived;
 
-        // Нет реплики на приезд — на этом катсцена завершена.
+        // Нет реплики на приезд — стартовый диалог и был последним, сразу к финалу.
         if (arrivalDialogue == null)
         {
-            isRunning = false;
+            StartEnding();
             return;
         }
 
@@ -125,7 +155,95 @@ public class ScriptedLiftAscentInteractable : IInteractable
             return;
 
         dialogueSystem.DialogueEnded -= OnArrivalDialogueEnded;
+        // Приездной диалог был последним — запускаем финал.
+        StartEnding();
+    }
+
+    /// <summary>
+    /// Финал катсцены (и игры): ждём <see cref="endingDelay"/> секунд, затемняем
+    /// экран в полную темноту и включаем надпись «Конец». Вызывается после
+    /// завершения последнего диалога катсцены. isRunning держим до самого конца
+    /// последовательности — катсцена считается идущей, пока не показан «Конец».
+    /// </summary>
+    private void StartEnding()
+    {
+        StartCoroutine(EndingRoutine());
+    }
+
+    private IEnumerator EndingRoutine()
+    {
+        yield return new WaitForSeconds(endingDelay);
+
+        if (screenFader != null)
+            yield return screenFader.FadeOut();
+        else
+            Debug.LogWarning($"{name}: не назначен screenFader — экран не затемнится.");
+
+        // Надпись «Конец» плавно проявляется на затемнённом экране.
+        if (endScreen != null)
+            yield return FadeLabel(endScreen, 0f, 1f);
+        else
+            Debug.LogWarning($"{name}: не назначен endScreen — надпись «Конец» не покажется.");
+
+        // Статичные титры после надписи «Конец». Опционально — если объект не назначен,
+        // на «Конце» всё и заканчивается.
+        if (creditsScreen != null)
+        {
+            yield return new WaitForSeconds(creditsDelay);
+
+            // Сначала мягко гасим «Конец», затем проявляем титры.
+            if (endScreen != null)
+            {
+                yield return FadeLabel(endScreen, 1f, 0f);
+                endScreen.gameObject.SetActive(false);
+            }
+
+            yield return FadeLabel(creditsScreen, 0f, 1f);
+        }
+
+        // Вся катсцена полностью завершена.
         isRunning = false;
+
+        // Автовозврат в главное меню после титров. LoadScene уничтожит эту сцену
+        // (и объект), поэтому это последний шаг последовательности.
+        if (!string.IsNullOrEmpty(mainMenuSceneName))
+        {
+            yield return new WaitForSeconds(returnToMenuDelay);
+            SceneManager.LoadScene(mainMenuSceneName);
+        }
+        else
+        {
+            Debug.LogWarning($"{name}: не задан mainMenuSceneName — автовозврат в меню не выполнен.");
+        }
+    }
+
+    /// <summary>
+    /// Мягкий фейд альфы <paramref name="group"/> от <paramref name="from"/> к
+    /// <paramref name="to"/> за <see cref="labelFadeDuration"/> секунд. Перед стартом
+    /// включает объект и выставляет начальную альфу, так что годится и для проявления
+    /// (0→1), и для затухания (1→0).
+    /// </summary>
+    private IEnumerator FadeLabel(CanvasGroup group, float from, float to)
+    {
+        group.alpha = from;
+        group.gameObject.SetActive(true);
+
+        if (labelFadeDuration <= 0f)
+        {
+            group.alpha = to;
+            yield break;
+        }
+
+        float elapsed = 0f;
+
+        while (elapsed < labelFadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            group.alpha = Mathf.Lerp(from, to, elapsed / labelFadeDuration);
+            yield return null;
+        }
+
+        group.alpha = to;
     }
 
     private void OnDisable()
