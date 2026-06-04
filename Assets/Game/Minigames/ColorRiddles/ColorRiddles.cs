@@ -16,6 +16,9 @@ namespace Minigames
         [SerializeField] private TMP_Text npcCurrentLine;
         [SerializeField] private float winDelay = 1f;
 
+        [Tooltip("Звук правильного нажатия кнопки (проигрывается на каждый верный шаг последовательности).")]
+        [SerializeField] private AudioClip correctPressClip;
+
         private int _currentIndex = 0;
         private bool _isWon;
         private Coroutine _mistakeLineCoroutine;
@@ -45,6 +48,7 @@ namespace Minigames
             if (buttonIndex == correctSequence[_currentIndex])
             {
                 colorButtons[buttonIndex].SetPressed();
+                PlayCorrectPressSound();
 
                 if (_currentIndex >= correctSequence.Count - 1)
                 {
@@ -71,6 +75,12 @@ namespace Minigames
                 
         }
         
+        private void PlayCorrectPressSound()
+        {
+            if (correctPressClip != null && AudioManager.Instance != null)
+                AudioManager.Instance.PlaySfx(correctPressClip);
+        }
+
         private void ResetAllButtons()
         {
             foreach (var colorButton in colorButtons)
