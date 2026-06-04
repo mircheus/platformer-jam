@@ -189,10 +189,33 @@ namespace Game.Minigames.Tetris
 
             _dragging = null;
 
-            if (placed && grid.IsFull())
+            if (placed && AllPiecesPlaced())
             {
                 Win();
             }
+        }
+
+        /// <summary>
+        /// Победа, когда все фигуры уложены в сетку. Это надёжнее проверки
+        /// «сетка заполнена целиком»: не зависит от того, совпадает ли суммарное
+        /// число клеток фигур с размером сетки.
+        /// </summary>
+        private bool AllPiecesPlaced()
+        {
+            if (_pieces == null || _pieces.Length == 0)
+            {
+                return false;
+            }
+
+            foreach (TetrisPiece piece in _pieces)
+            {
+                if (!piece.IsPlaced)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         /// <summary>

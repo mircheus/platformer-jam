@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
 using Random = UnityEngine.Random;
 
 namespace Minigames
@@ -11,10 +11,10 @@ namespace Minigames
         /// <summary>Поднимается, когда игрок поймал объект.</summary>
         public event Action EggCaught;
 
-        [Header("Prefab & Pool")]
-        [SerializeField] private Egg eggPrefab;
-        [SerializeField] private int defaultCapacity = 10;
-        [SerializeField] private int maxPoolSize = 30;
+        [Header("Objects")]
+        [Tooltip("Готовые объекты, заранее размещённые внутри префаба игры. " +
+                 "Спавнер активирует их по очереди и деактивирует после падения/поимки.")]
+        [SerializeField] private Egg[] eggs;
 
         [Header("Spawn Area")]
         [Tooltip("Y, на которой появляются объекты (верх поля).")]
@@ -33,19 +33,34 @@ namespace Minigames
         [Header("Ease")]
         [SerializeField] private EaseType ease = EaseType.Linear;
 
-        private ObjectPool<Egg> _pool;
+        // Деактивированные объекты, готовые к запуску.
+        private readonly Queue<Egg> _available = new Queue<Egg>();
         private Coroutine _spawnRoutine;
 
         private void Awake()
         {
-            _pool = new ObjectPool<Egg>(
-                createFunc: CreateEgg,
-                actionOnGet: egg => egg.gameObject.SetActive(true),
-                actionOnRelease: egg => egg.gameObject.SetActive(false),
-                actionOnDestroy: egg => Destroy(egg.gameObject),
-                collectionCheck: true,
-                defaultCapacity: defaultCapacity,
-                maxSize: maxPoolSize);
+            foreach (Egg egg in eggs)
+            {
+                if (egg == null)
+                {
+                    continue;
+                }
+
+                egg.Finished += OnEggFinished; // подписка один раз на старте, не на каждую активацию
+                egg.gameObject.SetActive(false);
+                _available.Enqueue(egg);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            foreach (Egg egg in eggs)
+            {
+                if (egg != null)
+                {
+                    egg.Finished -= OnEggFinished;
+                }
+            }
         }
 
         public void StartSpawning()
@@ -65,13 +80,6 @@ namespace Minigames
             }
         }
 
-        private Egg CreateEgg()
-        {
-            Egg egg = Instantiate(eggPrefab, transform);
-            egg.Finished += OnEggFinished; // подписка один раз на создание, не на каждый Get
-            return egg;
-        }
-
         private IEnumerator SpawnLoop()
         {
             WaitForSeconds wait = new WaitForSeconds(spawnInterval);
@@ -86,7 +94,14 @@ namespace Minigames
 
         private void SpawnOne()
         {
-            Egg egg = _pool.Get();
+            // Все объекты сейчас в падении — пропускаем тик, дождёмся освобождения.
+            if (_available.Count == 0)
+            {
+                return;
+            }
+
+            Egg egg = _available.Dequeue();
+            egg.gameObject.SetActive(true);
 
             float x = Random.Range(minX, maxX);
             float duration = Random.Range(fallDurationRange.x, fallDurationRange.y);
@@ -96,7 +111,8 @@ namespace Minigames
 
         private void OnEggFinished(Egg egg, bool caught)
         {
-            _pool.Release(egg);
+            egg.gameObject.SetActive(false);
+            _available.Enqueue(egg);
 
             if (caught)
             {
