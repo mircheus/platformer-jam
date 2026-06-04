@@ -52,8 +52,9 @@ MonoBehaviour:
   gameplayMusic: {fileID: 8300000, guid: 3defe96b92da1e349a2b411e74e76fdc, type: 3}
   endingMusic: {fileID: 0}
   menuSceneName: _Menu
-  gameplaySceneName: SampleScene
+  gameplaySceneName: QuestsScene
   musicVolume: 1
   ambientVolume: 0
+  sfxVolume: 1
   defaultMusicFade: 1.5
   moveLoopFade: 0.08
