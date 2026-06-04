@@ -1818,7 +1818,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &351847084 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3525335383733384115, guid: 16d2817447927124e9d2f2b79e88abac, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4125290998604636161, guid: 16d2817447927124e9d2f2b79e88abac, type: 3}
   m_PrefabInstance: {fileID: 351847082}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -1829,7 +1829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!114 &351847085 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7876143022335489592, guid: 16d2817447927124e9d2f2b79e88abac, type: 3}
+  m_CorrespondingSourceObject: {fileID: 238341795824517189, guid: 16d2817447927124e9d2f2b79e88abac, type: 3}
   m_PrefabInstance: {fileID: 351847082}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -4663,8 +4663,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenuController
   settingsPanel: {fileID: 351847088}
-  musicSlider: {fileID: 351847084}
-  sfxSlider: {fileID: 351847085}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
   volumeController: {fileID: 351847089}
   settingsButton: {fileID: 1019553983}
   saveButton: {fileID: 351847087}
@@ -7053,6 +7053,8 @@ MonoBehaviour:
   creditsDelay: 3
   creditsScreen: {fileID: 437823971}
   labelFadeDuration: 1
+  returnToMenuDelay: 5
+  mainMenuSceneName: _Menu
 --- !u!1 &2078125910
 GameObject:
   m_ObjectHideFlags: 0
