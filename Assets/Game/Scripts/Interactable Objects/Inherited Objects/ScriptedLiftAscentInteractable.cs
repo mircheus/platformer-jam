@@ -29,6 +29,10 @@ public class ScriptedLiftAscentInteractable : IInteractable
     [Tooltip("Индекс этажа, на который поднимается лифт (минуя промежуточные).")]
     [SerializeField] private int targetFloorIndex = 4;
 
+    [Header("Sound")]
+    [Tooltip("Звук, проигрываемый разово в момент взаимодействия (старт катсцены подъёма).")]
+    [SerializeField] private AudioClip interactSound;
+
     [Header("Dialogue")]
     [Tooltip("Набор реплик, который проигрывается перед подъёмом лифта.")]
     [SerializeField] private DialogueData dialogue;
@@ -60,6 +64,10 @@ public class ScriptedLiftAscentInteractable : IInteractable
         }
 
         isRunning = true;
+
+        // Разовый звук в момент взаимодействия (катсцена тоже разовая).
+        if (interactSound != null && AudioManager.Instance != null)
+            AudioManager.Instance.PlaySfx(interactSound);
 
         // Подписываемся ДО старта: игрок на время диалога заблокирован, поэтому
         // ближайший DialogueEnded — гарантированно наш. Фильтр по ссылке — на всякий.
