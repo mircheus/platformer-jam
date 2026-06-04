@@ -1445,7 +1445,7 @@ PrefabInstance:
     - target: {fileID: 6937380094713140201, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
       propertyPath: endingMusic
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: abdad4d1a659e9048be599eb545c08a5, type: 3}
     - target: {fileID: 6937380094713140201, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
       propertyPath: musicVolume
       value: 1
