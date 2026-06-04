@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2392634432222090221}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.58, y: -1.26, z: 0}
+  m_LocalPosition: {x: 0.2, y: -1.26, z: 0}
   m_LocalScale: {x: 0.6, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 2845623166820410724}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.78, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -175,7 +175,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: e81ac0a66b9d3c94299b73f3bb59c730, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.91, y: 3.3}
@@ -238,6 +238,7 @@ Transform:
   m_Children:
   - {fileID: 3893301498717922269}
   - {fileID: 8086073579929591804}
+  - {fileID: 781480569668688522}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1379214719771518007
@@ -298,23 +299,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245570e48279a9f4e8416b98bbd75ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteractable
-  objectID: Krot
+  objectID: Cat
   displayName: Tim
   promptText: Interact
   isInteractable: 1
-  interactionPrompt: {fileID: 0}
+  interactionPrompt: {fileID: 6026232680837165958}
   dialogues:
-  - {fileID: 11400000, guid: fd26bc86f1904e043804a7654b6ec79d, type: 2}
-  - {fileID: 11400000, guid: 6c0b94634ad46b846b7f978ef68f5167, type: 2}
-  - {fileID: 11400000, guid: 0a08fef4b6964cb44b8fa2100b0f165d, type: 2}
+  - {fileID: 11400000, guid: 7ad4eae038ed3af459c4aee1e31f767d, type: 2}
   requireItem: 0
   requiredItem: {fileID: 0}
   noItemDialogue: {fileID: 0}
   consumeItem: 0
   pickupInteractable: {fileID: 0}
-  activateInteractableAfterDialogue: 1
+  activateInteractableAfterDialogue: 0
   ignoredByNpcPresenceZone: 0
   dropAfterDialogueIndex: -1
   drop:
     dropPickup: {fileID: 0}
   dialogueSystem: {fileID: 0}
+--- !u!1001 &4720483593050853899
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8454410743250313939}
+    m_Modifications:
+    - target: {fileID: 1307165809084014989, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_Name
+      value: InteractionPrompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307165809084014989, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+--- !u!4 &781480569668688522 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5429905881424971905, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+  m_PrefabInstance: {fileID: 4720483593050853899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6026232680837165958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1307165809084014989, guid: cbd76687c6fd8cc4894d63232672134f, type: 3}
+  m_PrefabInstance: {fileID: 4720483593050853899}
+  m_PrefabAsset: {fileID: 0}

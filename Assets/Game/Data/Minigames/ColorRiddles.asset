@@ -18,6 +18,6 @@ MonoBehaviour:
   renderType: 0
   successSound: {fileID: 0}
   questIdToComplete: Krot_1
-  targetNpcId: 
+  targetNpcId: Krot_1
   takePlayerItem: 0
   itemToTake: {fileID: 0}

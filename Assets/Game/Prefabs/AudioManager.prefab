@@ -48,8 +48,12 @@ MonoBehaviour:
   sfxGroup: {fileID: -6992716730159584064, guid: 004eab9e0d9277942a9c9fb5091f411c, type: 2}
   ambientGroup: {fileID: -396957198297754632, guid: 004eab9e0d9277942a9c9fb5091f411c, type: 2}
   ambientClip: {fileID: 8300000, guid: b3cee2cf499d9b24b94e76ccecb0435e, type: 3}
-  startMusic: {fileID: 8300000, guid: f4af608323c25c349baf8dac22c93356, type: 3}
-  musicVolume: 0
+  menuMusic: {fileID: 8300000, guid: f4af608323c25c349baf8dac22c93356, type: 3}
+  gameplayMusic: {fileID: 8300000, guid: 3defe96b92da1e349a2b411e74e76fdc, type: 3}
+  endingMusic: {fileID: 0}
+  menuSceneName: _Menu
+  gameplaySceneName: SampleScene
+  musicVolume: 1
   ambientVolume: 0
   defaultMusicFade: 1.5
   moveLoopFade: 0.08

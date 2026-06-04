@@ -1476,12 +1476,24 @@ PrefabInstance:
       value: AudioManager (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6937380094713140201, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: endingMusic
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937380094713140201, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
       propertyPath: musicVolume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6937380094713140201, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
       propertyPath: ambientVolume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937380094713140201, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: gameplayMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 3defe96b92da1e349a2b411e74e76fdc, type: 3}
+    - target: {fileID: 6937380094713140201, guid: 6cb2fdf6111bd92418545742ef48ac86, type: 3}
+      propertyPath: gameplaySceneName
+      value: QuestsScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
