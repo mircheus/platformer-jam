@@ -167,7 +167,41 @@ public class ScriptedLiftAscentInteractable : IInteractable
     /// </summary>
     private void StartEnding()
     {
+        // Это финал: предыдущий диалог/приезд лифта только что ВЕРНУЛ игроку
+        // управление (EnableMovement/EnableInteraction). Отбираем его окончательно
+        // прямо здесь — синхронно, без зазора в кадр, — чтобы во время endingDelay,
+        // фейда и титров персонаж был полностью обездвижен и больше не оживал.
+        DisablePlayerControl();
+
         StartCoroutine(EndingRoutine());
+    }
+
+    /// <summary>
+    /// Окончательно блокирует управление игроком на финал катсцены: движение,
+    /// взаимодействие и подсветку интерактаблов. Обратно управление не возвращаем —
+    /// после титров сцена выгружается в главное меню.
+    /// </summary>
+    private void DisablePlayerControl()
+    {
+        if (GameContext.Instance == null)
+            return;
+
+        if (GameContext.Instance.Player != null
+            && GameContext.Instance.Player.TryGetComponent(out PlayerMovementController player))
+        {
+            player.DisableMovement();
+            player.DisableInteraction();
+
+            Rigidbody2D rb = GameContext.Instance.Player.GetComponent<Rigidbody2D>();
+
+            if (rb != null)
+                rb.linearVelocity = Vector2.zero;
+        }
+
+        // Гасим ещё и подсветку интерактаблов: DisableMovement.canInteract уже
+        // блокирует ввод, но pop-up прячет именно InteractionSystem.
+        if (GameContext.Instance.InteractionSystem != null)
+            GameContext.Instance.InteractionSystem.DisableInteraction();
     }
 
     private IEnumerator EndingRoutine()
