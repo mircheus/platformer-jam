@@ -8687,7 +8687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3410569699852127241, guid: 190bc04de3660184b9354011a5998940, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3912736649218730632, guid: 190bc04de3660184b9354011a5998940, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9147,6 +9147,8 @@ MonoBehaviour:
   dialogueSystem: {fileID: 1635875037}
   endingDelay: 3
   screenFader: {fileID: 617502264}
+  alignPlayerXOnFade: 1
+  alignedPlayerX: 0
   endScreen: {fileID: 279420580}
   creditsDelay: 3
   creditsScreen: {fileID: 437823971}
