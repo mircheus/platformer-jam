@@ -1,6 +1,7 @@
 using System.Collections;
 using Minigames;
 using Minigames.Contract;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,6 +26,15 @@ namespace Game.Minigames.Skillcheck
         [Tooltip("Пауза перед завершением игры, чтобы Player успел доехать " +
                  "и переход не был резким, сек.")]
         [SerializeField] private float winDelay = 0.6f;
+
+        [Header("Camera Shake (optional)")]
+        [Tooltip("Источник Cinemachine Impulse на этом префабе. Слушатель " +
+                 "(CinemachineImpulseListener) должен висеть на vcam мини-игры в сцене. " +
+                 "Пусто — тряска выключена.")]
+        [SerializeField] private CinemachineImpulseSource shakeSource;
+
+        [Tooltip("Сила тряски на каждое успешное попадание.")]
+        [SerializeField] private float hitShakeForce = 1f;
 
         private bool _active;
         private int _hits;
@@ -73,6 +83,9 @@ namespace Game.Minigames.Skillcheck
                 // Звук на каждое успешное попадание (в т.ч. последнее перед победой).
                 PlaySuccessSound();
 
+                // Тряска камеры как фидбек на попадание.
+                ShakeCamera();
+
                 Debug.Log($"Skillcheck: HIT! {_hits}/{requiredHits} | value = {skillcheckSlider.Value:F2}");
 
                 // Player делает плавный рывок к следующей точке.
@@ -93,6 +106,14 @@ namespace Game.Minigames.Skillcheck
             else
             {
                 Debug.Log($"Skillcheck: miss | value = {skillcheckSlider.Value:F2}");
+            }
+        }
+
+        private void ShakeCamera()
+        {
+            if (shakeSource != null)
+            {
+                shakeSource.GenerateImpulseWithForce(hitShakeForce);
             }
         }
 
