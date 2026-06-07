@@ -48,7 +48,9 @@ public class OneShotDepartureCutscene : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [Tooltip("Куда смотрит спрайт БЕЗ флипа (flipX = false). Нужно, чтобы разворот шёл в правильную сторону.")]
     [SerializeField] private bool spriteFacesRight = true;
-    
+    [Tooltip("Развернуть спрайт по X ещё раз, когда персонаж дойдёт до точки выхода.")]
+    [SerializeField] private bool flipXAfterPointReaching = false;
+
     [Header("Disabling Player controls")]
     [SerializeField] private bool disablePlayerControls = false;
 
@@ -141,7 +143,14 @@ public class OneShotDepartureCutscene : MonoBehaviour
         }
 
         SetWalking(false);
-        
+
+        // Дошли до точки — по флагу разворачиваем спрайт ещё раз (например, чтобы
+        // персонаж смотрел обратно в сцену, а не в сторону выхода).
+        if (flipXAfterPointReaching && spriteRenderer != null)
+        {
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+        }
+
         if(disablePlayerControls)
             SetPlayerBlocked(false);
 
