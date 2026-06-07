@@ -2597,7 +2597,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3688184649833670379, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
   m_PrefabInstance: {fileID: 5927604823083252016}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1844087198}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1274829cae93174b87025ed1d373e28, type: 3}
@@ -2900,7 +2900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314985848606021343, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9007203306597012987, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3172,10 +3172,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1116528343037221914, guid: 4d4a7607c3078fb47834d159c24b4c63, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d4a7607c3078fb47834d159c24b4c63, type: 3}
 --- !u!4 &543646440 stripped
 Transform:
@@ -4054,6 +4051,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2000366142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &764601501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6383860057139412888, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
+  m_PrefabInstance: {fileID: 8922859232286506084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &768943716
 GameObject:
   m_ObjectHideFlags: 0
@@ -5979,6 +5981,10 @@ PrefabInstance:
     - target: {fileID: 4121933798252901964, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
       propertyPath: m_Name
       value: ElevatorButtons
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121933798252901964, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5997712283689849068, guid: 703fa6744774fc44cb9734a7a26f3a40, type: 3}
       propertyPath: liftPanel
@@ -8238,6 +8244,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2169646112097747009, guid: 83995f3c2a7e6ca42ab3a512563fe9b3, type: 3}
   m_PrefabInstance: {fileID: 534618167}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1844087198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3954765980292194714, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
+  m_PrefabInstance: {fileID: 5927604823083252016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1844087200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844087198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192b0493400b0d34cbe025ba76a7cc16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectsToggleAction
+  objectsToDisable: []
+  objectsToEnable:
+  - {fileID: 764601501}
 --- !u!1 &1871189913
 GameObject:
   m_ObjectHideFlags: 0
@@ -10094,19 +10120,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3688184649833670379, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3688184649833670379, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 481352072}
+      objectReference: {fileID: 1844087200}
     - target: {fileID: 3688184649833670379, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3688184649833670379, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AdvanceProgress
+      value: Execute
       objectReference: {fileID: 0}
     - target: {fileID: 3688184649833670379, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
       propertyPath: advanceProgressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -10126,12 +10152,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3688184649833670379, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PickupInteractable, Assembly-CSharp
+      value: ObjectsToggleAction, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3688184649833670379, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1198371080}
+      objectReference: {fileID: 0}
     - target: {fileID: 3688184649833670379, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
       propertyPath: advanceProgressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PickupInteractable, Assembly-CSharp
@@ -10142,7 +10168,7 @@ PrefabInstance:
       objectReference: {fileID: 1198371080}
     - target: {fileID: 3688184649833670379, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: NPCInteractable, Assembly-CSharp
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3688184649833670379, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
       propertyPath: advanceProgressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -10199,7 +10225,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3954765980292194714, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1844087200}
   m_SourcePrefab: {fileID: 100100000, guid: 15b4946c90ad6ec4b933fc50a4185111, type: 3}
 --- !u!61 &7100718836669606365
 BoxCollider2D:
@@ -10667,7 +10696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6383860057139412888, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6471485242320462984, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
       propertyPath: liftPanel
@@ -10707,7 +10736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7197126222642710897, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8153925947065970643, guid: 72eea864926383b4c8babe6c2a0f0dc1, type: 3}
       propertyPath: m_Size.x

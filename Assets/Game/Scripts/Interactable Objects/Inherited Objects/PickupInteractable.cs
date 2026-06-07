@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PickupInteractable : IInteractable
 {
@@ -19,6 +20,8 @@ public class PickupInteractable : IInteractable
     [SerializeField] private AudioClip dialogueEndSound;
     [Tooltip("Нужен, чтобы поймать момент завершения диалога. Тот же DialogueSystem, что и в сцене.")]
     [SerializeField] private DialogueSystem dialogueSystem;
+    
+    public UnityEvent onInteract;
 
     // Защита от повторной подписки, пока диалог идёт и звук ещё не сыграл.
     private bool waitingForDialogueEnd;
@@ -46,6 +49,7 @@ public class PickupInteractable : IInteractable
             }
 
             PlayDialogue();
+            onInteract?.Invoke();
         }
     }
 
