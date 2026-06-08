@@ -57,6 +57,11 @@ public class ScriptedLiftAscentInteractable : IInteractable
     [SerializeField] private float endingDelay = 3f;
     [Tooltip("ScreenFader, которым экран затемняется в полную темноту в финале катсцены.")]
     [SerializeField] private ScreenFader screenFader;
+    [Tooltip("Выровнять игрока по X в момент затемнения (под чёрным экраном), чтобы " +
+             "камера встала ровно к показу «Конца» и дёрганья не было видно.")]
+    [SerializeField] private bool alignPlayerXOnFade = true;
+    [Tooltip("Значение X, на которое ставится игрок при выравнивании под затемнением.")]
+    [SerializeField] private float alignedPlayerX = 0f;
     [Tooltip("CanvasGroup надписи «Конец», которая появляется после затемнения и плавно " +
              "гаснет перед показом титров.")]
     [SerializeField] private CanvasGroup endScreen;
@@ -167,7 +172,57 @@ public class ScriptedLiftAscentInteractable : IInteractable
     /// </summary>
     private void StartEnding()
     {
+        // Это финал: предыдущий диалог/приезд лифта только что ВЕРНУЛ игроку
+        // управление (EnableMovement/EnableInteraction). Отбираем его окончательно
+        // прямо здесь — синхронно, без зазора в кадр, — чтобы во время endingDelay,
+        // фейда и титров персонаж был полностью обездвижен и больше не оживал.
+        DisablePlayerControl();
+
         StartCoroutine(EndingRoutine());
+    }
+
+    /// <summary>
+    /// Окончательно блокирует управление игроком на финал катсцены: движение,
+    /// взаимодействие и подсветку интерактаблов. Обратно управление не возвращаем —
+    /// после титров сцена выгружается в главное меню.
+    /// </summary>
+    private void DisablePlayerControl()
+    {
+        if (GameContext.Instance == null)
+            return;
+
+        if (GameContext.Instance.Player != null
+            && GameContext.Instance.Player.TryGetComponent(out PlayerMovementController player))
+        {
+            player.DisableMovement();
+            player.DisableInteraction();
+
+            Rigidbody2D rb = GameContext.Instance.Player.GetComponent<Rigidbody2D>();
+
+            if (rb != null)
+                rb.linearVelocity = Vector2.zero;
+        }
+
+        // Гасим ещё и подсветку интерактаблов: DisableMovement.canInteract уже
+        // блокирует ввод, но pop-up прячет именно InteractionSystem.
+        if (GameContext.Instance.InteractionSystem != null)
+            GameContext.Instance.InteractionSystem.DisableInteraction();
+    }
+
+    /// <summary>
+    /// Ставит игрока на <see cref="alignedPlayerX"/> по X (Y/Z сохраняются), чтобы
+    /// выровнять кадр перед показом финальных надписей. Зовётся ТОЛЬКО под полностью
+    /// затемнённым экраном — иначе будет виден рывок камеры за игроком.
+    /// </summary>
+    private void AlignPlayerX()
+    {
+        if (GameContext.Instance == null || GameContext.Instance.Player == null)
+            return;
+
+        Transform playerTransform = GameContext.Instance.Player.transform;
+        Vector3 position = playerTransform.position;
+        position.x = alignedPlayerX;
+        playerTransform.position = position;
     }
 
     private IEnumerator EndingRoutine()
@@ -178,6 +233,11 @@ public class ScriptedLiftAscentInteractable : IInteractable
             yield return screenFader.FadeOut();
         else
             Debug.LogWarning($"{name}: не назначен screenFader — экран не затемнится.");
+
+        // Экран уже полностью чёрный — телепорт игрока по X и резкий сдвиг камеры
+        // за ним скрыты темнотой. К показу «Конца» камера встанет ровно.
+        if (alignPlayerXOnFade)
+            AlignPlayerX();
 
         // Надпись «Конец» плавно проявляется на затемнённом экране.
         if (endScreen != null)
